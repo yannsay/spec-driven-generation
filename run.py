@@ -1,11 +1,13 @@
 """Run the pipeline on some rooms: the writer writes their specs, the loop gates, draws, judges and corrects them, and
 the page shows the result.
 
-Usage: uv run run.py <run> --rooms LOC_BUILDING,LOC_GRATE [--rounds 2]
+Usage: uv run run.py <run> --rooms LOC_BUILDING,LOC_GRATE [--rounds 2] [--openrouter]
 
 <run> names everything this run writes, all under outputs/: the specs as written in outputs/specs/written/<run>/, the run's specs
 and pictures in outputs/specs/checked/<run>*/ and outputs/pictures/<run>*/, and the page outputs/pipeline_<run>.html.
 The rooms are the files of pipeline/01 - yaml/llm_input/. Run init.py once before the first run.
+--openrouter: Seedream 5.0 Flash on OpenRouter draws and edits the pictures, instead of klein and Qwen-Image-Edit on
+Modal; no Modal account needed (init.py --openrouter).
 """
 import subprocess
 import sys
@@ -33,11 +35,13 @@ if __name__ == "__main__":
         del args[i:i + 2]
         return value
 
+    openrouter = ["--openrouter"] if "--openrouter" in args else []
+    args = [a for a in args if a != "--openrouter"]
     rooms, rounds = opt("--rooms", ""), opt("--rounds", "2")
     if len(args) != 1 or not rooms:
         sys.exit(__doc__)
     run = args[0]
     step("1/3 writing the specs", "02 - spec/make_spec.py", "--out", run, *rooms.split(","))
     step("2/3 the loop: verify the specs, draw, judge, route, correct",
-         "06 - loop/image_loop.py", run, "--specs", run, "--rooms", rooms, "--rounds", rounds)
+         "06 - loop/image_loop.py", run, "--specs", run, "--rooms", rooms, "--rounds", rounds, *openrouter)
     step("3/3 building the page", "common/pipeline_viewer.py", run)

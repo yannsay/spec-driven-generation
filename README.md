@@ -13,9 +13,9 @@ Piloted on 10 rooms from *Colossal Cave Adventure* (the [Open Adventure](https:/
 1. **Write the spec and its checks** (`pipeline/02 - spec/`): an LLM reads a room's game text and writes a spec: the prompt to draw the picture, and the yes/no checks the picture must pass. *DeepSeek V4.1 Flash, on otari.ai.*
 2. **Verify the spec and its checks** (`02 - spec/`): rules in code first, then a decision model checks that the spec and its checks are faithful to the game text. *Jev, through OpenRouter.*
 3. **Repair** (`02 - spec/`): the LLM repairs each failing part, at most twice; still failing, it goes to a person. *DeepSeek, on otari.ai.*
-4. **Draw** (`03 - draw/`): an image model draws the picture from the spec's prompt. *FLUX.2 klein 4B, on Modal.*
+4. **Draw** (`03 - draw/`): an image model draws the picture from the spec's prompt. *FLUX.2 klein 4B, on Modal (or Seedream 5.0 Flash on OpenRouter, see [Without Modal](#without-modal)).*
 5. **Judge the picture on its checks** (`04 - judge/`): a vision model answers each check on the picture, twice; a check passes only when both runs pass it. *Gemma 4 31B, on otari.ai.*
-6. **Route and correct** (`05 - route/`): a router decides what caused each failure: the spec, the picture, or the judge. The judge misread it → the picture is kept. The picture → an edit, written from the router's fix (*Qwen-Image-Edit, on Modal*), or drawn again when too much is wrong. The spec → a corrector rewrites it (*Gemma 4, on otari.ai*) and the picture is drawn again.
+6. **Route and correct** (`05 - route/`): a router decides what caused each failure: the spec, the picture, or the judge. The judge misread it → the picture is kept. The picture → an edit, written from the router's fix (*Qwen-Image-Edit, on Modal, or Seedream 5.0 Flash on OpenRouter*), or drawn again when too much is wrong. The spec → a corrector rewrites it (*Gemma 4, on otari.ai*) and the picture is drawn again.
 7. **Loop** (`06 - loop/`): the picture is judged again, at most two rounds; still failing, it goes to a person with every version.
 
 ## An example: one picture through the loop
@@ -1025,6 +1025,19 @@ uv run run.py my_run --rooms LOC_START
 ```
 
 The rooms are the files in `pipeline/01 - yaml/llm_input/`. A run prints each step as it goes, and ends with its page: `outputs/pipeline_my_run.html`. One room costs about $0.03 on otari.ai and a few minutes of GPU on Modal.
+
+### Without Modal
+
+`--openrouter` draws and edits every picture with [Seedream 5.0 Flash](https://openrouter.ai/bytedance-seed/seedream-5-0-flash) on OpenRouter instead of klein and Qwen-Image-Edit on Modal. You need only uv, the otari.ai key and the OpenRouter key:
+
+```
+cp .env.example .env          # fill in otari_ai_key and OPENROUTER_API_KEY
+uv sync
+uv run init.py --openrouter   # checks the keys; no Modal
+uv run run.py my_run --rooms LOC_START --openrouter
+```
+
+Pictures come at 1K (1280×720 for a room, 1024×1024 for an item), $0.018 each, with no seed. Seedream was picked because it is served with zero data retention: if your OpenRouter account allows only ZDR providers, klein and the Qwen image models there are refused. Its pictures differ from klein's: in a test on LOC_BUILDING it added furniture the prompt did not ask for, which the judge and the router then have to catch. The example above was drawn on Modal.
 
 ## What a run writes
 

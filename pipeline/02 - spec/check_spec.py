@@ -406,8 +406,10 @@ def check_image(im, want, drawn, seen_from, report, inherited=frozenset(), names
     if want["kind"] == "scene":
         exit_checks = [c for c in checks if c.get("origin") == "exit"]
         trues = sum(1 for c in exit_checks if c["expected"])
-        # one per drawn exit (visible), a second per object exit (inside the picture)
-        want_trues = sum(2 if e.get("shape") == "object" else 1 for e in drawn)
+        # one per drawn exit (visible), a second per object exit (inside the picture), and one count per kind of
+        # object exit ("Is exactly one doorway visible?"): an image model adds a second, unwanted doorway
+        kinds = {(e.get("kind") or "").lower() for e in drawn if e.get("shape") == "object"}
+        want_trues = sum(2 if e.get("shape") == "object" else 1 for e in drawn) + len(kinds)
         if trues != want_trues or len(exit_checks) != trues:
             report.fail.append(f"{f}: exit checks should be {want_trues}, all expecting true")
         for c in exit_checks:
@@ -422,6 +424,11 @@ def check_image(im, want, drawn, seen_from, report, inherited=frozenset(), names
             label = (e.get("label") or "").lower()
             if label and not any(label in c["question"].lower() for c in exit_checks):
                 report.fail.append(f"{f}: no exit check names the label {e.get('label')!r} word for word")
+        for k in sorted(kinds):
+            if k and not any(c["expected"] and "exactly" in c["question"].lower() and k in c["question"].lower()
+                             for c in exit_checks):
+                report.fail.append(f"{f}: no count check for the object exits of kind {k!r} "
+                                   f"(\"Is exactly one {k} visible in the image?\")")
 
     decisions = im.get("picture_decisions", [])
     for n, d in enumerate(decisions, 1):
