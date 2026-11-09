@@ -3,7 +3,8 @@
 Usage: uv run make_spec.py [--out <name>] LOC_START [...]
 
 Sends prompts/room_spec.md as the system message and ../01 - yaml/llm_input/<ROOM>.yaml as the user message,
-streamed, to DeepSeek V4.1 Flash with reasoning on medium. Rooms run in parallel. For each room it writes, in
+streamed, through the otari.ai routing policy POLICY (DeepSeek V4.1 Flash, reasoning on medium, falling back to
+Qwen 3.8 Max), with one retry when the answer comes back empty. Rooms run in parallel. For each room it writes, in
 outputs/specs/written/<name>/ (default outputs/specs/written/deepseek-v4.1-flash/):
 - <ROOM>.json        the spec, when the answer is valid JSON, with the pipeline's fixed checks and the decisions'
                      checks added by check_spec.add_checks, and each picture's prompt joined from its decisions'
@@ -28,7 +29,10 @@ from prompt_text import prompt_text
 
 R = Path(__file__).parent
 URL = "https://eu.api.otari.ai/api/v1/chat/completions"
-TAG, MODEL, EXTRA = "deepseek-v4.1-flash", "deepseek/deepseek-v4.1-flash", {"reasoning_effort": "medium"}
+# An otari.ai routing policy, sent as the model: DeepSeek V4.1 Flash, falling back to Qwen 3.8 Max when DeepSeek fails
+# to start (an outage, a rate limit, a refusal). Created once in the otari dashboard (Routing → Create policy → Fallback).
+POLICY = "room-spec"
+TAG, MODEL, EXTRA = "deepseek-v4.1-flash", POLICY, {"reasoning_effort": "medium"}
 PROMPT = PROMPTS / "room_spec.md"
 
 
@@ -91,18 +95,34 @@ def call(room, system, key, model, extra, user=None, label="room-spec"):
                   "answer": "".join(content), "reasoning": "".join(reasoning), **info}
 
 
+def write(room, system, key, first_extra=None):
+    """One call through the policy, and one retry when the answer did not finish: a stream cut late (after the
+    policy's fallback could act, which is only before the first chunk) or an answer cut short. `first_extra` adds
+    request fields to the first try only (run-retry.py caps its tokens to force the retry)."""
+    room, trace = call(room, system, key, MODEL, {**EXTRA, **(first_extra or {})})
+    if trace["answer"].strip() and trace["finish_reason"] == "stop":
+        return room, trace
+    print(f"    {room}: no finished answer after {trace['latency_s']:.0f} s (finish_reason {trace['finish_reason']}, "
+          f"error {trace['error']}), retrying", flush=True)
+    room, again = call(room, system, key, MODEL, EXTRA)
+    again["first_try"] = {k: trace.get(k) for k in ("latency_s", "error", "finish_reason", "n_chunks", "usage",
+                                                   "headers", "request_extra")}
+    return room, again
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     out_name = args.pop(args.index("--out") + 1) if "--out" in args else TAG
     rooms = [a for a in args if a != "--out"]
     model, extra, prompt = MODEL, EXTRA, PROMPT
     key, system, version = api_key(), prompt_text(prompt), prompt_version(prompt)
-    print(f"[{time.strftime('%H:%M:%S')}] writing the spec of {', '.join(rooms)} with DeepSeek V4.1 Flash (otari.ai)",
-          flush=True)
+    print(f"[{time.strftime('%H:%M:%S')}] writing the spec of {', '.join(rooms)} through the otari.ai policy {POLICY} "
+          "(DeepSeek V4.1 Flash, falling back to Qwen 3.8 Max)", flush=True)
+
     OUT = WRITTEN / out_name
     OUT.mkdir(parents=True, exist_ok=True)
     with cf.ThreadPoolExecutor(len(rooms)) as ex:
-        for room, trace in ex.map(lambda r: call(r, system, key, model, extra), rooms):
+        for room, trace in ex.map(lambda r: write(r, system, key), rooms):
             trace["prompt"] = {"file": str(prompt.relative_to(R)), **version}
             (OUT / f"{room}.trace.json").write_text(json.dumps(trace, indent=1, ensure_ascii=False) + "\n")
             try:
