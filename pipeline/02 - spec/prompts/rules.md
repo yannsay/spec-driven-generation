@@ -116,6 +116,7 @@ One fixed check is yours to write, because it is a judgment: for a fixed object 
 **Exit checks**, `"origin": "exit"`, every scene, in `checks`:
 - For each drawn exit, that the thing the player taps is there, expected true: `Is <the label> visible in the image?`.
 - For each drawn exit whose `shape` is `"object"`, a second check, expected true: `Is <the label> inside the picture?`. A `"path"` runs on out of the frame, so it gets only the first check.
+- For each `kind` of the scene's object exits, one count check, expected true, that the picture has exactly as many of that kind as the exits drawn, named with its `kind` word: `Is exactly one doorway visible in the image?`, `Are exactly two arches visible in the image?`. An image model repeats what it is asked for: the count stops a second, unwanted doorway.
 - If the exit's `cond` is not met in this scene's state, the way is drawn but blocked. Then the first check asks about the blocking thing across the exit, naming the exit by its label word for word: "Is a shut wooden door across a stone archway on the left visible in the image?" for the label "a stone archway on the left".
 
 **Decision checks.** Every picture decision carries its own checks: one or more questions that show it came out, one thing each. A decision with two visible parts gets two checks ("an iron gate with a chain" → the gate, the chain). No checks of your own outside the decisions; the pipeline copies them into `checks` with `"origin": "decision"`.
