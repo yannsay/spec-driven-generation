@@ -1,6 +1,6 @@
 # spec-driven-generation
 
-In spec-driven development, a person and an LLM write one spec together, with its acceptance tests, and then the LLM builds it. That works for one piece of work at a time. Here the task is the same every time, a picture for a room, but every item needs its own spec and its own tests: the doorway on the right, the water running out of the building, the grate locked. Across 200 rooms and their states, a person can't write them all.
+In spec-driven development, a person and an LLM write one spec together, with its acceptance tests, and then the LLM builds it. That works for one piece of work at a time. Here the task is the same every time, a picture for a room, but every item needs its own spec and its own tests: the doorway on the right, the water running out of the building, the grate locked. Across 200 rooms and their states, a person needs some automation.
 
 So here a model writes each item's spec and its yes/no checks, the loop verifies both before generating, then judges each result against its checks and sends every failure back to the step that caused it: the spec, the picture, or the judge. A person sees only what the loop can't fix.
 
@@ -97,6 +97,749 @@ The spec is a list of picture decisions, each with what to draw, why, and its ch
 > **why:** YAML: 'You are inside a building, a well house for a large spring.' The building, said in the words of what is seen: a small stone building built over a spring.<br>
 > **check:** *Are stone walls visible around the room?* (good answer: yes)
 
+<details><summary>the full spec (JSON, as the writer wrote it)</summary>
+
+```json
+{
+  "room": "LOC_BUILDING",
+  "text": "You are inside a building, a well house for a large spring.",
+  "exits": [
+    {
+      "to": "LOC_START",
+      "verbs": [
+        "OUT",
+        "OUTDO",
+        "WEST"
+      ],
+      "cond": null,
+      "why": "OUT and OUTDO are walking directions and WEST is a compass direction; this is the way out of the building to the road and forest, and WEST puts it on the left.",
+      "drawn": true,
+      "label": "a stone doorway on the left",
+      "shape": "object",
+      "kind": "doorway"
+    },
+    {
+      "to": "LOC_FOOF1",
+      "verbs": [
+        "XYZZY"
+      ],
+      "cond": null,
+      "why": "XYZZY is a magic word, a shortcut and not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_FOOF3",
+      "verbs": [
+        "PLUGH"
+      ],
+      "cond": null,
+      "why": "PLUGH is a magic word, a shortcut and not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_SEWER",
+      "verbs": [
+        "DOWNS",
+        "STREA"
+      ],
+      "cond": null,
+      "why": "DOWNS and STREA follow the running water of the large spring downstream, and the spring water leaves the building through the wall, so this way is drawn.",
+      "drawn": true,
+      "label": "a stream running out through a low opening on the right",
+      "shape": "path"
+    }
+  ],
+  "images": [
+    {
+      "kind": "scene",
+      "state": null,
+      "file": "img/LOC_BUILDING.jpg",
+      "size": "2048x1152",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'You are inside a building, a well house for a large spring.' The building, said in the words of what is seen: a small stone building built over a spring.",
+          "draw": "The inside of a small stone building built over a spring, seen in a first-person view at standing eye height, with stone walls and a stone roof overhead.",
+          "checks": [
+            {
+              "question": "Are stone walls visible around the room?",
+              "expected": true
+            },
+            {
+              "question": "Is a stone roof visible overhead?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'a well house for a large spring.' The spring inside the building.",
+          "draw": "In the centre of the floor, water rises up out of the ground in a round hollow of wet stone.",
+          "checks": [
+            {
+              "question": "Is water rising up out of the ground in the centre of the room?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML travel: OUT, OUTDO and WEST lead to the road and forest of LOC_START; WEST places the way out on the left, and the road and forest are the start of where it leads.",
+          "draw": "On the left, a stone doorway in the wall opens onto a road with green forest beyond.",
+          "checks": [
+            {
+              "question": "Is a road visible through the doorway?",
+              "expected": true
+            },
+            {
+              "question": "Are green trees visible through the doorway?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML travel: DOWNS and STREA follow the water downstream towards the sewer; the water is the start of where it leads.",
+          "draw": "On the right, the water runs from the spring across the floor and out through a low dark opening in the wall.",
+          "checks": [
+            {
+              "question": "Does the water run across the floor from the spring?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "Open floor for the item pictures the game lays over the scene.",
+          "draw": "The stone floor in the foreground is bare and worn smooth.",
+          "checks": [
+            {
+              "question": "Is the floor in the foreground made of bare stone?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "The room is lit (LIT: true); the open doorway is the light source.",
+          "draw": "Soft daylight comes in through the open doorway on the left and spreads across the floor.",
+          "checks": [
+            {
+              "question": "Is light from the open doorway falling across the floor?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "You are inside a building, a well house for a large spring.",
+          "decisions": [
+            1,
+            2
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "question": "Does the picture show what this sentence describes: \"You are inside a building, a well house for a large spring.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the image match this description: \"You are inside a building, a well house for a large spring.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Are large parts of the scene too dark to see?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is the set of keys visible anywhere in the image?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is the unlit brass lantern visible anywhere in the image?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is the loaf of bread and wedge of cheese visible anywhere in the image?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is the bottle of water visible anywhere in the image?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a stone doorway on the left visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a stone doorway on the left inside the picture?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a stream running out through a low opening on the right visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Are stone walls visible around the room?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a stone roof visible overhead?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is water rising up out of the ground in the centre of the room?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a road visible through the doorway?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are green trees visible through the doorway?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Does the water run across the floor from the spring?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the floor in the foreground made of bare stone?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is light from the open doorway falling across the floor?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "The inside of a small stone building built over a spring, seen in a first-person view at standing eye height, with stone walls and a stone roof overhead. In the centre of the floor, water rises up out of the ground in a round hollow of wet stone. On the left, a stone doorway in the wall opens onto a road with green forest beyond. On the right, the water runs from the spring across the floor and out through a low dark opening in the wall. The stone floor in the foreground is bare and worn smooth. Soft daylight comes in through the open doorway on the left and spreads across the floor."
+    },
+    {
+      "kind": "item",
+      "state": null,
+      "id": "KEYS",
+      "name": "Set of keys",
+      "label": "set of keys",
+      "transparent": true,
+      "file": "items/KEYS.png",
+      "size": "1024x1024",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'There are some keys on the ground here.' The keys themselves, drawn as three old iron keys on one ring; the ground is left out, since an item picture shows the object alone (rule: items).",
+          "draw": "A set of three old iron keys held together on a single iron ring, seen in a three-quarter view.",
+          "checks": [
+            {
+              "question": "Are two or more keys visible in the image?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "There are some keys on the ground here.",
+          "decisions": [
+            1
+          ],
+          "rule": "items"
+        }
+      ],
+      "checks": [
+        {
+          "question": "Is the set of keys visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the set of keys inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the set of keys?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Are two or more keys visible in the image?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A set of three old iron keys held together on a single iron ring, seen in a three-quarter view."
+    },
+    {
+      "kind": "item",
+      "state": null,
+      "id": "LAMP",
+      "name": "Brass lantern",
+      "label": "unlit brass lantern",
+      "transparent": true,
+      "file": "items/LAMP.LAMP_DARK.png",
+      "size": "1024x1024",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'There is a shiny brass lamp nearby.' The lamp itself, drawn as a lantern with a glass pane, the form its states share; 'nearby' is left out (rule: items).",
+          "draw": "A polished brass lantern with a clear glass pane, a hinged lid and a small handle, seen in a three-quarter view.",
+          "checks": [
+            {
+              "question": "Is the lantern made of brass?",
+              "expected": true
+            },
+            {
+              "question": "Is light reflecting off the lantern's metal?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML state LAMP_DARK: the lamp is off, so the picture shows the lamp with its wick showing and its glass clear.",
+          "draw": "The lantern is unlit, with a wick standing inside the clear glass pane.",
+          "checks": [
+            {
+              "question": "Is a wick visible inside the lantern's glass pane?",
+              "expected": true
+            },
+            {
+              "question": "Is a flame visible inside the lantern's glass pane?",
+              "expected": false
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "There is a shiny brass lamp nearby.",
+          "decisions": [
+            1
+          ],
+          "rule": "items"
+        }
+      ],
+      "checks": [
+        {
+          "question": "Is the unlit brass lantern visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the unlit brass lantern inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the unlit brass lantern?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is the lantern made of brass?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is light reflecting off the lantern's metal?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a wick visible inside the lantern's glass pane?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a flame visible inside the lantern's glass pane?",
+          "expected": false,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A polished brass lantern with a clear glass pane, a hinged lid and a small handle, seen in a three-quarter view. The lantern is unlit, with a wick standing inside the clear glass pane."
+    },
+    {
+      "kind": "item",
+      "state": null,
+      "id": "LAMP",
+      "name": "Brass lantern",
+      "label": "brass lantern with a flame",
+      "transparent": true,
+      "file": "items/LAMP.LAMP_BRIGHT.png",
+      "size": "1024x1024",
+      "edit_of": "items/LAMP.LAMP_DARK.png",
+      "picture_decisions": [
+        {
+          "why": "YAML state LAMP_BRIGHT: 'There is a lamp shining nearby.' The same lantern, now burning.",
+          "draw": "The lantern is now lit, with a yellow flame inside the clear glass pane.",
+          "checks": [
+            {
+              "question": "Is a yellow flame visible inside the lantern's glass pane?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "There is a lamp shining nearby.",
+          "decisions": [
+            1
+          ],
+          "rule": "items"
+        }
+      ],
+      "replaces": [
+        2
+      ],
+      "checks": [
+        {
+          "question": "Is the brass lantern with a flame visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the brass lantern with a flame inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the brass lantern with a flame?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a yellow flame visible inside the lantern's glass pane?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the lantern made of brass?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 1
+        },
+        {
+          "question": "Is light reflecting off the lantern's metal?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 1
+        }
+      ],
+      "generation_prompt": "The lantern is now lit, with a yellow flame inside the clear glass pane."
+    },
+    {
+      "kind": "item",
+      "state": null,
+      "id": "FOOD",
+      "name": "Tasty food",
+      "label": "loaf of bread and wedge of cheese",
+      "transparent": true,
+      "file": "items/FOOD.png",
+      "size": "1024x1024",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'There is food here.' The food itself, drawn as a small loaf of bread and a wedge of cheese; 'here' is left out (rule: items).",
+          "draw": "A small round loaf of bread beside a wedge of yellow cheese, seen in a three-quarter view.",
+          "checks": [
+            {
+              "question": "Is food visible in the image?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "There is food here.",
+          "decisions": [
+            1
+          ],
+          "rule": "items"
+        }
+      ],
+      "checks": [
+        {
+          "question": "Is the loaf of bread and wedge of cheese visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the loaf of bread and wedge of cheese inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the loaf of bread and wedge of cheese?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is food visible in the image?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A small round loaf of bread beside a wedge of yellow cheese, seen in a three-quarter view."
+    },
+    {
+      "kind": "item",
+      "state": null,
+      "id": "BOTTLE",
+      "name": "Small bottle",
+      "label": "bottle of water",
+      "transparent": true,
+      "file": "items/BOTTLE.WATER_BOTTLE.png",
+      "size": "1024x1024",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'There is a bottle of water here.' The bottle itself, drawn as a small glass bottle with a cork stopper; 'here' is left out (rule: items).",
+          "draw": "A small glass bottle with a narrow neck and a cork stopper, seen in a three-quarter view.",
+          "checks": [
+            {
+              "question": "Is a bottle visible in the image?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML state WATER_BOTTLE: 'There is a bottle of water here.' The water inside the bottle.",
+          "draw": "The bottle is filled with water up to its neck.",
+          "checks": [
+            {
+              "question": "Is water visible inside the bottle?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "There is a bottle of water here.",
+          "decisions": [
+            1,
+            2
+          ],
+          "rule": "items"
+        }
+      ],
+      "checks": [
+        {
+          "question": "Is the bottle of water visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the bottle of water inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the bottle of water?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a bottle visible in the image?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is water visible inside the bottle?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A small glass bottle with a narrow neck and a cork stopper, seen in a three-quarter view. The bottle is filled with water up to its neck."
+    },
+    {
+      "kind": "item",
+      "state": null,
+      "id": "BOTTLE",
+      "name": "Small bottle",
+      "label": "empty bottle",
+      "transparent": true,
+      "file": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "size": "1024x1024",
+      "edit_of": "items/BOTTLE.WATER_BOTTLE.png",
+      "picture_decisions": [
+        {
+          "why": "YAML state EMPTY_BOTTLE: 'There is an empty bottle here.' The water is poured out and the bottle stands clear.",
+          "draw": "The bottle is now empty, with clear glass and a dry inside.",
+          "checks": [
+            {
+              "question": "Is water visible inside the bottle?",
+              "expected": false
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "There is an empty bottle here.",
+          "decisions": [
+            1
+          ],
+          "rule": "items"
+        }
+      ],
+      "replaces": [
+        2
+      ],
+      "checks": [
+        {
+          "question": "Is the empty bottle visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the empty bottle inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the empty bottle?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is water visible inside the bottle?",
+          "expected": false,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a bottle visible in the image?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 1
+        }
+      ],
+      "generation_prompt": "The bottle is now empty, with clear glass and a dry inside."
+    },
+    {
+      "kind": "item",
+      "state": null,
+      "id": "BOTTLE",
+      "name": "Small bottle",
+      "label": "bottle of oil",
+      "transparent": true,
+      "file": "items/BOTTLE.OIL_BOTTLE.png",
+      "size": "1024x1024",
+      "edit_of": "items/BOTTLE.WATER_BOTTLE.png",
+      "picture_decisions": [
+        {
+          "why": "YAML state OIL_BOTTLE: 'There is a bottle of oil here.' The bottle now holds oil instead of water.",
+          "draw": "The bottle is now filled with golden oil up to its neck.",
+          "checks": [
+            {
+              "question": "Is golden oil visible inside the bottle?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "There is a bottle of oil here.",
+          "decisions": [
+            1
+          ],
+          "rule": "items"
+        }
+      ],
+      "replaces": [
+        2
+      ],
+      "checks": [
+        {
+          "question": "Is the bottle of oil visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the bottle of oil inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the bottle of oil?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is golden oil visible inside the bottle?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a bottle visible in the image?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 1
+        }
+      ],
+      "generation_prompt": "The bottle is now filled with golden oil up to its neck."
+    }
+  ]
+}
+```
+</details>
 <details><summary>the other picture decisions (5)</summary>
 
 2. **draw:** In the centre of the floor, water rises up out of the ground in a round hollow of wet stone.<br>**why:** YAML: 'a well house for a large spring.' The spring inside the building.<br>**checks:** *Is water rising up out of the ground in the centre of the room?*
