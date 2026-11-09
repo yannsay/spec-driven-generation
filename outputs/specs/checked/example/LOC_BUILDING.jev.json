@@ -1,0 +1,1330 @@
+{
+  "spec": "outputs/specs/checked/example/LOC_BUILDING.json",
+  "model": "typesafe/jev-1.13-20260917",
+  "usage": {
+    "cost": 0.003025806,
+    "requests": 9
+  },
+  "ids": {
+    "room": "gen-dec-1794244196-fjRf8F69RQZyQUbY9S4P",
+    "img/LOC_BUILDING.jpg": "gen-dec-1794244196-m8vQ8DtBmeoyVgPHCfa4",
+    "items/KEYS.png": "gen-dec-1794244196-CQPmLMkGjmmjeB11fb3p",
+    "items/LAMP.LAMP_DARK.png": "gen-dec-1794244196-n7gzZyYlDXPq52iv44zK",
+    "items/LAMP.LAMP_BRIGHT.png": "gen-dec-1794244196-fVhvv8fziskt6EoRYcGG",
+    "items/FOOD.png": "gen-dec-1794244197-zs7LUKUulzRAN7RH4FP7",
+    "items/BOTTLE.WATER_BOTTLE.png": "gen-dec-1794244196-MFPvtF9JHY8BPkA5WB25",
+    "items/BOTTLE.EMPTY_BOTTLE.png": "gen-dec-1794244196-4kpHF69KxTtKynufinaK",
+    "items/BOTTLE.OIL_BOTTLE.png": "gen-dec-1794244196-nwhHsVAViFo73AUJUPjq"
+  },
+  "thresholds": {
+    "no_below": 0.3,
+    "yes_above": 0.7
+  },
+  "results": [
+    {
+      "id": "room/label/LOC_START",
+      "level": "room",
+      "target": "LOC_START",
+      "question": "Is \"a stone doorway on the left\" something a player could see and tap in this room?",
+      "expected": true,
+      "p_yes": 0.88,
+      "result": "pass"
+    },
+    {
+      "id": "room/label/LOC_SEWER",
+      "level": "room",
+      "target": "LOC_SEWER",
+      "question": "Is \"a stream running out through a low opening on the right\" something a player could see and tap in this room?",
+      "expected": true,
+      "p_yes": 0.86,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/decision1",
+      "level": "picture",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Is this picture decision of img/LOC_BUILDING.jpg stated in the YAML or an allowed choice: \"The inside of a small stone building built over a spring, seen in a first-person view at standing eye height, with stone walls and a stone roof overhead. (why: YAML: 'You are inside a building, a well house for a large spring.' The building, said in the words of what is seen: a small stone building built over a spring.)\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/decision2",
+      "level": "picture",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Is this picture decision of img/LOC_BUILDING.jpg stated in the YAML or an allowed choice: \"In the centre of the floor, water rises up out of the ground in a round hollow of wet stone. (why: YAML: 'a well house for a large spring.' The spring inside the building.)\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/decision3",
+      "level": "picture",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Is this picture decision of img/LOC_BUILDING.jpg stated in the YAML or an allowed choice: \"On the left, a stone doorway in the wall opens onto a road with green forest beyond. (why: YAML travel: OUT, OUTDO and WEST lead to the road and forest of LOC_START; WEST places the way out on the left, and the road and forest are the start of where it leads.)\"?",
+      "expected": true,
+      "p_yes": 0.89,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/decision4",
+      "level": "picture",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Is this picture decision of img/LOC_BUILDING.jpg stated in the YAML or an allowed choice: \"On the right, the water runs from the spring across the floor and out through a low dark opening in the wall. (why: YAML travel: DOWNS and STREA follow the water downstream towards the sewer; the water is the start of where it leads.)\"?",
+      "expected": true,
+      "p_yes": 0.71,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/decision5",
+      "level": "picture",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Is this picture decision of img/LOC_BUILDING.jpg stated in the YAML or an allowed choice: \"The stone floor in the foreground is bare and worn smooth. (why: Open floor for the item pictures the game lays over the scene.)\"?",
+      "expected": true,
+      "p_yes": 0.66,
+      "result": "unsure"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/decision6",
+      "level": "picture",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Is this picture decision of img/LOC_BUILDING.jpg stated in the YAML or an allowed choice: \"Soft daylight comes in through the open doorway on the left and spreads across the floor. (why: The room is lit (LIT: true); the open doorway is the light source.)\"?",
+      "expected": true,
+      "p_yes": 0.73,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/agrees",
+      "level": "picture",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does the generation_prompt of img/LOC_BUILDING.jpg agree with the room's description in the YAML?",
+      "expected": true,
+      "p_yes": 0.82,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/sentence1",
+      "level": "picture",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Do these draw sentences show what this sentence of the game says: \"You are inside a building, a well house for a large spring.\"? Draw sentences: [1] \"The inside of a small stone building built over a spring, seen in a first-person view at standing eye height, with stone walls and a stone roof overhead.\" [2] \"In the centre of the floor, water rises up out of the ground in a round hollow of wet stone.\"",
+      "expected": true,
+      "p_yes": 0.94,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/no-items",
+      "level": "picture",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does the generation_prompt of img/LOC_BUILDING.jpg name or describe any of these, or anything that could be mistaken for one: set of keys, brass lantern, tasty food, small bottle?",
+      "expected": false,
+      "p_yes": 0.05,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/decision1",
+      "level": "picture",
+      "target": "items/KEYS.png",
+      "question": "Is this picture decision of items/KEYS.png stated in the YAML or an allowed choice: \"A set of three old iron keys held together on a single iron ring, seen in a three-quarter view. (why: YAML: 'There are some keys on the ground here.' The keys themselves, drawn as three old iron keys on one ring; the ground is left out, since an item picture shows the object alone (rule: items).)\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/agrees",
+      "level": "picture",
+      "target": "items/KEYS.png",
+      "question": "Does the generation_prompt of items/KEYS.png agree with the object's description in the YAML?",
+      "expected": true,
+      "p_yes": 0.77,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/sentence1",
+      "level": "picture",
+      "target": "items/KEYS.png",
+      "question": "Do these draw sentences show what this sentence of the game says: \"There are some keys on the ground here.\"? Draw sentences: [1] \"A set of three old iron keys held together on a single iron ring, seen in a three-quarter view.\"",
+      "expected": true,
+      "p_yes": 0.72,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/decision1",
+      "level": "picture",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Is this picture decision of items/LAMP.LAMP_DARK.png stated in the YAML or an allowed choice: \"A polished brass lantern with a clear glass pane, a hinged lid and a small handle, seen in a three-quarter view. (why: YAML: 'There is a shiny brass lamp nearby.' The lamp itself, drawn as a lantern with a glass pane, the form its states share; 'nearby' is left out (rule: items).)\"?",
+      "expected": true,
+      "p_yes": 0.88,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/decision2",
+      "level": "picture",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Is this picture decision of items/LAMP.LAMP_DARK.png stated in the YAML or an allowed choice: \"The lantern is unlit, with a wick standing inside the clear glass pane. (why: YAML state LAMP_DARK: the lamp is off, so the picture shows the lamp with its wick showing and its glass clear.)\"?",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/agrees",
+      "level": "picture",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Does the generation_prompt of items/LAMP.LAMP_DARK.png agree with the object's description in the YAML?",
+      "expected": true,
+      "p_yes": 0.8,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/state",
+      "level": "picture",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Does the generation_prompt of items/LAMP.LAMP_DARK.png show the state LAMP_DARK as the YAML describes it?",
+      "expected": true,
+      "p_yes": 0.86,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/sentence1",
+      "level": "picture",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Do these draw sentences show what this sentence of the game says: \"There is a shiny brass lamp nearby.\"? Draw sentences: [1] \"A polished brass lantern with a clear glass pane, a hinged lid and a small handle, seen in a three-quarter view.\"",
+      "expected": true,
+      "p_yes": 0.75,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/decision1",
+      "level": "picture",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "Is this picture decision of items/LAMP.LAMP_BRIGHT.png stated in the YAML or an allowed choice: \"The lantern is now lit, with a yellow flame inside the clear glass pane. (why: YAML state LAMP_BRIGHT: 'There is a lamp shining nearby.' The same lantern, now burning.)\"?",
+      "expected": true,
+      "p_yes": 0.77,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/state",
+      "level": "picture",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "Does the generation_prompt of items/LAMP.LAMP_BRIGHT.png show the state LAMP_BRIGHT as the YAML describes it?",
+      "expected": true,
+      "p_yes": 0.8,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/edit-replaced",
+      "level": "picture",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "Does each replaced decision of items/LAMP.LAMP_DARK.png take its new form for the state LAMP_BRIGHT in the picture decisions of items/LAMP.LAMP_BRIGHT.png?",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/sentence1",
+      "level": "picture",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "Do these draw sentences show what this sentence of the game says: \"There is a lamp shining nearby.\"? Draw sentences: [1] \"The lantern is now lit, with a yellow flame inside the clear glass pane.\"",
+      "expected": true,
+      "p_yes": 0.85,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/decision1",
+      "level": "picture",
+      "target": "items/FOOD.png",
+      "question": "Is this picture decision of items/FOOD.png stated in the YAML or an allowed choice: \"A small round loaf of bread beside a wedge of yellow cheese, seen in a three-quarter view. (why: YAML: 'There is food here.' The food itself, drawn as a small loaf of bread and a wedge of cheese; 'here' is left out (rule: items).)\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/agrees",
+      "level": "picture",
+      "target": "items/FOOD.png",
+      "question": "Does the generation_prompt of items/FOOD.png agree with the object's description in the YAML?",
+      "expected": true,
+      "p_yes": 0.72,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/sentence1",
+      "level": "picture",
+      "target": "items/FOOD.png",
+      "question": "Do these draw sentences show what this sentence of the game says: \"There is food here.\"? Draw sentences: [1] \"A small round loaf of bread beside a wedge of yellow cheese, seen in a three-quarter view.\"",
+      "expected": true,
+      "p_yes": 0.89,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/decision1",
+      "level": "picture",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "Is this picture decision of items/BOTTLE.WATER_BOTTLE.png stated in the YAML or an allowed choice: \"A small glass bottle with a narrow neck and a cork stopper, seen in a three-quarter view. (why: YAML: 'There is a bottle of water here.' The bottle itself, drawn as a small glass bottle with a cork stopper; 'here' is left out (rule: items).)\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/decision2",
+      "level": "picture",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "Is this picture decision of items/BOTTLE.WATER_BOTTLE.png stated in the YAML or an allowed choice: \"The bottle is filled with water up to its neck. (why: YAML state WATER_BOTTLE: 'There is a bottle of water here.' The water inside the bottle.)\"?",
+      "expected": true,
+      "p_yes": 0.77,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/agrees",
+      "level": "picture",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "Does the generation_prompt of items/BOTTLE.WATER_BOTTLE.png agree with the object's description in the YAML?",
+      "expected": true,
+      "p_yes": 0.84,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/state",
+      "level": "picture",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "Does the generation_prompt of items/BOTTLE.WATER_BOTTLE.png show the state WATER_BOTTLE as the YAML describes it?",
+      "expected": true,
+      "p_yes": 0.83,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/sentence1",
+      "level": "picture",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "Do these draw sentences show what this sentence of the game says: \"There is a bottle of water here.\"? Draw sentences: [1] \"A small glass bottle with a narrow neck and a cork stopper, seen in a three-quarter view.\" [2] \"The bottle is filled with water up to its neck.\"",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/decision1",
+      "level": "picture",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "Is this picture decision of items/BOTTLE.EMPTY_BOTTLE.png stated in the YAML or an allowed choice: \"The bottle is now empty, with clear glass and a dry inside. (why: YAML state EMPTY_BOTTLE: 'There is an empty bottle here.' The water is poured out and the bottle stands clear.)\"?",
+      "expected": true,
+      "p_yes": 0.68,
+      "result": "unsure"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/state",
+      "level": "picture",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "Does the generation_prompt of items/BOTTLE.EMPTY_BOTTLE.png show the state EMPTY_BOTTLE as the YAML describes it?",
+      "expected": true,
+      "p_yes": 0.84,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/edit-replaced",
+      "level": "picture",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "Does each replaced decision of items/BOTTLE.WATER_BOTTLE.png take its new form for the state EMPTY_BOTTLE in the picture decisions of items/BOTTLE.EMPTY_BOTTLE.png?",
+      "expected": true,
+      "p_yes": 0.84,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/sentence1",
+      "level": "picture",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "Do these draw sentences show what this sentence of the game says: \"There is an empty bottle here.\"? Draw sentences: [1] \"The bottle is now empty, with clear glass and a dry inside.\"",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/decision1",
+      "level": "picture",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "Is this picture decision of items/BOTTLE.OIL_BOTTLE.png stated in the YAML or an allowed choice: \"The bottle is now filled with golden oil up to its neck. (why: YAML state OIL_BOTTLE: 'There is a bottle of oil here.' The bottle now holds oil instead of water.)\"?",
+      "expected": true,
+      "p_yes": 0.81,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/state",
+      "level": "picture",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "Does the generation_prompt of items/BOTTLE.OIL_BOTTLE.png show the state OIL_BOTTLE as the YAML describes it?",
+      "expected": true,
+      "p_yes": 0.78,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/edit-replaced",
+      "level": "picture",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "Does each replaced decision of items/BOTTLE.WATER_BOTTLE.png take its new form for the state OIL_BOTTLE in the picture decisions of items/BOTTLE.OIL_BOTTLE.png?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/sentence1",
+      "level": "picture",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "Do these draw sentences show what this sentence of the game says: \"There is a bottle of oil here.\"? Draw sentences: [1] \"The bottle is now filled with golden oil up to its neck.\"",
+      "expected": true,
+      "p_yes": 0.86,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q1/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Does the picture show what this sentence describes: \"You are inside a building, a well house for a large spring.\"?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q2/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Does the image match this description: \"You are inside a building, a well house for a large spring.\"?\"?",
+      "expected": true,
+      "p_yes": 0.94,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q3/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Are large parts of the scene too dark to see?\"?",
+      "expected": false,
+      "p_yes": 0.06,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q4/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is the set of keys visible anywhere in the image?\"?",
+      "expected": false,
+      "p_yes": 0.04,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q5/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is the unlit brass lantern visible anywhere in the image?\"?",
+      "expected": false,
+      "p_yes": 0.05,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q6/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is the loaf of bread and wedge of cheese visible anywhere in the image?\"?",
+      "expected": false,
+      "p_yes": 0.04,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q7/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is the bottle of water visible anywhere in the image?\"?",
+      "expected": false,
+      "p_yes": 0.05,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q8/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.19,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q9/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is a stone doorway on the left visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q9/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Is a stone doorway on the left visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q9/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a stone doorway on the left visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q10/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is a stone doorway on the left inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q10/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Is a stone doorway on the left inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q10/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a stone doorway on the left inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q11/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is a stream running out through a low opening on the right visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q11/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Is a stream running out through a low opening on the right visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q11/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a stream running out through a low opening on the right visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.77,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q12/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Are stone walls visible around the room?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q12/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Are stone walls visible around the room?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q12/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Are stone walls visible around the room?\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q13/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is a stone roof visible overhead?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q13/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Is a stone roof visible overhead?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q13/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a stone roof visible overhead?\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q14/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is water rising up out of the ground in the centre of the room?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q14/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Is water rising up out of the ground in the centre of the room?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q14/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is water rising up out of the ground in the centre of the room?\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q15/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is a road visible through the doorway?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q15/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Is a road visible through the doorway?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q15/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a road visible through the doorway?\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q16/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Are green trees visible through the doorway?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q16/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Are green trees visible through the doorway?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q16/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Are green trees visible through the doorway?\"?",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q17/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Does the water run across the floor from the spring?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q17/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Does the water run across the floor from the spring?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q17/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Does the water run across the floor from the spring?\"?",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q18/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is the floor in the foreground made of bare stone?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q18/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Is the floor in the foreground made of bare stone?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q18/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is the floor in the foreground made of bare stone?\"?",
+      "expected": true,
+      "p_yes": 0.85,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q19/drawn",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_BUILDING.jpg describes, would the answer to this question be yes: \"Is light from the open doorway falling across the floor?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q19/visible",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_BUILDING.jpg alone: \"Is light from the open doorway falling across the floor?\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_BUILDING.jpg/q19/clear",
+      "level": "question",
+      "target": "img/LOC_BUILDING.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is light from the open doorway falling across the floor?\"?",
+      "expected": true,
+      "p_yes": 0.75,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/q1/drawn",
+      "level": "question",
+      "target": "items/KEYS.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/KEYS.png describes, would the answer to this question be yes: \"Is the set of keys visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/q2/drawn",
+      "level": "question",
+      "target": "items/KEYS.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/KEYS.png describes, would the answer to this question be yes: \"Is the set of keys inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/q3/drawn",
+      "level": "question",
+      "target": "items/KEYS.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/KEYS.png describes, would the answer to this question be yes: \"Is a floor, wall or landscape visible behind the set of keys?\"?",
+      "expected": false,
+      "p_yes": 0.05,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/q4/drawn",
+      "level": "question",
+      "target": "items/KEYS.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/KEYS.png describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.09,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/q5/drawn",
+      "level": "question",
+      "target": "items/KEYS.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/KEYS.png describes, would the answer to this question be yes: \"Are two or more keys visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/q5/visible",
+      "level": "question",
+      "target": "items/KEYS.png",
+      "question": "Can this be answered by looking at the picture of items/KEYS.png alone: \"Are two or more keys visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/KEYS.png/q5/clear",
+      "level": "question",
+      "target": "items/KEYS.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Are two or more keys visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.94,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q1/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/LAMP.LAMP_DARK.png describes, would the answer to this question be yes: \"Is the unlit brass lantern visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q2/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/LAMP.LAMP_DARK.png describes, would the answer to this question be yes: \"Is the unlit brass lantern inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q3/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/LAMP.LAMP_DARK.png describes, would the answer to this question be yes: \"Is a floor, wall or landscape visible behind the unlit brass lantern?\"?",
+      "expected": false,
+      "p_yes": 0.09,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q4/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/LAMP.LAMP_DARK.png describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.13,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q5/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/LAMP.LAMP_DARK.png describes, would the answer to this question be yes: \"Is the lantern made of brass?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q5/visible",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Can this be answered by looking at the picture of items/LAMP.LAMP_DARK.png alone: \"Is the lantern made of brass?\"?",
+      "expected": true,
+      "p_yes": 0.6,
+      "result": "unsure"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q5/clear",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is the lantern made of brass?\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q6/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/LAMP.LAMP_DARK.png describes, would the answer to this question be yes: \"Is light reflecting off the lantern's metal?\"?",
+      "expected": true,
+      "p_yes": 0.76,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q6/visible",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Can this be answered by looking at the picture of items/LAMP.LAMP_DARK.png alone: \"Is light reflecting off the lantern's metal?\"?",
+      "expected": true,
+      "p_yes": 0.94,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q6/clear",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is light reflecting off the lantern's metal?\"?",
+      "expected": true,
+      "p_yes": 0.66,
+      "result": "unsure"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q7/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/LAMP.LAMP_DARK.png describes, would the answer to this question be yes: \"Is a wick visible inside the lantern's glass pane?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q7/visible",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Can this be answered by looking at the picture of items/LAMP.LAMP_DARK.png alone: \"Is a wick visible inside the lantern's glass pane?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q7/clear",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a wick visible inside the lantern's glass pane?\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q8/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/LAMP.LAMP_DARK.png describes, would the answer to this question be yes: \"Is a flame visible inside the lantern's glass pane?\"?",
+      "expected": false,
+      "p_yes": 0.04,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q8/visible",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Can this be answered by looking at the picture of items/LAMP.LAMP_DARK.png alone: \"Is a flame visible inside the lantern's glass pane?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_DARK.png/q8/clear",
+      "level": "question",
+      "target": "items/LAMP.LAMP_DARK.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a flame visible inside the lantern's glass pane?\"?",
+      "expected": true,
+      "p_yes": 0.94,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/q1/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "If an editing model starts from the picture of items/LAMP.LAMP_DARK.png and changes only what the generation_prompt of items/LAMP.LAMP_BRIGHT.png describes, would the answer to this question be yes: \"Is the brass lantern with a flame visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.83,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/q2/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "If an editing model starts from the picture of items/LAMP.LAMP_DARK.png and changes only what the generation_prompt of items/LAMP.LAMP_BRIGHT.png describes, would the answer to this question be yes: \"Is the brass lantern with a flame inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.84,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/q3/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "If an editing model starts from the picture of items/LAMP.LAMP_DARK.png and changes only what the generation_prompt of items/LAMP.LAMP_BRIGHT.png describes, would the answer to this question be yes: \"Is a floor, wall or landscape visible behind the brass lantern with a flame?\"?",
+      "expected": false,
+      "p_yes": 0.09,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/q4/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "If an editing model starts from the picture of items/LAMP.LAMP_DARK.png and changes only what the generation_prompt of items/LAMP.LAMP_BRIGHT.png describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.33,
+      "result": "unsure"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/q5/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "If an editing model starts from the picture of items/LAMP.LAMP_DARK.png and changes only what the generation_prompt of items/LAMP.LAMP_BRIGHT.png describes, would the answer to this question be yes: \"Is a yellow flame visible inside the lantern's glass pane?\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/q5/visible",
+      "level": "question",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "Can this be answered by looking at the picture of items/LAMP.LAMP_BRIGHT.png alone: \"Is a yellow flame visible inside the lantern's glass pane?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/q5/clear",
+      "level": "question",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a yellow flame visible inside the lantern's glass pane?\"?",
+      "expected": true,
+      "p_yes": 0.94,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/q6/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "If an editing model starts from the picture of items/LAMP.LAMP_DARK.png and changes only what the generation_prompt of items/LAMP.LAMP_BRIGHT.png describes, would the answer to this question be yes: \"Is the lantern made of brass?\"?",
+      "expected": true,
+      "p_yes": 0.94,
+      "result": "pass"
+    },
+    {
+      "id": "items/LAMP.LAMP_BRIGHT.png/q7/drawn",
+      "level": "question",
+      "target": "items/LAMP.LAMP_BRIGHT.png",
+      "question": "If an editing model starts from the picture of items/LAMP.LAMP_DARK.png and changes only what the generation_prompt of items/LAMP.LAMP_BRIGHT.png describes, would the answer to this question be yes: \"Is light reflecting off the lantern's metal?\"?",
+      "expected": true,
+      "p_yes": 0.73,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/q1/drawn",
+      "level": "question",
+      "target": "items/FOOD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/FOOD.png describes, would the answer to this question be yes: \"Is the loaf of bread and wedge of cheese visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/q2/drawn",
+      "level": "question",
+      "target": "items/FOOD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/FOOD.png describes, would the answer to this question be yes: \"Is the loaf of bread and wedge of cheese inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/q3/drawn",
+      "level": "question",
+      "target": "items/FOOD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/FOOD.png describes, would the answer to this question be yes: \"Is a floor, wall or landscape visible behind the loaf of bread and wedge of cheese?\"?",
+      "expected": false,
+      "p_yes": 0.11,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/q4/drawn",
+      "level": "question",
+      "target": "items/FOOD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/FOOD.png describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.08,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/q5/drawn",
+      "level": "question",
+      "target": "items/FOOD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/FOOD.png describes, would the answer to this question be yes: \"Is food visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/q5/visible",
+      "level": "question",
+      "target": "items/FOOD.png",
+      "question": "Can this be answered by looking at the picture of items/FOOD.png alone: \"Is food visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "items/FOOD.png/q5/clear",
+      "level": "question",
+      "target": "items/FOOD.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is food visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.89,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q1/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/BOTTLE.WATER_BOTTLE.png describes, would the answer to this question be yes: \"Is the bottle of water visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q2/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/BOTTLE.WATER_BOTTLE.png describes, would the answer to this question be yes: \"Is the bottle of water inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q3/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/BOTTLE.WATER_BOTTLE.png describes, would the answer to this question be yes: \"Is a floor, wall or landscape visible behind the bottle of water?\"?",
+      "expected": false,
+      "p_yes": 0.1,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q4/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/BOTTLE.WATER_BOTTLE.png describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.1,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q5/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/BOTTLE.WATER_BOTTLE.png describes, would the answer to this question be yes: \"Is a bottle visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.99,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q5/visible",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "Can this be answered by looking at the picture of items/BOTTLE.WATER_BOTTLE.png alone: \"Is a bottle visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q5/clear",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a bottle visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q6/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/BOTTLE.WATER_BOTTLE.png describes, would the answer to this question be yes: \"Is water visible inside the bottle?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q6/visible",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "Can this be answered by looking at the picture of items/BOTTLE.WATER_BOTTLE.png alone: \"Is water visible inside the bottle?\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.WATER_BOTTLE.png/q6/clear",
+      "level": "question",
+      "target": "items/BOTTLE.WATER_BOTTLE.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is water visible inside the bottle?\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/q1/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.EMPTY_BOTTLE.png describes, would the answer to this question be yes: \"Is the empty bottle visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.79,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/q2/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.EMPTY_BOTTLE.png describes, would the answer to this question be yes: \"Is the empty bottle inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.83,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/q3/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.EMPTY_BOTTLE.png describes, would the answer to this question be yes: \"Is a floor, wall or landscape visible behind the empty bottle?\"?",
+      "expected": false,
+      "p_yes": 0.1,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/q4/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.EMPTY_BOTTLE.png describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.27,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/q5/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.EMPTY_BOTTLE.png describes, would the answer to this question be yes: \"Is water visible inside the bottle?\"?",
+      "expected": false,
+      "p_yes": 0.13,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/q5/visible",
+      "level": "question",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "Can this be answered by looking at the picture of items/BOTTLE.EMPTY_BOTTLE.png alone: \"Is water visible inside the bottle?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/q5/clear",
+      "level": "question",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is water visible inside the bottle?\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.EMPTY_BOTTLE.png/q6/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.EMPTY_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.EMPTY_BOTTLE.png describes, would the answer to this question be yes: \"Is a bottle visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/q1/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.OIL_BOTTLE.png describes, would the answer to this question be yes: \"Is the bottle of oil visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.73,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/q2/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.OIL_BOTTLE.png describes, would the answer to this question be yes: \"Is the bottle of oil inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.75,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/q3/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.OIL_BOTTLE.png describes, would the answer to this question be yes: \"Is a floor, wall or landscape visible behind the bottle of oil?\"?",
+      "expected": false,
+      "p_yes": 0.08,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/q4/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.OIL_BOTTLE.png describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.26,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/q5/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.OIL_BOTTLE.png describes, would the answer to this question be yes: \"Is golden oil visible inside the bottle?\"?",
+      "expected": true,
+      "p_yes": 0.9,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/q5/visible",
+      "level": "question",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "Can this be answered by looking at the picture of items/BOTTLE.OIL_BOTTLE.png alone: \"Is golden oil visible inside the bottle?\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/q5/clear",
+      "level": "question",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is golden oil visible inside the bottle?\"?",
+      "expected": true,
+      "p_yes": 0.8,
+      "result": "pass"
+    },
+    {
+      "id": "items/BOTTLE.OIL_BOTTLE.png/q6/drawn",
+      "level": "question",
+      "target": "items/BOTTLE.OIL_BOTTLE.png",
+      "question": "If an editing model starts from the picture of items/BOTTLE.WATER_BOTTLE.png and changes only what the generation_prompt of items/BOTTLE.OIL_BOTTLE.png describes, would the answer to this question be yes: \"Is a bottle visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    }
+  ]
+}

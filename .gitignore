@@ -1,0 +1,10 @@
+.env
+.venv/
+__pycache__/
+# the pictures of a run stay on disk; their specs, verdicts and logs are committed (the example run's pictures too, resized)
+outputs/**/*.jpg
+outputs/**/*.png
+outputs/*.log
+!outputs/pictures/example*/**/*.jpg
+!outputs/pictures/example*/**/*.png
+!outputs/example.log

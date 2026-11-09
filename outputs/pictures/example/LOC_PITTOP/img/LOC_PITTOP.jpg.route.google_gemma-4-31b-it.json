@@ -1,0 +1,186 @@
+{
+  "image": "outputs/pictures/example/LOC_PITTOP/img/LOC_PITTOP.jpg",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "At your feet is a small pit breathing traces of white mist.",
+      "An east passage ends here except for a small crack leading on."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "A small underground chamber of rough grey rock, seen in a first-person view at standing eye height, with walls and floor of weathered stone.",
+        "why": "The room's own look: the YAML names no walls, so the pit, the passage and the crack sit in a chamber of rough grey rock in the game's cave.",
+        "checks": [
+          {
+            "question": "Are the walls of the chamber made of grey stone?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "In the foreground, a small pit opens in the stone floor, with a stairway of rough stone steps leading down into it and wisps of white mist rising out of it.",
+        "why": "YAML: 'At your feet is a small pit breathing traces of white mist.' The STEPS object here reads 'Rough stone steps lead down the pit.', and the DOWN exit leads to LOC_MISTHALL, whose hall is filled with wisps of white mist.",
+        "checks": [
+          {
+            "question": "Is a small pit open in the stone floor in the foreground?",
+            "expected": true
+          },
+          {
+            "question": "Are wisps of white mist rising out of the pit?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "draw": "On the right, a passage opening in the grey rock wall leads away, and orange stone in smooth wavy bands is visible through it.",
+        "why": "YAML: 'An east passage ends here except for a small crack leading on.' EAST is a compass direction, drawn on the right; the bird chamber it leads to has walls of orange stone, drawn as orange stone in smooth wavy bands.",
+        "checks": [
+          {
+            "question": "Is orange stone in smooth wavy bands visible through the opening?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "draw": "On the left, a small crack splits the grey rock wall, a thin dark slit in the stone.",
+        "why": "YAML: 'An east passage ends here except for a small crack leading on.' WEST is a compass direction, drawn on the left; the crack room's own text says the crack is far too small to follow.",
+        "checks": [
+          {
+            "question": "Is the crack a thin dark slit?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "draw": "A single pool of warm lamplight from just behind the camera lights the middle of the chamber, and the edges of the picture fall into darkness.",
+        "why": "The room has no LIT condition, so it is dark: drawn by the light of a lamp, and the lamp itself is not in the picture.",
+        "checks": [
+          {
+            "question": "Is the middle of the chamber brighter than the corners of the picture?",
+            "expected": true
+          }
+        ]
+      }
+    ],
+    "prompt": "A small underground chamber of rough grey rock, seen in a first-person view at standing eye height, with walls and floor of weathered stone. In the foreground, a small pit opens in the stone floor, with a stairway of rough stone steps leading down into it and wisps of white mist rising out of it. On the right, a passage opening in the grey rock wall leads away, and orange stone in smooth wavy bands is visible through it. On the left, a small crack splits the grey rock wall, a thin dark slit in the stone. A single pool of warm lamplight from just behind the camera lights the middle of the chamber, and the edges of the picture fall into darkness. The picture fills the whole frame, edge to edge. Setting: a medieval fantasy world; everything is old and handmade: weathered stone and old brick, rough timber, wrought iron. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, slightly off-register colour printing, muted earthy palette of browns, ochres, olive and amber, on aged newsprint. Mood: quiet, still and mysterious, a place long left alone.",
+    "flagged": [
+      {
+        "id": "q2",
+        "question": "Does the picture show what this sentence describes: \"An east passage ends here except for a small crack leading on.\"?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "There is an opening on the right, but no visible small crack leading further."
+      },
+      {
+        "id": "q3",
+        "question": "Does the image match this description: \"At your feet is a small pit breathing traces of white mist. An east passage ends here except for a small crack leading on.\"?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The pit is present, but the crack in the east passage is not visible."
+      },
+      {
+        "id": "q8",
+        "question": "Is a stairway of rough stone steps leading down in the foreground visible in the image?",
+        "good_answer": "yes",
+        "answer": "no once, yes once",
+        "why": "run 1 (no): There are no steps leading down in the foreground; only the flat edge of the pit. | run 2 (yes): There are steps leading into the pit in the foreground, but they lead down into the hole, not a general stairway down."
+      },
+      {
+        "id": "q9",
+        "question": "Is a small crack in the rock on the left visible in the image?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "There is no distinct small crack visible in the rock on the left."
+      },
+      {
+        "id": "q10",
+        "question": "Is a small crack in the rock on the left inside the picture?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "No small crack is visible on the left wall."
+      },
+      {
+        "id": "q11",
+        "question": "Does the steps fit this description: \"Rough stone steps lead down the pit.\"?",
+        "good_answer": "yes",
+        "answer": "no once, yes once",
+        "why": "run 1 (no): No steps are visible inside or leading into the pit. | run 2 (yes): Rough stone steps are visible descending into the pit."
+      },
+      {
+        "id": "q16",
+        "question": "Is the crack a thin dark slit?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "No thin dark slit is visible in the image."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q2",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for a thin dark slit on the left, but the picture shows a solid wall.",
+      "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+    },
+    {
+      "id": "q3",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for a thin dark slit on the left, but the picture shows a solid wall.",
+      "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+    },
+    {
+      "id": "q8",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt clearly asks for a stairway of rough stone steps leading down into the pit, but the picture only shows a flat ledge and a dark hole.",
+      "fix": "Add rough stone steps descending into the pit."
+    },
+    {
+      "id": "q9",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for a thin dark slit on the left, but the picture shows a solid wall.",
+      "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+    },
+    {
+      "id": "q10",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for a thin dark slit on the left, but the picture shows a solid wall.",
+      "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+    },
+    {
+      "id": "q11",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt clearly asks for a stairway of rough stone steps leading down into the pit, but the picture only shows a flat ledge and a dark hole.",
+      "fix": "Add rough stone steps descending into the pit."
+    },
+    {
+      "id": "q16",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for a thin dark slit on the left, but the picture shows a solid wall.",
+      "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+    }
+  ],
+  "usage": {
+    "completion_tokens": 482,
+    "prompt_tokens": 8760,
+    "total_tokens": 9242,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0019448000000000002,
+    "cost_usd": "0.001945",
+    "pricing_source": "deployment"
+  }
+}

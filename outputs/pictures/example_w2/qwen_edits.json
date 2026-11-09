@@ -1,0 +1,30 @@
+[
+ {
+  "room": "LOC_BUILDING",
+  "file": "items/LAMP.LAMP_BRIGHT.png",
+  "ref": "outputs/pictures/example_w2/LOC_BUILDING/items/LAMP.LAMP_DARK.png",
+  "out": "outputs/pictures/example_w2/LOC_BUILDING/items/LAMP.LAMP_BRIGHT.png",
+  "prompt": "Using image 1 as the base, the lantern is now lit, with a yellow flame inside the clear glass pane. Keep everything else exactly as it is, on the same flat magenta (#FF00FF) background."
+ },
+ {
+  "room": "LOC_BUILDING",
+  "file": "items/BOTTLE.EMPTY_BOTTLE.png",
+  "ref": "outputs/pictures/example_w2/LOC_BUILDING/items/BOTTLE.WATER_BOTTLE.png",
+  "out": "outputs/pictures/example_w2/LOC_BUILDING/items/BOTTLE.EMPTY_BOTTLE.png",
+  "prompt": "Using image 1 as the base, the bottle is now empty, with clear glass and a dry inside. Keep everything else exactly as it is, on the same flat magenta (#FF00FF) background."
+ },
+ {
+  "room": "LOC_BUILDING",
+  "file": "items/BOTTLE.OIL_BOTTLE.png",
+  "ref": "outputs/pictures/example_w2/LOC_BUILDING/items/BOTTLE.WATER_BOTTLE.png",
+  "out": "outputs/pictures/example_w2/LOC_BUILDING/items/BOTTLE.OIL_BOTTLE.png",
+  "prompt": "Using image 1 as the base, the bottle is now filled with golden oil up to its neck. Keep everything else exactly as it is, on the same flat magenta (#FF00FF) background."
+ },
+ {
+  "room": "LOC_BIRDCHAMBER",
+  "file": "items/BIRD.BIRD_CAGED.png",
+  "ref": "outputs/pictures/example_w2/LOC_BIRDCHAMBER/items/BIRD.BIRD_UNCAGED.png",
+  "out": "outputs/pictures/example_w2/LOC_BIRDCHAMBER/items/BIRD.BIRD_CAGED.png",
+  "prompt": "Using image 1 as the base, the little bird now sits quietly with its beak closed inside a round cage of woven pale wood that surrounds it, its small door shut. Keep everything else exactly as it is, on the same flat magenta (#FF00FF) background."
+ }
+]

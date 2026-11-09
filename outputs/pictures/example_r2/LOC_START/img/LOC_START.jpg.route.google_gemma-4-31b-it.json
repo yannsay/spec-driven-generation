@@ -1,0 +1,161 @@
+{
+  "image": "outputs/pictures/example_r2/LOC_START/img/LOC_START.jpg",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "You are standing at the end of a road before a small brick building.",
+      "Around you is a forest.",
+      "A small stream flows out of the building and down a gully."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "An open clearing ringed by tall trees, seen in a first-person view at standing eye height.",
+        "why": "YAML: 'Around you is a forest.' plus the first-person camera of every scene.",
+        "checks": [
+          {
+            "question": "Are tall trees visible on the left and right sides of the image?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "On the left, a dirt road with cart ruts runs out of the clearing and rises into the trees.",
+        "why": "YAML: 'You are standing at the end of a road before a small brick building.' The road is the way west to the hill, so it runs away on the left.",
+        "checks": [
+          {
+            "question": "Does the dirt road end in the clearing?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "draw": "On the right, a small building of old handmade brick stands at the edge of the clearing, with an open wooden door facing the clearing.",
+        "why": "YAML: 'a small brick building' — the way in is the way east, so the building stands on the right.",
+        "checks": [
+          {
+            "question": "Is the building made of brick?",
+            "expected": true
+          },
+          {
+            "question": "Is the building lower than the trees that stand beside it?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "draw": "A small stream flows out of the base of the brick building on the right, crosses the clearing and runs down a gully in the foreground.",
+        "why": "YAML: 'A small stream flows out of the building and down a gully.' The gully is the way south, drawn in the foreground.",
+        "checks": [
+          {
+            "question": "Does the stream come out of the brick building?",
+            "expected": true
+          },
+          {
+            "question": "Is the stream narrower than the dirt road?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "draw": "Straight ahead, a gap between the tree trunks opens into the deeper forest.",
+        "why": "YAML: the forest; the way north to the forest, drawn straight ahead.",
+        "checks": [
+          {
+            "question": "Is the deeper forest visible through the gap straight ahead?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "draw": "Soft daylight from the sky above lights the clearing and the trees.",
+        "why": "YAML: conditions LIT: true, so the clearing is lit by daylight from above.",
+        "checks": [
+          {
+            "question": "Is the clearing lit by daylight?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 7,
+        "draw": "The ground of the clearing is open grass and dirt.",
+        "why": "The room starts with no objects, so the clearing floor is left open and clear.",
+        "checks": [
+          {
+            "question": "Is the ground of the clearing made of grass and dirt?",
+            "expected": true
+          },
+          {
+            "question": "Is a mailbox or a wooden signpost visible in the clearing?",
+            "expected": false
+          }
+        ]
+      }
+    ],
+    "prompt": "Using image 1 as the base, change the road so it ends in the clearing and leads away to the left, removing the path that continues straight ahead. Change the material of the building from stone blocks to old handmade bricks. Keep everything else exactly as it is.",
+    "flagged": [
+      {
+        "id": "q5",
+        "question": "Is a dirt road rising into the trees on the left visible in the image?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The left side consists of grass and tree trunks, not a rising road."
+      },
+      {
+        "id": "q11",
+        "question": "Does the dirt road end in the clearing?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The path leads through the clearing toward the distance, it does not end there."
+      },
+      {
+        "id": "q15",
+        "question": "Is the stream narrower than the dirt road?",
+        "good_answer": "yes",
+        "answer": "yes once, no once",
+        "why": "run 1 (yes): The stream is a narrow ribbon of water compared to the width of the grassy path. | run 2 (no): There is no dirt road to compare the stream's width to."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q5",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt explicitly asks for a road that leads away to the left, but the picture shows only grass and trees on the left.",
+      "fix": "Add a dirt road with cart ruts on the left side of the clearing that rises into the trees."
+    },
+    {
+      "id": "q11",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for the road to end in the clearing, but the picture shows a path continuing straight ahead into the distance.",
+      "fix": "Ensure the dirt road ends at the edge of the clearing on the left and remove the path leading straight ahead."
+    },
+    {
+      "id": "q15",
+      "cause": "image",
+      "action": "new",
+      "why": "The judge is unsure because the road requested in the prompt is missing from the image, making the comparison impossible.",
+      "fix": "Draw the dirt road on the left so its width can be compared to the stream."
+    }
+  ],
+  "usage": {
+    "completion_tokens": 226,
+    "prompt_tokens": 8336,
+    "total_tokens": 8562,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0017576,
+    "cost_usd": "0.001758",
+    "pricing_source": "deployment"
+  }
+}

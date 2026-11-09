@@ -1,0 +1,175 @@
+{
+  "image": "outputs/pictures/example/LOC_BIRDCHAMBER/img/LOC_BIRDCHAMBER.jpg",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "You are in a splendid chamber thirty feet high.",
+      "The walls are frozen rivers of orange stone.",
+      "An awkward canyon and a good passage exit from east and west sides of the chamber."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "A tall natural rock chamber, seen in a first-person view at standing eye height, its walls rising up out of the light.",
+        "why": "YAML: 'You are in a splendid chamber thirty feet high.'",
+        "checks": [
+          {
+            "question": "Are rock walls visible around the viewer?",
+            "expected": true
+          },
+          {
+            "question": "Do the rock walls rise to the top of the picture?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "The walls are orange stone in smooth wavy bands that curve across them.",
+        "why": "YAML: 'The walls are frozen rivers of orange stone.' Drawn as what is seen: banded orange rock.",
+        "checks": [
+          {
+            "question": "Are the walls of the chamber made of orange stone?",
+            "expected": true
+          },
+          {
+            "question": "Do the walls have smooth wavy bands across them?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "draw": "On the right, away from the edge of the frame, a sloping rocky canyon runs away out of the picture between rock walls.",
+        "why": "YAML: 'An awkward canyon and a good passage exit from east and west sides of the chamber.' East is on the right, and the exit shows the start of the sloping canyon it leads to.",
+        "checks": [
+          {
+            "question": "Is the canyon on the right a gap between rock walls?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "draw": "On the left, away from the edge of the frame, a rock passage opens in the wall and runs away out of the picture.",
+        "why": "YAML: 'An awkward canyon and a good passage exit from east and west sides of the chamber.' West is on the left.",
+        "checks": [
+          {
+            "question": "Is the passage on the left an opening in the rock wall?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "draw": "In the floor of the passage on the left, a round pit in the rock gives off wisps of white mist.",
+        "why": "YAML of where the west passage leads (LOC_PITTOP): 'At your feet is a small pit breathing traces of white mist.' Drawn as the start of that room, in the floor of the passage.",
+        "checks": [
+          {
+            "question": "Is a pit in the floor of the passage on the left visible in the image?",
+            "expected": true
+          },
+          {
+            "question": "Are wisps of white mist rising from the pit?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "draw": "The floor of the chamber in the foreground is bare orange rock.",
+        "why": "Open floor in the foreground where the item images are laid over the scene.",
+        "checks": [
+          {
+            "question": "Is the floor of the chamber made of rock?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 7,
+        "draw": "A pool of warm lamplight from just behind the camera falls on the middle of the chamber, and the rock walls at the sides and above fade into darkness.",
+        "why": "The room has no LIT condition, so it is dark: drawn by the light of the player's lamp.",
+        "checks": [
+          {
+            "question": "Are the rock walls at the top of the picture dark?",
+            "expected": true
+          }
+        ]
+      }
+    ],
+    "prompt": "A tall natural rock chamber, seen in a first-person view at standing eye height, its walls rising up out of the light. The walls are orange stone in smooth wavy bands that curve across them. On the right, away from the edge of the frame, a sloping rocky canyon runs away out of the picture between rock walls. On the left, away from the edge of the frame, a rock passage opens in the wall and runs away out of the picture. In the floor of the passage on the left, a round pit in the rock gives off wisps of white mist. The floor of the chamber in the foreground is bare orange rock. A pool of warm lamplight from just behind the camera falls on the middle of the chamber, and the rock walls at the sides and above fade into darkness. The picture fills the whole frame, edge to edge. Setting: a medieval fantasy world; everything is old and handmade: weathered stone and old brick, rough timber, wrought iron. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, slightly off-register colour printing, muted earthy palette of browns, ochres, olive and amber, on aged newsprint. Mood: quiet, still and mysterious, a place long left alone.",
+    "flagged": [
+      {
+        "id": "q2",
+        "question": "Does the picture show what this sentence describes: \"The walls are frozen rivers of orange stone.\"?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The walls are blocks of stone, not flowing rivers of stone."
+      },
+      {
+        "id": "q4",
+        "question": "Does the image match this description: \"You are in a splendid chamber thirty feet high. The walls are frozen rivers of orange stone. An awkward canyon and a good passage exit from east and west sides of the chamber.\"?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The walls are not depicted as frozen rivers."
+      },
+      {
+        "id": "q5",
+        "question": "Is the scene lit by a single pool of warm light?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "There is light coming from the center and the pool, not a single source of warm light."
+      },
+      {
+        "id": "q14",
+        "question": "Do the walls have smooth wavy bands across them?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The walls consist of straight block lines, not wavy bands."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q2",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for 'smooth wavy bands' to represent the 'frozen rivers', but the image shows a wall made of rectangular masonry blocks.",
+      "fix": "Draw the walls as natural rock with smooth, flowing, wavy orange bands instead of man-made stone blocks."
+    },
+    {
+      "id": "q4",
+      "cause": "image",
+      "action": "new",
+      "why": "The failure is a result of the walls being drawn as blocks rather than the 'frozen rivers' (wavy bands) requested in the prompt.",
+      "fix": "Draw the walls as natural rock with smooth, flowing, wavy orange bands instead of man-made stone blocks."
+    },
+    {
+      "id": "q5",
+      "cause": "judge",
+      "action": "keep",
+      "why": "The picture shows a central pool of light from behind the camera; the light in the pit is a detail of that room's start, not a separate light source.",
+      "fix": ""
+    },
+    {
+      "id": "q14",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt explicitly asks for 'smooth wavy bands that curve across' the walls, but the image shows straight horizontal and vertical mortar lines of blocks.",
+      "fix": "Replace the block masonry with natural rock featuring smooth, curving, wavy orange bands."
+    }
+  ],
+  "usage": {
+    "completion_tokens": 371,
+    "prompt_tokens": 8684,
+    "total_tokens": 9055,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0018851999999999999,
+    "cost_usd": "0.001885",
+    "pricing_source": "deployment"
+  }
+}

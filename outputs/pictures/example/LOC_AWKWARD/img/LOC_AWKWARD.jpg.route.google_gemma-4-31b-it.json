@@ -1,0 +1,180 @@
+{
+  "image": "outputs/pictures/example/LOC_AWKWARD/img/LOC_AWKWARD.jpg",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "You are in an awkward sloping east/west canyon."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "A narrow canyon between two high walls of rock, seen in a first-person view at standing eye height.",
+        "why": "YAML: 'You are in an awkward sloping east/west canyon.' The camera stands inside the canyon at standing eye height.",
+        "checks": [
+          {
+            "question": "Are rock walls visible on both the left and the right of the image?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "The floor of the canyon slopes down from the left of the picture to the right.",
+        "why": "YAML: 'sloping east/west canyon.' East is the downhill end, so the floor drops towards the right of the picture.",
+        "checks": [
+          {
+            "question": "Is the canyon floor lower on the right side of the image than on the left side?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "draw": "The floor is a rough slope of cracked rock broken into low ledges.",
+        "why": "YAML: 'awkward'. The word means the going is hard, so the floor is drawn as broken rock.",
+        "checks": [
+          {
+            "question": "Is the canyon floor made of cracked rock?",
+            "expected": true
+          },
+          {
+            "question": "Are low rock ledges visible in the canyon floor?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "draw": "On the right, the canyon continues down and out of the picture, its bed of cobbles covered with mud.",
+        "why": "YAML travel EAST/DOWN/DEBRI to the debris room, whose description has cobbles and mud; east sits on the right and a path runs on out of the frame.",
+        "checks": [
+          {
+            "question": "Is the canyon bed on the right covered with cobbles?",
+            "expected": true
+          },
+          {
+            "question": "Is mud visible on the canyon bed on the right?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "draw": "On the left, the canyon continues up between walls of orange stone in smooth wavy bands.",
+        "why": "YAML travel INWARD/UPWARD/WEST to the bird chamber, whose walls are 'frozen rivers of orange stone'; west sits on the left and the way runs on out of the frame.",
+        "checks": [
+          {
+            "question": "Are the walls on the left made of orange stone?",
+            "expected": true
+          },
+          {
+            "question": "Are the walls on the left marked with smooth wavy bands?",
+            "expected": true
+          },
+          {
+            "question": "Is a staircase or ladder visible in the image?",
+            "expected": false
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "draw": "A pool of warm lamplight falls on the canyon floor, brightest in the centre of the picture, with the tops of the rock walls in darkness.",
+        "why": "The room has no light of its own, so the player's lamp lights it: one pool of warm light, dark above.",
+        "checks": [
+          {
+            "question": "Are the tops of the rock walls in darkness?",
+            "expected": true
+          }
+        ]
+      }
+    ],
+    "prompt": "A narrow canyon between two high walls of rock, seen in a first-person view at standing eye height. The floor of the canyon slopes down from the left of the picture to the right. The floor is a rough slope of cracked rock broken into low ledges. On the right, the canyon continues down and out of the picture, its bed of cobbles covered with mud. On the left, the canyon continues up between walls of orange stone in smooth wavy bands. A pool of warm lamplight falls on the canyon floor, brightest in the centre of the picture, with the tops of the rock walls in darkness. The picture fills the whole frame, edge to edge. Setting: a medieval fantasy world; everything is old and handmade: weathered stone and old brick, rough timber, wrought iron. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, slightly off-register colour printing, muted earthy palette of browns, ochres, olive and amber, on aged newsprint. Mood: quiet, still and mysterious, a place long left alone.",
+    "flagged": [
+      {
+        "id": "q6",
+        "question": "Is the canyon continuing down on the right visible in the image?",
+        "good_answer": "yes",
+        "answer": "yes once, no once",
+        "why": "run 1 (yes): The floor on the right slopes downward toward the background. | run 2 (no): The canyon floor slopes downward toward the center/background, not specifically down on the right."
+      },
+      {
+        "id": "q7",
+        "question": "Is the canyon continuing up on the left visible in the image?",
+        "good_answer": "yes",
+        "answer": "yes once, no once",
+        "why": "run 1 (yes): The wall on the left rises upward as it goes back. | run 2 (no): The walls extend upward, but there is no path continuing up on the left."
+      },
+      {
+        "id": "q11",
+        "question": "Are low rock ledges visible in the canyon floor?",
+        "good_answer": "yes",
+        "answer": "yes once, no once",
+        "why": "run 1 (yes): The floor consists of flat cracked slabs and a lower bed of cobbles. | run 2 (no): The floor consists of slabs and cobbles, but no distinct ledges are visible."
+      },
+      {
+        "id": "q13",
+        "question": "Is mud visible on the canyon bed on the right?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "Only cobbles are visible; there is no visible mud."
+      },
+      {
+        "id": "q15",
+        "question": "Are the walls on the left marked with smooth wavy bands?",
+        "good_answer": "yes",
+        "answer": "yes once, no once",
+        "why": "run 1 (yes): The rock on the left has horizontal sedimentary layering. | run 2 (no): The left wall has horizontal strata and cracks, but not smooth wavy bands."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q6",
+      "cause": "judge",
+      "action": "keep",
+      "why": "The picture clearly shows the canyon floor sloping down and continuing toward the right background as requested.",
+      "fix": ""
+    },
+    {
+      "id": "q7",
+      "cause": "judge",
+      "action": "keep",
+      "why": "The picture shows the canyon continuing between the walls toward the left background, which is the path 'up' in this context.",
+      "fix": ""
+    },
+    {
+      "id": "q11",
+      "cause": "judge",
+      "action": "keep",
+      "why": "The cracked rock floor is drawn with distinct vertical offsets and slabs that constitute low ledges.",
+      "fix": ""
+    },
+    {
+      "id": "q13",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt explicitly asks for the bed of cobbles to be 'covered with mud', but the picture shows clean, dry cobbles.",
+      "fix": "Add a layer of dark, wet mud covering the cobbles on the right side of the canyon floor."
+    },
+    {
+      "id": "q15",
+      "cause": "both",
+      "action": "new",
+      "why": "The prompt asks for 'smooth wavy bands', but the image model drew standard horizontal sedimentary strata; the prompt was not strong enough to override the model's default rock texture.",
+      "fix": "Change decision 5 to describe the walls as 'marked with flowing, undulating waves of orange stone, like frozen rivers'. "
+    }
+  ],
+  "usage": {
+    "completion_tokens": 332,
+    "prompt_tokens": 8700,
+    "total_tokens": 9032,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0018728000000000002,
+    "cost_usd": "0.001873",
+    "pricing_source": "deployment"
+  }
+}

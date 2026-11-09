@@ -1,0 +1,28 @@
+# location
+- LOC_START:
+    description:
+      long: |-
+          You are standing at the end of a road before a small brick building.
+          Around you is a forest.  A small stream flows out of the building and
+          down a gully.
+      short: 'You''re in front of building.'
+      maptag: !!null
+    conditions: {FLUID: true, ABOVE: true, LIT: true}
+    sound: STREAM_GURGLES
+    travel: [
+      {verbs: [ROAD, WEST, UPWAR], action: [goto, LOC_HILL]},  # road, west, upward
+      {verbs: [ENTER, BUILD, INWAR, EAST], action: [goto, LOC_BUILDING]},  # enter, building, inward, east
+      {verbs: [DOWNS, GULLY, STREA, SOUTH, DOWN], action: [goto, LOC_VALLEY]},  # downstream, gully, stream, south, down
+      {verbs: [FORES, NORTH], action: [goto, LOC_FOREST1]},  # forest, north
+      {verbs: [DEPRE], action: [goto, LOC_GRATE]},  # depression
+    ]
+
+# objects that start here
+# (none)
+
+# where each exit leads (the destination's description in the game)
+# LOC_HILL: You have walked up a hill, still in the forest. The road slopes back down the other side of the hill. There is a building in the distance.
+# LOC_BUILDING: You are inside a building, a well house for a large spring.
+# LOC_VALLEY: You are in a valley in the forest beside a stream tumbling along a rocky bed.
+# LOC_FOREST1: You are wandering aimlessly through the forest.
+# LOC_GRATE: You are in a 20-foot depression floored with bare dirt. Set into the dirt is a strong steel grate mounted in concrete. A dry streambed leads into the depression.

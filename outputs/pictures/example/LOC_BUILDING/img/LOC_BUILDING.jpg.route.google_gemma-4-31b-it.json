@@ -1,0 +1,130 @@
+{
+  "image": "outputs/pictures/example/LOC_BUILDING/img/LOC_BUILDING.jpg",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "You are inside a building, a well house for a large spring."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "The inside of a small stone building built over a spring, seen in a first-person view at standing eye height, with stone walls and a stone roof overhead.",
+        "why": "YAML: 'You are inside a building, a well house for a large spring.' The building, said in the words of what is seen: a small stone building built over a spring.",
+        "checks": [
+          {
+            "question": "Are stone walls visible around the room?",
+            "expected": true
+          },
+          {
+            "question": "Is a stone roof visible overhead?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "In the centre of the floor, water rises up out of the ground in a round hollow of wet stone.",
+        "why": "YAML: 'a well house for a large spring.' The spring inside the building.",
+        "checks": [
+          {
+            "question": "Is water rising up out of the ground in the centre of the room?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "draw": "On the left, a stone doorway in the wall opens onto a road with green forest beyond.",
+        "why": "YAML travel: OUT, OUTDO and WEST lead to the road and forest of LOC_START; WEST places the way out on the left, and the road and forest are the start of where it leads.",
+        "checks": [
+          {
+            "question": "Is a road visible through the doorway?",
+            "expected": true
+          },
+          {
+            "question": "Are green trees visible through the doorway?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "draw": "On the right, the water runs from the spring across the floor and out through a low dark opening in the wall.",
+        "why": "YAML travel: DOWNS and STREA follow the water downstream towards the sewer; the water is the start of where it leads.",
+        "checks": [
+          {
+            "question": "Does the water run across the floor from the spring?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "draw": "The stone floor in the foreground is bare and worn smooth.",
+        "why": "Open floor for the item pictures the game lays over the scene.",
+        "checks": [
+          {
+            "question": "Is the floor in the foreground made of bare stone?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "draw": "Soft daylight comes in through the open doorway on the left and spreads across the floor.",
+        "why": "The room is lit (LIT: true); the open doorway is the light source.",
+        "checks": [
+          {
+            "question": "Is light from the open doorway falling across the floor?",
+            "expected": true
+          }
+        ]
+      }
+    ],
+    "prompt": "The inside of a small stone building built over a spring, seen in a first-person view at standing eye height, with stone walls and a stone roof overhead. In the centre of the floor, water rises up out of the ground in a round hollow of wet stone. On the left, a stone doorway in the wall opens onto a road with green forest beyond. On the right, the water runs from the spring across the floor and out through a low dark opening in the wall. The stone floor in the foreground is bare and worn smooth. Soft daylight comes in through the open doorway on the left and spreads across the floor. The picture fills the whole frame, edge to edge. Setting: a medieval fantasy world; everything is old and handmade: weathered stone and old brick, rough timber, wrought iron. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, slightly off-register colour printing, muted earthy palette of browns, ochres, olive and amber, on aged newsprint. Mood: quiet, still and mysterious, a place long left alone.",
+    "flagged": [
+      {
+        "id": "q13",
+        "question": "Is a stone roof visible overhead?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The ceiling is made of rough timber beams, not stone."
+      },
+      {
+        "id": "q17",
+        "question": "Does the water run across the floor from the spring?",
+        "good_answer": "yes",
+        "answer": "yes once, no once",
+        "why": "run 1 (yes): Water flows from the basin area toward the opening on the right. | run 2 (no): The water stays within the basin and then flows from the right opening, but not across the main floor from the central spring."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q13",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt explicitly asks for a 'stone roof overhead', but the picture shows wooden beams.",
+      "fix": "Replace the wooden ceiling beams with a vaulted stone roof."
+    },
+    {
+      "id": "q17",
+      "cause": "judge",
+      "action": "keep",
+      "why": "The picture clearly shows a stream of water flowing across the stone floor from the central basin to the opening on the right.",
+      "fix": ""
+    }
+  ],
+  "usage": {
+    "completion_tokens": 119,
+    "prompt_tokens": 8302,
+    "total_tokens": 8421,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.001708,
+    "cost_usd": "0.001708",
+    "pricing_source": "deployment"
+  }
+}

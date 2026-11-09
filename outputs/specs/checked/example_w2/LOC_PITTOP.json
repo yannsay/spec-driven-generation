@@ -1,0 +1,255 @@
+{
+  "room": "LOC_PITTOP",
+  "text": "At your feet is a small pit breathing traces of white mist. An east passage ends here except for a small crack leading on.",
+  "exits": [
+    {
+      "to": "LOC_GRATE",
+      "verbs": [
+        "DEPRE"
+      ],
+      "cond": [
+        "not",
+        "GRATE",
+        "GRATE_CLOSED"
+      ],
+      "why": "DEPRE names the depression, a place this room's description never mentions; a shortcut, not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_BELOWGRATE",
+      "verbs": [
+        "ENTRA"
+      ],
+      "cond": null,
+      "why": "ENTRA names an entrance, a way in this room's description never mentions (the pit's own way down is the DOWN exit); a shortcut, not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_DEBRIS",
+      "verbs": [
+        "DEBRI"
+      ],
+      "cond": null,
+      "why": "DEBRI names the debris room, a place this room's description never mentions; a shortcut, not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_BIRDCHAMBER",
+      "verbs": [
+        "PASSA",
+        "EAST"
+      ],
+      "cond": null,
+      "why": "EAST is a compass direction and the description's east passage ends here, so the passage is drawn on the right.",
+      "drawn": true,
+      "label": "a passage opening in the rock on the right",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_NECKBROKE",
+      "verbs": [
+        "DOWN",
+        "PIT",
+        "STEPS"
+      ],
+      "cond": [
+        "carry",
+        "NUGGET"
+      ],
+      "why": "DOWN shares its verb with the exit to LOC_MISTHALL: same way as LOC_MISTHALL when carrying the nugget.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_MISTHALL",
+      "verbs": [
+        "DOWN"
+      ],
+      "cond": null,
+      "why": "DOWN is a walking direction and the STEPS object here reads 'Rough stone steps lead down the pit.', so the steps down are drawn in the foreground.",
+      "drawn": true,
+      "label": "a stairway of rough stone steps leading down in the foreground",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_CRACK",
+      "verbs": [
+        "CRACK",
+        "WEST"
+      ],
+      "cond": null,
+      "why": "WEST is a compass direction and the description's small crack leads on, so the crack is drawn on the left.",
+      "drawn": true,
+      "label": "a small crack in the rock on the left",
+      "shape": "object",
+      "kind": "crack"
+    }
+  ],
+  "images": [
+    {
+      "kind": "scene",
+      "state": null,
+      "file": "img/LOC_PITTOP.jpg",
+      "size": "2048x1152",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "The room's own look: the YAML names no walls, so the pit, the passage and the crack sit in a chamber of rough grey rock in the game's cave.",
+          "draw": "A small underground chamber of rough grey rock, seen in a first-person view at standing eye height, with walls and floor of weathered stone.",
+          "checks": [
+            {
+              "question": "Are the walls of the chamber made of grey stone?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'At your feet is a small pit breathing traces of white mist.' The STEPS object here reads 'Rough stone steps lead down the pit.', and the DOWN exit leads to LOC_MISTHALL, whose hall is filled with wisps of white mist.",
+          "draw": "In the foreground, a small pit opens in the stone floor, with a stairway of rough stone steps leading down into it and wisps of white mist rising out of it.",
+          "checks": [
+            {
+              "question": "Is a small pit open in the stone floor in the foreground?",
+              "expected": true
+            },
+            {
+              "question": "Are wisps of white mist rising out of the pit?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'An east passage ends here except for a small crack leading on.' EAST is a compass direction, drawn on the right; the bird chamber it leads to has walls of orange stone, drawn as orange stone in smooth wavy bands.",
+          "draw": "On the right, a passage opening in the grey rock wall leads away, and orange stone in smooth wavy bands is visible through it.",
+          "checks": [
+            {
+              "question": "Is orange stone in smooth wavy bands visible through the opening?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'An east passage ends here except for a small crack leading on.' WEST is a compass direction, drawn on the left; the crack room's own text says the crack is far too small to follow.",
+          "draw": "On the left, a small crack splits the grey rock wall, a thin dark slit in the stone.",
+          "checks": [
+            {
+              "question": "Is the crack a thin dark slit?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "The room has no LIT condition, so it is dark: drawn by the light of a lamp, and the lamp itself is not in the picture.",
+          "draw": "A single pool of warm lamplight from just behind the camera lights the middle of the chamber, and the edges of the picture fall into darkness.",
+          "checks": [
+            {
+              "question": "Is the middle of the chamber brighter than the corners of the picture?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "At your feet is a small pit breathing traces of white mist.",
+          "decisions": [
+            2
+          ]
+        },
+        {
+          "sentence": "An east passage ends here except for a small crack leading on.",
+          "decisions": [
+            3,
+            4
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "question": "Does the picture show what this sentence describes: \"At your feet is a small pit breathing traces of white mist.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"An east passage ends here except for a small crack leading on.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the image match this description: \"At your feet is a small pit breathing traces of white mist. An east passage ends here except for a small crack leading on.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the scene lit by a single pool of warm light?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Are the edges of the image dark?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a passage opening in the rock on the right visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a stairway of rough stone steps leading down in the foreground visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a small crack in the rock on the left visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a small crack in the rock on the left inside the picture?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Does the steps fit this description: \"Rough stone steps lead down the pit.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Are the walls of the chamber made of grey stone?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a small pit open in the stone floor in the foreground?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are wisps of white mist rising out of the pit?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is orange stone in smooth wavy bands visible through the opening?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the crack a thin dark slit?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the middle of the chamber brighter than the corners of the picture?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A small underground chamber of rough grey rock, seen in a first-person view at standing eye height, with walls and floor of weathered stone. In the foreground, a small pit opens in the stone floor, with a stairway of rough stone steps leading down into it and wisps of white mist rising out of it. On the right, a passage opening in the grey rock wall leads away, and orange stone in smooth wavy bands is visible through it. On the left, a small crack splits the grey rock wall, a thin dark slit in the stone. A single pool of warm lamplight from just behind the camera lights the middle of the chamber, and the edges of the picture fall into darkness."
+    }
+  ]
+}

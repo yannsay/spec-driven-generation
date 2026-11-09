@@ -1,0 +1,503 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_r1/LOC_GRATE/img/LOC_GRATE.GRATE_CLOSED.jpg",
+  "spec": "outputs/specs/checked/example_r1/LOC_GRATE.json",
+  "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+  "runs": [
+    "v5.r1",
+    "v5.r2"
+  ],
+  "rule": "pass only when both runs pass; both fail = fail; otherwise flip",
+  "results": [
+    {
+      "id": "q1",
+      "question": "Does the picture show what this sentence describes: \"You are in a 20-foot depression floored with bare dirt.\"?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The scene is a deep hollow with a dirt floor.",
+      "result": "pass",
+      "runs": [
+        {
+          "parts": [
+            {
+              "part": "You are in a 20-foot depression",
+              "seen": "yes"
+            },
+            {
+              "part": "floored with bare dirt",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "The scene is a deep hollow with a dirt floor."
+        },
+        {
+          "parts": [
+            {
+              "part": "You are in a 20-foot depression",
+              "seen": "yes"
+            },
+            {
+              "part": "floored with bare dirt",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "The scene shows a deep hollow with a dirt floor."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "Does the picture show what this sentence describes: \"A dry streambed leads into the depression.\"?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A stony, waterless path leads from the background into the hollow.",
+      "result": "pass",
+      "runs": [
+        {
+          "parts": [
+            {
+              "part": "A dry streambed",
+              "seen": "yes"
+            },
+            {
+              "part": "leads into the depression",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "A stony, waterless path leads from the background into the hollow."
+        },
+        {
+          "parts": [
+            {
+              "part": "A dry streambed",
+              "seen": "yes"
+            },
+            {
+              "part": "leads into the depression",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "A stony, dry channel leads from the background into the hollow."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "Does the picture show what this sentence describes: \"The grate is locked.\"?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The grate has a lock securing it to the frame.",
+      "result": "pass",
+      "runs": [
+        {
+          "parts": [
+            {
+              "part": "The grate is locked",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "The grate has a lock securing it to the frame."
+        },
+        {
+          "parts": [
+            {
+              "part": "The grate is locked",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "The grate has a locking mechanism holding it shut."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "Are large parts of the scene too dark to see?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The lighting is clear across the entire scene.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The lighting is clear across the entire scene."
+        },
+        {
+          "answer": "no",
+          "why": "The lighting is clear and consistent throughout the scene."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "Only dirt, stone, and iron are visible.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "Only dirt, stone, and iron are visible."
+        },
+        {
+          "answer": "no",
+          "why": "All materials shown are natural stone, dirt, and wrought iron."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "Is a way between the forest trees on the right visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no once, yes once",
+      "why": "run 1 (no): The trees on the right are too dense to show a clear path between them. | run 2 (yes): The trees on the right are spaced apart, showing glimpses of the background forest.",
+      "result": "flip",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The trees on the right are too dense to show a clear path between them."
+        },
+        {
+          "answer": "yes",
+          "why": "The trees on the right are spaced apart, showing glimpses of the background forest."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "Is a way between the forest trees in the foreground visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no",
+      "why": "The foreground shows only foliage and the dirt floor, not a path between trees.",
+      "result": "fail",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The foreground shows only foliage and the dirt floor, not a path between trees."
+        },
+        {
+          "answer": "no",
+          "why": "The trees at the very bottom are dense bushes and shrubs, not a path through trees."
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "Is a way between the forest trees on the left visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no once, yes once",
+      "why": "run 1 (no): The trees on the left are too dense to show a clear path between them. | run 2 (yes): The trees on the left have gaps between them showing the forest behind.",
+      "result": "flip",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The trees on the left are too dense to show a clear path between them."
+        },
+        {
+          "answer": "yes",
+          "why": "The trees on the left have gaps between them showing the forest behind."
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "Is a dry streambed running out straight ahead visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "A stony streambed extends straight toward the horizon.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A stony streambed extends straight toward the horizon."
+        },
+        {
+          "answer": "yes",
+          "why": "A stony path extends straight ahead toward the horizon."
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "Is a locked iron grate visible in the dirt floor, left of the streambed?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "An iron grate with a lock is located on the dirt floor to the left of the streambed.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "An iron grate with a lock is located on the dirt floor to the left of the streambed."
+        },
+        {
+          "answer": "yes",
+          "why": "There is a grate with a lock on the left side of the stony path."
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "Is an iron grate in the dirt floor, left of the streambed inside the picture?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "An iron grate is clearly visible on the left side of the floor.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "An iron grate is clearly visible on the left side of the floor."
+        },
+        {
+          "answer": "yes",
+          "why": "An iron grate is positioned in the dirt to the left of the streambed."
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "Is the ground in the image made of bare dirt?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The floor consists of light brown bare soil.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The floor consists of light brown bare soil."
+        },
+        {
+          "answer": "yes",
+          "why": "The base of the depression consists of brown, bare earth."
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "Are banks of bare dirt visible around the floor?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "There are steep dirt banks on both sides of the floor.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "There are steep dirt banks on both sides of the floor."
+        },
+        {
+          "answer": "yes",
+          "why": "The sides of the depression are steep walls of bare soil."
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "Is the streambed made of stones and sand?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The streambed consists of small stones and sand.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The streambed consists of small stones and sand."
+        },
+        {
+          "answer": "yes",
+          "why": "The streambed is composed of sand and small pebbles."
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "Is water visible in the streambed?",
+      "expected": false,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The streambed is completely dry.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The streambed is completely dry."
+        },
+        {
+          "answer": "no",
+          "why": "The streambed is completely dry with no water visible."
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "Are the bars of the grate made of iron?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The dark grey bars are consistent with wrought iron.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The dark grey bars are consistent with wrought iron."
+        },
+        {
+          "answer": "yes",
+          "why": "The grate is dark and textured like wrought iron."
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "Is the grate set in a frame of stone?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The grate is embedded in a rim of carved stone blocks.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The grate is embedded in a rim of carved stone blocks."
+        },
+        {
+          "answer": "yes",
+          "why": "The grate is embedded in a border of stone blocks."
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "Are the bars of the grate lying shut in the stone frame?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The grate is lying flat and shut within the stone rim.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The grate is lying flat and shut within the stone rim."
+        },
+        {
+          "answer": "yes",
+          "why": "The bars are flush and closed within the stone border."
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "Is an iron padlock holding the grate shut?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes once, no once",
+      "why": "run 1 (yes): A small lock is visible on the side of the grate. | run 2 (no): A locking mechanism is visible, but it is a bolt/latch rather than a padlock.",
+      "result": "flip",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A small lock is visible on the side of the grate."
+        },
+        {
+          "answer": "no",
+          "why": "A locking mechanism is visible, but it is a bolt/latch rather than a padlock."
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "Are green leaves visible among the trees on the right?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Green foliage is visible on the trees to the right.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "Green foliage is visible on the trees to the right."
+        },
+        {
+          "answer": "yes",
+          "why": "The trees on the right have green foliage."
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "question": "Are green leaves visible among the trees on the left?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Green foliage is visible on the trees to the left.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "Green foliage is visible on the trees to the left."
+        },
+        {
+          "answer": "yes",
+          "why": "The trees on the left have green foliage."
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "question": "Are green leaves visible on the trees at the bottom of the picture?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Small green trees are located at the bottom of the frame.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "Small green trees are located at the bottom of the frame."
+        },
+        {
+          "answer": "yes",
+          "why": "The small trees and bushes at the bottom are green."
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "question": "Is open sky visible above the rim of the hollow?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Pale blue sky is visible above the horizon line.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "Pale blue sky is visible above the horizon line."
+        },
+        {
+          "answer": "yes",
+          "why": "The pale sky is visible above the line where the walls meet the horizon."
+        }
+      ]
+    }
+  ],
+  "cost_usd": 0.001235
+}

@@ -1,0 +1,290 @@
+[
+ {
+  "room": "LOC_AWKWARD",
+  "file": "img/LOC_AWKWARD.jpg",
+  "routes": [
+   {
+    "question": "Is mud visible on the canyon bed on the right?",
+    "cause": "image",
+    "why": "The prompt explicitly asks for the bed of cobbles to be 'covered with mud', but the picture shows clean, dry cobbles.",
+    "fix": "Add a layer of dark, wet mud covering the cobbles on the right side of the canyon floor."
+   },
+   {
+    "question": "Are the walls on the left marked with smooth wavy bands?",
+    "cause": "both",
+    "why": "The prompt asks for 'smooth wavy bands', but the image model drew standard horizontal sedimentary strata; the prompt was not strong enough to override the model's default rock texture.",
+    "fix": "Change decision 5 to describe the walls as 'marked with flowing, undulating waves of orange stone, like frozen rivers'. "
+   }
+  ],
+  "tries": [
+   {
+    "payload": {
+     "game_text": [
+      "You are in an awkward sloping east/west canyon."
+     ],
+     "decisions": [
+      {
+       "n": 1,
+       "draw": "A narrow canyon between two high walls of rock, seen in a first-person view at standing eye height.",
+       "why": "YAML: 'You are in an awkward sloping east/west canyon.' The camera stands inside the canyon at standing eye height.",
+       "checks": [
+        {
+         "id": "k1",
+         "question": "Are rock walls visible on both the left and the right of the image?",
+         "expected": true
+        }
+       ]
+      },
+      {
+       "n": 2,
+       "draw": "The floor of the canyon slopes down from the left of the picture to the right.",
+       "why": "YAML: 'sloping east/west canyon.' East is the downhill end, so the floor drops towards the right of the picture.",
+       "checks": [
+        {
+         "id": "k2",
+         "question": "Is the canyon floor lower on the right side of the image than on the left side?",
+         "expected": true
+        }
+       ]
+      },
+      {
+       "n": 3,
+       "draw": "The floor is a rough slope of cracked rock broken into low ledges.",
+       "why": "YAML: 'awkward'. The word means the going is hard, so the floor is drawn as broken rock.",
+       "checks": [
+        {
+         "id": "k3",
+         "question": "Is the canyon floor made of cracked rock?",
+         "expected": true
+        },
+        {
+         "id": "k4",
+         "question": "Are low rock ledges visible in the canyon floor?",
+         "expected": true
+        }
+       ]
+      },
+      {
+       "n": 4,
+       "draw": "On the right, the canyon continues down and out of the picture, its bed of cobbles covered with mud.",
+       "why": "YAML travel EAST/DOWN/DEBRI to the debris room, whose description has cobbles and mud; east sits on the right and a path runs on out of the frame.",
+       "checks": [
+        {
+         "id": "k5",
+         "question": "Is the canyon bed on the right covered with cobbles?",
+         "expected": true
+        },
+        {
+         "id": "k6",
+         "question": "Is mud visible on the canyon bed on the right?",
+         "expected": true
+        }
+       ]
+      },
+      {
+       "n": 5,
+       "draw": "On the left, the canyon continues up between walls of orange stone in smooth wavy bands.",
+       "why": "YAML travel INWARD/UPWARD/WEST to the bird chamber, whose walls are 'frozen rivers of orange stone'; west sits on the left and the way runs on out of the frame.",
+       "checks": [
+        {
+         "id": "k7",
+         "question": "Are the walls on the left made of orange stone?",
+         "expected": true
+        },
+        {
+         "id": "k8",
+         "question": "Are the walls on the left marked with smooth wavy bands?",
+         "expected": true
+        },
+        {
+         "id": "k9",
+         "question": "Is a staircase or ladder visible in the image?",
+         "expected": false
+        }
+       ]
+      },
+      {
+       "n": 6,
+       "draw": "A pool of warm lamplight falls on the canyon floor, brightest in the centre of the picture, with the tops of the rock walls in darkness.",
+       "why": "The room has no light of its own, so the player's lamp lights it: one pool of warm light, dark above.",
+       "checks": [
+        {
+         "id": "k10",
+         "question": "Are the tops of the rock walls in darkness?",
+         "expected": true
+        }
+       ]
+      }
+     ],
+     "sentences": [
+      {
+       "sentence": "You are in an awkward sloping east/west canyon.",
+       "decisions": [
+        1,
+        2,
+        3,
+        4,
+        5
+       ]
+      }
+     ],
+     "prompt": "A narrow canyon between two high walls of rock, seen in a first-person view at standing eye height. The floor of the canyon slopes down from the left of the picture to the right. The floor is a rough slope of cracked rock broken into low ledges. On the right, the canyon continues down and out of the picture, its bed of cobbles covered with mud. On the left, the canyon continues up between walls of orange stone in smooth wavy bands. A pool of warm lamplight falls on the canyon floor, brightest in the centre of the picture, with the tops of the rock walls in darkness. The picture fills the whole frame, edge to edge. Setting: a medieval fantasy world; everything is old and handmade: weathered stone and old brick, rough timber, wrought iron. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, slightly off-register colour printing, muted earthy palette of browns, ochres, olive and amber, on aged newsprint. Mood: quiet, still and mysterious, a place long left alone.",
+     "routes": [
+      {
+       "question": "Is mud visible on the canyon bed on the right?",
+       "cause": "image",
+       "why": "The prompt explicitly asks for the bed of cobbles to be 'covered with mud', but the picture shows clean, dry cobbles.",
+       "fix": "Add a layer of dark, wet mud covering the cobbles on the right side of the canyon floor."
+      },
+      {
+       "question": "Are the walls on the left marked with smooth wavy bands?",
+       "cause": "both",
+       "why": "The prompt asks for 'smooth wavy bands', but the image model drew standard horizontal sedimentary strata; the prompt was not strong enough to override the model's default rock texture.",
+       "fix": "Change decision 5 to describe the walls as 'marked with flowing, undulating waves of orange stone, like frozen rivers'. "
+      }
+     ]
+    },
+    "answer": {
+     "seen": [
+      {
+       "route": "Is mud visible on the canyon bed on the right?",
+       "drawn_instead": "The cobbles on the right are clean, dry, and clearly defined without any covering."
+      },
+      {
+       "route": "Are the walls on the left marked with smooth wavy bands?",
+       "drawn_instead": "The wall on the left has straight, horizontal sedimentary lines."
+      }
+     ],
+     "decisions": [
+      {
+       "draw": "A narrow canyon between two high walls of rock, seen in a first-person view at standing eye height.",
+       "why": "YAML: 'You are in an awkward sloping east/west canyon.' The camera stands inside the canyon at standing eye height.",
+       "checks": [
+        {
+         "id": "k1",
+         "question": "Are rock walls visible on both the left and the right of the image?",
+         "expected": true
+        }
+       ]
+      },
+      {
+       "draw": "On the left, the walls are made of orange stone marked with flowing, undulating waves of rock, like frozen rivers.",
+       "why": "YAML travel INWARD/UPWARD/WEST to the bird chamber, whose walls are 'frozen rivers of orange stone'; west sits on the left and the way runs on out of the frame.",
+       "checks": [
+        {
+         "id": "k7",
+         "question": "Are the walls on the left made of orange stone?",
+         "expected": true
+        },
+        {
+         "id": "k8",
+         "question": "Are the walls on the left marked with smooth wavy bands?",
+         "expected": true
+        },
+        {
+         "id": "k9",
+         "question": "Is a staircase or ladder visible in the image?",
+         "expected": false
+        }
+       ]
+      },
+      {
+       "draw": "On the right, the canyon continues down and out of the picture, its bed of cobbles smothered under a thick layer of dark wet mud.",
+       "why": "YAML travel EAST/DOWN/DEBRI to the debris room, whose description has cobbles and mud; east sits on the right and a path runs on out of the frame.",
+       "checks": [
+        {
+         "id": "k5",
+         "question": "Is the canyon bed on the right covered with cobbles?",
+         "expected": true
+        },
+        {
+         "id": "k6",
+         "question": "Is mud visible on the canyon bed on the right?",
+         "expected": true
+        }
+       ]
+      },
+      {
+       "draw": "The floor of the canyon slopes down from the left of the picture to the right.",
+       "why": "YAML: 'sloping east/west canyon.' East is the downhill end, so the floor drops towards the right of the picture.",
+       "checks": [
+        {
+         "id": "k2",
+         "question": "Is the canyon floor lower on the right side of the image than on the left side?",
+         "expected": true
+        }
+       ]
+      },
+      {
+       "draw": "The floor is a rough slope of cracked rock broken into low ledges.",
+       "why": "YAML: 'awkward'. The word means the going is hard, so the floor is drawn as broken rock.",
+       "checks": [
+        {
+         "id": "k3",
+         "question": "Is the canyon floor made of cracked rock?",
+         "expected": true
+        },
+        {
+         "id": "k4",
+         "question": "Are low rock ledges visible in the canyon floor?",
+         "expected": true
+        }
+       ]
+      },
+      {
+       "draw": "A pool of warm lamplight falls on the canyon floor, brightest in the centre of the picture, with the tops of the rock walls in darkness.",
+       "why": "The room has no light of its own, so the player's lamp lights it: one pool of warm light, dark above.",
+       "checks": [
+        {
+         "id": "k10",
+         "question": "Are the tops of the rock walls in darkness?",
+         "expected": true
+        }
+       ]
+      }
+     ],
+     "sentences": [
+      {
+       "sentence": "You are in an awkward sloping east/west canyon.",
+       "decisions": [
+        1,
+        2,
+        3,
+        4,
+        5
+       ]
+      }
+     ],
+     "justification": [
+      {
+       "route": "Are the walls on the left marked with smooth wavy bands?",
+       "change": "Moved decision 5 to the second position and changed 'smooth wavy bands' to 'flowing, undulating waves of rock, like frozen rivers'.",
+       "why": "The model drew standard strata; stronger, more descriptive language and higher priority are needed to achieve the 'frozen river' effect."
+      },
+      {
+       "route": "Is mud visible on the canyon bed on the right?",
+       "change": "Moved decision 4 to the third position and changed 'covered with mud' to 'smothered under a thick layer of dark wet mud'.",
+       "why": "The model ignored the mud; using more evocative words like 'smothered' and 'thick layer of dark wet mud' makes it a primary visual feature."
+      }
+     ]
+    },
+    "answer_text": null,
+    "usage": {
+     "completion_tokens": 1241,
+     "prompt_tokens": 8304,
+     "total_tokens": 9545,
+     "completion_tokens_details": {
+      "reasoning_tokens": 0
+     },
+     "estimated_cost": 0.0021572,
+     "cost_usd": "0.002157",
+     "pricing_source": "deployment"
+    },
+    "error": null,
+    "accepted": true,
+    "rejected_because": ""
+   }
+  ],
+  "accepted": true
+ }
+]

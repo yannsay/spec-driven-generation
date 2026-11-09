@@ -1,0 +1,2246 @@
+{
+ "run": "example",
+ "specs": "example",
+ "rooms": [
+  "LOC_START",
+  "LOC_BUILDING",
+  "LOC_GRATE",
+  "LOC_BELOWGRATE",
+  "LOC_COBBLE",
+  "LOC_DEBRIS",
+  "LOC_AWKWARD",
+  "LOC_BIRDCHAMBER",
+  "LOC_PITTOP"
+ ],
+ "rounds": [
+  {
+   "pass": 1,
+   "round": 0,
+   "run": "example",
+   "judged": [
+    "BIRD.BIRD_UNCAGED.png",
+    "BOTTLE.WATER_BOTTLE.png",
+    "CAGE.png",
+    "FOOD.png",
+    "KEYS.png",
+    "LAMP.LAMP_DARK.png",
+    "LOC_AWKWARD.jpg",
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+    "LOC_BIRDCHAMBER.jpg",
+    "LOC_BUILDING.jpg",
+    "LOC_COBBLE.jpg",
+    "LOC_DEBRIS.jpg",
+    "LOC_GRATE.GRATE_CLOSED.jpg",
+    "LOC_PITTOP.jpg",
+    "LOC_START.jpg",
+    "ROD.png"
+   ],
+   "results": {
+    "LOC_START.jpg": {
+     "room": "LOC_START",
+     "file": "img/LOC_START.jpg",
+     "pass": 17,
+     "flip": 1,
+     "fail": 1,
+     "checks": 19,
+     "error": null,
+     "actions": {
+      "edit": 2
+     },
+     "routes": [
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the road so it ends in the clearing and leads away to the left, rather than continuing straight ahead."
+      },
+      {
+       "id": "q12",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the material of the building from stone blocks to old handmade bricks."
+      }
+     ]
+    },
+    "LOC_BUILDING.jpg": {
+     "room": "LOC_BUILDING",
+     "file": "img/LOC_BUILDING.jpg",
+     "pass": 17,
+     "flip": 1,
+     "fail": 1,
+     "checks": 19,
+     "error": null,
+     "actions": {
+      "edit": 1,
+      "keep": 1
+     },
+     "routes": [
+      {
+       "id": "q13",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Replace the wooden ceiling beams with a vaulted stone roof."
+      },
+      {
+       "id": "q17",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      }
+     ]
+    },
+    "KEYS.png": {
+     "room": "LOC_BUILDING",
+     "file": "items/KEYS.png",
+     "pass": 5,
+     "flip": 0,
+     "fail": 0,
+     "checks": 5,
+     "error": null
+    },
+    "LAMP.LAMP_DARK.png": {
+     "room": "LOC_BUILDING",
+     "file": "items/LAMP.LAMP_DARK.png",
+     "pass": 8,
+     "flip": 0,
+     "fail": 0,
+     "checks": 8,
+     "error": null
+    },
+    "FOOD.png": {
+     "room": "LOC_BUILDING",
+     "file": "items/FOOD.png",
+     "pass": 5,
+     "flip": 0,
+     "fail": 0,
+     "checks": 5,
+     "error": null
+    },
+    "BOTTLE.WATER_BOTTLE.png": {
+     "room": "LOC_BUILDING",
+     "file": "items/BOTTLE.WATER_BOTTLE.png",
+     "pass": 3,
+     "flip": 0,
+     "fail": 3,
+     "checks": 6,
+     "error": null,
+     "actions": {
+      "edit": 3
+     },
+     "routes": [
+      {
+       "id": "q1",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the brown liquid inside the bottle to clear, transparent water."
+      },
+      {
+       "id": "q2",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the brown liquid inside the bottle to clear, transparent water."
+      },
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the brown liquid inside the bottle to clear, transparent water."
+      }
+     ]
+    },
+    "LOC_GRATE.GRATE_CLOSED.jpg": {
+     "room": "LOC_GRATE",
+     "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+     "pass": 20,
+     "flip": 2,
+     "fail": 1,
+     "checks": 23,
+     "error": null,
+     "actions": {
+      "edit": 3
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear gap between the tree trunks on the right to show a path leading out of the picture."
+      },
+      {
+       "id": "q7",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear gap between the tree trunks at the bottom of the picture to show a path leading out of the frame."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear gap between the tree trunks on the left to show a path leading out of the picture."
+      }
+     ]
+    },
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg": {
+     "room": "LOC_BELOWGRATE",
+     "file": "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+     "pass": 10,
+     "flip": 0,
+     "fail": 5,
+     "checks": 15,
+     "error": null,
+     "actions": {
+      "new": 5
+     },
+     "routes": [
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling above the center of the room."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Create a square opening in the ceiling to house the grate."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling above the center of the room."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling above the center of the room."
+      },
+      {
+       "id": "q15",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the light source so that daylight falls vertically from the grate in the ceiling."
+      }
+     ]
+    },
+    "LOC_COBBLE.jpg": {
+     "room": "LOC_COBBLE",
+     "file": "img/LOC_COBBLE.jpg",
+     "pass": 8,
+     "flip": 1,
+     "fail": 2,
+     "checks": 11,
+     "error": null,
+     "actions": {
+      "new": 3
+     },
+     "routes": [
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the passage as a corridor that turns or exits to the right, with the pale light at the end of that rightward path."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the passage as a corridor that turns or exits to the left, separate from the rightward path."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add banks of mud and broken rock along the left side of the passage."
+      }
+     ]
+    },
+    "CAGE.png": {
+     "room": "LOC_COBBLE",
+     "file": "items/CAGE.png",
+     "pass": 11,
+     "flip": 0,
+     "fail": 0,
+     "checks": 11,
+     "error": null
+    },
+    "LOC_DEBRIS.jpg": {
+     "room": "LOC_DEBRIS",
+     "file": "img/LOC_DEBRIS.jpg",
+     "pass": 17,
+     "flip": 0,
+     "fail": 3,
+     "checks": 20,
+     "error": null,
+     "actions": {
+      "edit": 3
+     },
+     "routes": [
+      {
+       "id": "q3",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+      },
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+      },
+      {
+       "id": "q17",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+      }
+     ]
+    },
+    "ROD.png": {
+     "room": "LOC_DEBRIS",
+     "file": "items/ROD.png",
+     "pass": 7,
+     "flip": 0,
+     "fail": 0,
+     "checks": 7,
+     "error": null
+    },
+    "LOC_AWKWARD.jpg": {
+     "room": "LOC_AWKWARD",
+     "file": "img/LOC_AWKWARD.jpg",
+     "pass": 12,
+     "flip": 4,
+     "fail": 1,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "keep": 3,
+      "edit": 1,
+      "new": 1
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q7",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q11",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q13",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Add a layer of dark, wet mud covering the cobbles on the right side of the canyon floor."
+      },
+      {
+       "id": "q15",
+       "cause": "both",
+       "action": "new",
+       "fix": "Change decision 5 to describe the walls as 'marked with flowing, undulating waves of orange stone, like frozen rivers'. "
+      }
+     ]
+    },
+    "LOC_BIRDCHAMBER.jpg": {
+     "room": "LOC_BIRDCHAMBER",
+     "file": "img/LOC_BIRDCHAMBER.jpg",
+     "pass": 16,
+     "flip": 0,
+     "fail": 4,
+     "checks": 20,
+     "error": null,
+     "actions": {
+      "new": 3,
+      "keep": 1
+     },
+     "routes": [
+      {
+       "id": "q2",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the walls as natural rock with smooth, flowing, wavy orange bands instead of man-made stone blocks."
+      },
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the walls as natural rock with smooth, flowing, wavy orange bands instead of man-made stone blocks."
+      },
+      {
+       "id": "q5",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q14",
+       "cause": "image",
+       "action": "new",
+       "fix": "Replace the block masonry with natural rock featuring smooth, curving, wavy orange bands."
+      }
+     ]
+    },
+    "BIRD.BIRD_UNCAGED.png": {
+     "room": "LOC_BIRDCHAMBER",
+     "file": "items/BIRD.BIRD_UNCAGED.png",
+     "pass": 8,
+     "flip": 0,
+     "fail": 0,
+     "checks": 8,
+     "error": null
+    },
+    "LOC_PITTOP.jpg": {
+     "room": "LOC_PITTOP",
+     "file": "img/LOC_PITTOP.jpg",
+     "pass": 10,
+     "flip": 2,
+     "fail": 5,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 5,
+      "edit": 2
+     },
+     "routes": [
+      {
+       "id": "q2",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q3",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Add rough stone steps descending into the pit."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q10",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Add rough stone steps descending into the pit."
+      },
+      {
+       "id": "q16",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      }
+     ]
+    }
+   },
+   "to_fix": [
+    "LOC_START.jpg",
+    "LOC_BUILDING.jpg",
+    "BOTTLE.WATER_BOTTLE.png",
+    "LOC_GRATE.GRATE_CLOSED.jpg",
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+    "LOC_COBBLE.jpg",
+    "LOC_DEBRIS.jpg",
+    "LOC_AWKWARD.jpg",
+    "LOC_BIRDCHAMBER.jpg",
+    "LOC_PITTOP.jpg"
+   ],
+   "corrected": [
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+    "LOC_COBBLE.jpg",
+    "LOC_BIRDCHAMBER.jpg",
+    "LOC_PITTOP.jpg",
+    "LOC_AWKWARD.jpg",
+    "LOC_GRATE.GRATE_CLOSED.jpg",
+    "LOC_START.jpg",
+    "LOC_BUILDING.jpg",
+    "BOTTLE.WATER_BOTTLE.png",
+    "LOC_DEBRIS.jpg"
+   ],
+   "next_run": "example_r1",
+   "seconds": {
+    "judge_route": 354.9,
+    "correct_draw": 347.3
+   }
+  },
+  {
+   "pass": 1,
+   "round": 1,
+   "run": "example_r1",
+   "judged": [
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+    "LOC_COBBLE.jpg",
+    "LOC_BIRDCHAMBER.jpg",
+    "LOC_PITTOP.jpg",
+    "LOC_AWKWARD.jpg",
+    "LOC_GRATE.GRATE_CLOSED.jpg",
+    "LOC_START.jpg",
+    "LOC_BUILDING.jpg",
+    "BOTTLE.WATER_BOTTLE.png",
+    "LOC_DEBRIS.jpg"
+   ],
+   "results": {
+    "LOC_START.jpg": {
+     "room": "LOC_START",
+     "file": "img/LOC_START.jpg",
+     "pass": 17,
+     "flip": 0,
+     "fail": 2,
+     "checks": 19,
+     "error": null,
+     "actions": {
+      "edit": 2
+     },
+     "routes": [
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the road so it ends in the clearing and leads away to the left, removing the path that continues straight ahead."
+      },
+      {
+       "id": "q12",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the material of the building from stone blocks to old handmade bricks."
+      }
+     ]
+    },
+    "LOC_BUILDING.jpg": {
+     "room": "LOC_BUILDING",
+     "file": "img/LOC_BUILDING.jpg",
+     "pass": 18,
+     "flip": 1,
+     "fail": 0,
+     "checks": 19,
+     "error": null,
+     "actions": {
+      "keep": 1
+     },
+     "routes": [
+      {
+       "id": "q17",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      }
+     ]
+    },
+    "BOTTLE.WATER_BOTTLE.png": {
+     "room": "LOC_BUILDING",
+     "file": "items/BOTTLE.WATER_BOTTLE.png",
+     "pass": 6,
+     "flip": 0,
+     "fail": 0,
+     "checks": 6,
+     "error": null
+    },
+    "LOC_GRATE.GRATE_CLOSED.jpg": {
+     "room": "LOC_GRATE",
+     "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+     "pass": 19,
+     "flip": 3,
+     "fail": 1,
+     "checks": 23,
+     "error": null,
+     "actions": {
+      "edit": 4
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a visible gap between the tree trunks on the right to show a path leading out of the hollow."
+      },
+      {
+       "id": "q7",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Open a clear path between the tree trunks in the foreground at the bottom of the picture."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a visible gap between the tree trunks on the left to show a path leading out of the hollow."
+      },
+      {
+       "id": "q19",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Replace the circular latch on the grate with a heavy iron padlock and hasp."
+      }
+     ]
+    },
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg": {
+     "room": "LOC_BELOWGRATE",
+     "file": "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+     "pass": 10,
+     "flip": 0,
+     "fail": 5,
+     "checks": 15,
+     "error": null,
+     "actions": {
+      "new": 5
+     },
+     "routes": [
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Create a square opening in the ceiling for the grate."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q15",
+       "cause": "image",
+       "action": "new",
+       "fix": "Make the light source the grate in the ceiling, casting light downwards into the chamber."
+      }
+     ]
+    },
+    "LOC_COBBLE.jpg": {
+     "room": "LOC_COBBLE",
+     "file": "img/LOC_COBBLE.jpg",
+     "pass": 9,
+     "flip": 0,
+     "fail": 2,
+     "checks": 11,
+     "error": null,
+     "actions": {
+      "edit": 1,
+      "new": 1
+     },
+     "routes": [
+      {
+       "id": "q1",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Lighten the rock walls and ceiling so their texture is visible, as if the pale light from the end of the passage is reaching them."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Redraw the scene so the cobbled passage splits or continues both to the right and to the left, with the left path banked with mud and broken rock."
+      }
+     ]
+    },
+    "LOC_DEBRIS.jpg": {
+     "room": "LOC_DEBRIS",
+     "file": "img/LOC_DEBRIS.jpg",
+     "pass": 20,
+     "flip": 0,
+     "fail": 0,
+     "checks": 20,
+     "error": null
+    },
+    "LOC_AWKWARD.jpg": {
+     "room": "LOC_AWKWARD",
+     "file": "img/LOC_AWKWARD.jpg",
+     "pass": 12,
+     "flip": 4,
+     "fail": 1,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 3,
+      "edit": 2
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the composition so the canyon opens up and continues downward toward the right edge of the frame instead of ending in a dark wall ahead."
+      },
+      {
+       "id": "q7",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the composition so the canyon opens up and continues toward the left edge of the frame."
+      },
+      {
+       "id": "q13",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Cover the cobbles on the right side of the canyon floor with a thick layer of dark, glistening wet mud."
+      },
+      {
+       "id": "q14",
+       "cause": "image",
+       "action": "new",
+       "fix": "Adjust the floor's perspective so it is visibly higher on the left and slopes downward toward the right side of the image."
+      },
+      {
+       "id": "q16",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Reshape the cracked rock on the floor to create distinct, stepped low ledges."
+      }
+     ]
+    },
+    "LOC_BIRDCHAMBER.jpg": {
+     "room": "LOC_BIRDCHAMBER",
+     "file": "img/LOC_BIRDCHAMBER.jpg",
+     "pass": 17,
+     "flip": 0,
+     "fail": 3,
+     "checks": 20,
+     "error": null,
+     "actions": {
+      "new": 3
+     },
+     "routes": [
+      {
+       "id": "q2",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the walls from architectural blocks to natural rock with smooth wavy bands of orange stone."
+      },
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the walls from architectural blocks to natural rock with smooth wavy bands of orange stone."
+      },
+      {
+       "id": "q14",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the walls from architectural blocks to natural rock with smooth wavy bands of orange stone."
+      }
+     ]
+    },
+    "LOC_PITTOP.jpg": {
+     "room": "LOC_PITTOP",
+     "file": "img/LOC_PITTOP.jpg",
+     "pass": 12,
+     "flip": 1,
+     "fail": 4,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 5
+     },
+     "routes": [
+      {
+       "id": "q2",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a passage opening on the right and a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q3",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a passage opening on the right and a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q10",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q16",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a thin dark slit in the rock wall on the left."
+      }
+     ]
+    }
+   },
+   "to_fix": [
+    "LOC_START.jpg",
+    "LOC_GRATE.GRATE_CLOSED.jpg",
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+    "LOC_COBBLE.jpg",
+    "LOC_AWKWARD.jpg",
+    "LOC_BIRDCHAMBER.jpg",
+    "LOC_PITTOP.jpg"
+   ],
+   "corrected": [
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+    "LOC_COBBLE.jpg",
+    "LOC_AWKWARD.jpg",
+    "LOC_BIRDCHAMBER.jpg",
+    "LOC_PITTOP.jpg",
+    "LOC_GRATE.GRATE_CLOSED.jpg",
+    "LOC_START.jpg"
+   ],
+   "next_run": "example_r2",
+   "seconds": {
+    "judge_route": 106.5,
+    "correct_draw": 212.1
+   }
+  },
+  {
+   "pass": 1,
+   "round": 2,
+   "run": "example_r2",
+   "judged": [
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+    "LOC_COBBLE.jpg",
+    "LOC_AWKWARD.jpg",
+    "LOC_BIRDCHAMBER.jpg",
+    "LOC_PITTOP.jpg",
+    "LOC_GRATE.GRATE_CLOSED.jpg",
+    "LOC_START.jpg"
+   ],
+   "results": {
+    "LOC_START.jpg": {
+     "room": "LOC_START",
+     "file": "img/LOC_START.jpg",
+     "pass": 16,
+     "flip": 1,
+     "fail": 2,
+     "checks": 19,
+     "error": null,
+     "actions": {
+      "new": 3
+     },
+     "routes": [
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add a dirt road with cart ruts on the left side of the clearing that rises into the trees."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "new",
+       "fix": "Ensure the dirt road ends at the edge of the clearing on the left and remove the path leading straight ahead."
+      },
+      {
+       "id": "q15",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the dirt road on the left so its width can be compared to the stream."
+      }
+     ]
+    },
+    "LOC_GRATE.GRATE_CLOSED.jpg": {
+     "room": "LOC_GRATE",
+     "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+     "pass": 20,
+     "flip": 2,
+     "fail": 1,
+     "checks": 23,
+     "error": null,
+     "actions": {
+      "edit": 3
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear, walkable gap between the tree trunks on the right side of the image."
+      },
+      {
+       "id": "q7",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear, walkable gap between the tree trunks in the foreground at the bottom of the image."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear, walkable gap between the tree trunks on the left side of the image."
+      }
+     ]
+    },
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg": {
+     "room": "LOC_BELOWGRATE",
+     "file": "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+     "pass": 10,
+     "flip": 0,
+     "fail": 5,
+     "checks": 15,
+     "error": null,
+     "actions": {
+      "new": 5
+     },
+     "routes": [
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Create a square opening in the ceiling for the grate."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q15",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate to the ceiling and make the daylight fall vertically from it."
+      }
+     ]
+    },
+    "LOC_COBBLE.jpg": {
+     "room": "LOC_COBBLE",
+     "file": "img/LOC_COBBLE.jpg",
+     "pass": 7,
+     "flip": 3,
+     "fail": 1,
+     "checks": 11,
+     "error": null,
+     "actions": {
+      "keep": 1,
+      "new": 3
+     },
+     "routes": [
+      {
+       "id": "q1",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the passage curving or extending towards the right edge of the frame, rather than straight ahead."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the passage splitting or extending towards the left edge of the frame."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "new",
+       "fix": "Place the pale light at the distant end of the passage that leads to the right."
+      }
+     ]
+    },
+    "LOC_AWKWARD.jpg": {
+     "room": "LOC_AWKWARD",
+     "file": "img/LOC_AWKWARD.jpg",
+     "pass": 13,
+     "flip": 1,
+     "fail": 3,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 3,
+      "edit": 1
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the composition so the canyon floor and walls on the right slope downwards and lead out of the frame to the right, rather than straight ahead."
+      },
+      {
+       "id": "q7",
+       "cause": "spec",
+       "action": "new",
+       "fix": "Add a decision stating that the canyon continues upwards and out of the frame on the left side."
+      },
+      {
+       "id": "q13",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Cover the cobbles on the right with a thick layer of dark, glistening wet mud."
+      },
+      {
+       "id": "q14",
+       "cause": "image",
+       "action": "new",
+       "fix": "Redraw the floor as a clear slope that drops from the left side of the image down towards the right."
+      }
+     ]
+    },
+    "LOC_BIRDCHAMBER.jpg": {
+     "room": "LOC_BIRDCHAMBER",
+     "file": "img/LOC_BIRDCHAMBER.jpg",
+     "pass": 18,
+     "flip": 0,
+     "fail": 2,
+     "checks": 20,
+     "error": null,
+     "actions": {
+      "keep": 2
+     },
+     "routes": [
+      {
+       "id": "q1",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q4",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      }
+     ]
+    },
+    "LOC_PITTOP.jpg": {
+     "room": "LOC_PITTOP",
+     "file": "img/LOC_PITTOP.jpg",
+     "pass": 11,
+     "flip": 0,
+     "fail": 6,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 2,
+      "edit": 4
+     },
+     "routes": [
+      {
+       "id": "q2",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the opening on the right as a passage leading away, with the orange banded stone visible further inside the tunnel."
+      },
+      {
+       "id": "q3",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the opening on the right as a passage leading away, with the orange banded stone visible further inside the tunnel."
+      },
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Remove the light emanating from the right passage so the only light source is the pool of lamplight from behind the camera."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Replace the large fissures on the left wall with a single, thin, dark vertical slit."
+      },
+      {
+       "id": "q10",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Replace the large fissures on the left wall with a single, thin, dark vertical slit."
+      },
+      {
+       "id": "q16",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Replace the large fissures on the left wall with a single, thin, dark vertical slit."
+      }
+     ]
+    }
+   },
+   "to_fix": [
+    "LOC_START.jpg",
+    "LOC_GRATE.GRATE_CLOSED.jpg",
+    "LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+    "LOC_COBBLE.jpg",
+    "LOC_AWKWARD.jpg",
+    "LOC_PITTOP.jpg"
+   ],
+   "seconds": {
+    "judge_route": 43.2
+   }
+  },
+  {
+   "pass": 2,
+   "round": 0,
+   "run": "example_w2",
+   "judged": [
+    "BIRD.BIRD_CAGED.png",
+    "BOTTLE.EMPTY_BOTTLE.png",
+    "BOTTLE.OIL_BOTTLE.png",
+    "LAMP.LAMP_BRIGHT.png"
+   ],
+   "results": {
+    "LAMP.LAMP_BRIGHT.png": {
+     "room": "LOC_BUILDING",
+     "file": "items/LAMP.LAMP_BRIGHT.png",
+     "pass": 7,
+     "flip": 0,
+     "fail": 0,
+     "checks": 7,
+     "error": null
+    },
+    "BOTTLE.EMPTY_BOTTLE.png": {
+     "room": "LOC_BUILDING",
+     "file": "items/BOTTLE.EMPTY_BOTTLE.png",
+     "pass": 6,
+     "flip": 0,
+     "fail": 0,
+     "checks": 6,
+     "error": null
+    },
+    "BOTTLE.OIL_BOTTLE.png": {
+     "room": "LOC_BUILDING",
+     "file": "items/BOTTLE.OIL_BOTTLE.png",
+     "pass": 6,
+     "flip": 0,
+     "fail": 0,
+     "checks": 6,
+     "error": null
+    },
+    "BIRD.BIRD_CAGED.png": {
+     "room": "LOC_BIRDCHAMBER",
+     "file": "items/BIRD.BIRD_CAGED.png",
+     "pass": 9,
+     "flip": 0,
+     "fail": 0,
+     "checks": 9,
+     "error": null
+    }
+   },
+   "to_fix": [],
+   "seconds": {
+    "judge_route": 18.6
+   }
+  }
+ ],
+ "spec_stage": {},
+ "waiting": {
+  "img/LOC_GRATE.GRATE_OPEN.jpg": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+  "img/LOC_BELOWGRATE.GRATE_OPEN.jpg": "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg"
+ },
+ "to_a_person": {
+  "LOC_START.jpg": {
+   "room": "LOC_START",
+   "file": "img/LOC_START.jpg",
+   "pass": 17,
+   "flip": 1,
+   "fail": 1,
+   "checks": 19,
+   "error": null,
+   "actions": {
+    "edit": 2
+   },
+   "routes": [
+    {
+     "id": "q11",
+     "cause": "image",
+     "action": "edit",
+     "fix": "Change the road so it ends in the clearing and leads away to the left, rather than continuing straight ahead."
+    },
+    {
+     "id": "q12",
+     "cause": "image",
+     "action": "edit",
+     "fix": "Change the material of the building from stone blocks to old handmade bricks."
+    }
+   ],
+   "run": "example",
+   "versions": [
+    {
+     "room": "LOC_START",
+     "file": "img/LOC_START.jpg",
+     "pass": 17,
+     "flip": 1,
+     "fail": 1,
+     "checks": 19,
+     "error": null,
+     "actions": {
+      "edit": 2
+     },
+     "routes": [
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the road so it ends in the clearing and leads away to the left, rather than continuing straight ahead."
+      },
+      {
+       "id": "q12",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the material of the building from stone blocks to old handmade bricks."
+      }
+     ],
+     "run": "example"
+    },
+    {
+     "room": "LOC_START",
+     "file": "img/LOC_START.jpg",
+     "pass": 17,
+     "flip": 0,
+     "fail": 2,
+     "checks": 19,
+     "error": null,
+     "actions": {
+      "edit": 2
+     },
+     "routes": [
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the road so it ends in the clearing and leads away to the left, removing the path that continues straight ahead."
+      },
+      {
+       "id": "q12",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Change the material of the building from stone blocks to old handmade bricks."
+      }
+     ],
+     "run": "example_r1"
+    },
+    {
+     "room": "LOC_START",
+     "file": "img/LOC_START.jpg",
+     "pass": 16,
+     "flip": 1,
+     "fail": 2,
+     "checks": 19,
+     "error": null,
+     "actions": {
+      "new": 3
+     },
+     "routes": [
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add a dirt road with cart ruts on the left side of the clearing that rises into the trees."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "new",
+       "fix": "Ensure the dirt road ends at the edge of the clearing on the left and remove the path leading straight ahead."
+      },
+      {
+       "id": "q15",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the dirt road on the left so its width can be compared to the stream."
+      }
+     ],
+     "run": "example_r2"
+    }
+   ]
+  },
+  "LOC_GRATE.GRATE_CLOSED.jpg": {
+   "room": "LOC_GRATE",
+   "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+   "pass": 20,
+   "flip": 2,
+   "fail": 1,
+   "checks": 23,
+   "error": null,
+   "actions": {
+    "edit": 3
+   },
+   "routes": [
+    {
+     "id": "q6",
+     "cause": "image",
+     "action": "edit",
+     "fix": "Create a clear gap between the tree trunks on the right to show a path leading out of the picture."
+    },
+    {
+     "id": "q7",
+     "cause": "image",
+     "action": "edit",
+     "fix": "Create a clear gap between the tree trunks at the bottom of the picture to show a path leading out of the frame."
+    },
+    {
+     "id": "q8",
+     "cause": "image",
+     "action": "edit",
+     "fix": "Create a clear gap between the tree trunks on the left to show a path leading out of the picture."
+    }
+   ],
+   "run": "example",
+   "versions": [
+    {
+     "room": "LOC_GRATE",
+     "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+     "pass": 20,
+     "flip": 2,
+     "fail": 1,
+     "checks": 23,
+     "error": null,
+     "actions": {
+      "edit": 3
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear gap between the tree trunks on the right to show a path leading out of the picture."
+      },
+      {
+       "id": "q7",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear gap between the tree trunks at the bottom of the picture to show a path leading out of the frame."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear gap between the tree trunks on the left to show a path leading out of the picture."
+      }
+     ],
+     "run": "example"
+    },
+    {
+     "room": "LOC_GRATE",
+     "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+     "pass": 19,
+     "flip": 3,
+     "fail": 1,
+     "checks": 23,
+     "error": null,
+     "actions": {
+      "edit": 4
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a visible gap between the tree trunks on the right to show a path leading out of the hollow."
+      },
+      {
+       "id": "q7",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Open a clear path between the tree trunks in the foreground at the bottom of the picture."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a visible gap between the tree trunks on the left to show a path leading out of the hollow."
+      },
+      {
+       "id": "q19",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Replace the circular latch on the grate with a heavy iron padlock and hasp."
+      }
+     ],
+     "run": "example_r1"
+    },
+    {
+     "room": "LOC_GRATE",
+     "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+     "pass": 20,
+     "flip": 2,
+     "fail": 1,
+     "checks": 23,
+     "error": null,
+     "actions": {
+      "edit": 3
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear, walkable gap between the tree trunks on the right side of the image."
+      },
+      {
+       "id": "q7",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear, walkable gap between the tree trunks in the foreground at the bottom of the image."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Create a clear, walkable gap between the tree trunks on the left side of the image."
+      }
+     ],
+     "run": "example_r2"
+    }
+   ]
+  },
+  "LOC_BELOWGRATE.GRATE_CLOSED.jpg": {
+   "room": "LOC_BELOWGRATE",
+   "file": "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+   "pass": 10,
+   "flip": 0,
+   "fail": 5,
+   "checks": 15,
+   "error": null,
+   "actions": {
+    "new": 5
+   },
+   "routes": [
+    {
+     "id": "q4",
+     "cause": "image",
+     "action": "new",
+     "fix": "Move the iron grate from the wall to the ceiling above the center of the room."
+    },
+    {
+     "id": "q5",
+     "cause": "image",
+     "action": "new",
+     "fix": "Create a square opening in the ceiling to house the grate."
+    },
+    {
+     "id": "q9",
+     "cause": "image",
+     "action": "new",
+     "fix": "Move the iron grate from the wall to the ceiling above the center of the room."
+    },
+    {
+     "id": "q11",
+     "cause": "image",
+     "action": "new",
+     "fix": "Move the iron grate from the wall to the ceiling above the center of the room."
+    },
+    {
+     "id": "q15",
+     "cause": "image",
+     "action": "new",
+     "fix": "Change the light source so that daylight falls vertically from the grate in the ceiling."
+    }
+   ],
+   "run": "example",
+   "versions": [
+    {
+     "room": "LOC_BELOWGRATE",
+     "file": "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+     "pass": 10,
+     "flip": 0,
+     "fail": 5,
+     "checks": 15,
+     "error": null,
+     "actions": {
+      "new": 5
+     },
+     "routes": [
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling above the center of the room."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Create a square opening in the ceiling to house the grate."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling above the center of the room."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling above the center of the room."
+      },
+      {
+       "id": "q15",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the light source so that daylight falls vertically from the grate in the ceiling."
+      }
+     ],
+     "run": "example"
+    },
+    {
+     "room": "LOC_BELOWGRATE",
+     "file": "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+     "pass": 10,
+     "flip": 0,
+     "fail": 5,
+     "checks": 15,
+     "error": null,
+     "actions": {
+      "new": 5
+     },
+     "routes": [
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Create a square opening in the ceiling for the grate."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q15",
+       "cause": "image",
+       "action": "new",
+       "fix": "Make the light source the grate in the ceiling, casting light downwards into the chamber."
+      }
+     ],
+     "run": "example_r1"
+    },
+    {
+     "room": "LOC_BELOWGRATE",
+     "file": "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+     "pass": 10,
+     "flip": 0,
+     "fail": 5,
+     "checks": 15,
+     "error": null,
+     "actions": {
+      "new": 5
+     },
+     "routes": [
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Create a square opening in the ceiling for the grate."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+      },
+      {
+       "id": "q15",
+       "cause": "image",
+       "action": "new",
+       "fix": "Move the iron grate to the ceiling and make the daylight fall vertically from it."
+      }
+     ],
+     "run": "example_r2"
+    }
+   ]
+  },
+  "LOC_COBBLE.jpg": {
+   "room": "LOC_COBBLE",
+   "file": "img/LOC_COBBLE.jpg",
+   "pass": 9,
+   "flip": 0,
+   "fail": 2,
+   "checks": 11,
+   "error": null,
+   "actions": {
+    "edit": 1,
+    "new": 1
+   },
+   "routes": [
+    {
+     "id": "q1",
+     "cause": "image",
+     "action": "edit",
+     "fix": "Lighten the rock walls and ceiling so their texture is visible, as if the pale light from the end of the passage is reaching them."
+    },
+    {
+     "id": "q5",
+     "cause": "image",
+     "action": "new",
+     "fix": "Redraw the scene so the cobbled passage splits or continues both to the right and to the left, with the left path banked with mud and broken rock."
+    }
+   ],
+   "run": "example_r1",
+   "versions": [
+    {
+     "room": "LOC_COBBLE",
+     "file": "img/LOC_COBBLE.jpg",
+     "pass": 8,
+     "flip": 1,
+     "fail": 2,
+     "checks": 11,
+     "error": null,
+     "actions": {
+      "new": 3
+     },
+     "routes": [
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the passage as a corridor that turns or exits to the right, with the pale light at the end of that rightward path."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the passage as a corridor that turns or exits to the left, separate from the rightward path."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add banks of mud and broken rock along the left side of the passage."
+      }
+     ],
+     "run": "example"
+    },
+    {
+     "room": "LOC_COBBLE",
+     "file": "img/LOC_COBBLE.jpg",
+     "pass": 9,
+     "flip": 0,
+     "fail": 2,
+     "checks": 11,
+     "error": null,
+     "actions": {
+      "edit": 1,
+      "new": 1
+     },
+     "routes": [
+      {
+       "id": "q1",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Lighten the rock walls and ceiling so their texture is visible, as if the pale light from the end of the passage is reaching them."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Redraw the scene so the cobbled passage splits or continues both to the right and to the left, with the left path banked with mud and broken rock."
+      }
+     ],
+     "run": "example_r1"
+    },
+    {
+     "room": "LOC_COBBLE",
+     "file": "img/LOC_COBBLE.jpg",
+     "pass": 7,
+     "flip": 3,
+     "fail": 1,
+     "checks": 11,
+     "error": null,
+     "actions": {
+      "keep": 1,
+      "new": 3
+     },
+     "routes": [
+      {
+       "id": "q1",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the passage curving or extending towards the right edge of the frame, rather than straight ahead."
+      },
+      {
+       "id": "q5",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the passage splitting or extending towards the left edge of the frame."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "new",
+       "fix": "Place the pale light at the distant end of the passage that leads to the right."
+      }
+     ],
+     "run": "example_r2"
+    }
+   ]
+  },
+  "LOC_AWKWARD.jpg": {
+   "room": "LOC_AWKWARD",
+   "file": "img/LOC_AWKWARD.jpg",
+   "pass": 13,
+   "flip": 1,
+   "fail": 3,
+   "checks": 17,
+   "error": null,
+   "actions": {
+    "new": 3,
+    "edit": 1
+   },
+   "routes": [
+    {
+     "id": "q6",
+     "cause": "image",
+     "action": "new",
+     "fix": "Change the composition so the canyon floor and walls on the right slope downwards and lead out of the frame to the right, rather than straight ahead."
+    },
+    {
+     "id": "q7",
+     "cause": "spec",
+     "action": "new",
+     "fix": "Add a decision stating that the canyon continues upwards and out of the frame on the left side."
+    },
+    {
+     "id": "q13",
+     "cause": "image",
+     "action": "edit",
+     "fix": "Cover the cobbles on the right with a thick layer of dark, glistening wet mud."
+    },
+    {
+     "id": "q14",
+     "cause": "image",
+     "action": "new",
+     "fix": "Redraw the floor as a clear slope that drops from the left side of the image down towards the right."
+    }
+   ],
+   "run": "example_r2",
+   "versions": [
+    {
+     "room": "LOC_AWKWARD",
+     "file": "img/LOC_AWKWARD.jpg",
+     "pass": 12,
+     "flip": 4,
+     "fail": 1,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "keep": 3,
+      "edit": 1,
+      "new": 1
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q7",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q11",
+       "cause": "judge",
+       "action": "keep",
+       "fix": ""
+      },
+      {
+       "id": "q13",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Add a layer of dark, wet mud covering the cobbles on the right side of the canyon floor."
+      },
+      {
+       "id": "q15",
+       "cause": "both",
+       "action": "new",
+       "fix": "Change decision 5 to describe the walls as 'marked with flowing, undulating waves of orange stone, like frozen rivers'. "
+      }
+     ],
+     "run": "example"
+    },
+    {
+     "room": "LOC_AWKWARD",
+     "file": "img/LOC_AWKWARD.jpg",
+     "pass": 12,
+     "flip": 4,
+     "fail": 1,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 3,
+      "edit": 2
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the composition so the canyon opens up and continues downward toward the right edge of the frame instead of ending in a dark wall ahead."
+      },
+      {
+       "id": "q7",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the composition so the canyon opens up and continues toward the left edge of the frame."
+      },
+      {
+       "id": "q13",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Cover the cobbles on the right side of the canyon floor with a thick layer of dark, glistening wet mud."
+      },
+      {
+       "id": "q14",
+       "cause": "image",
+       "action": "new",
+       "fix": "Adjust the floor's perspective so it is visibly higher on the left and slopes downward toward the right side of the image."
+      },
+      {
+       "id": "q16",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Reshape the cracked rock on the floor to create distinct, stepped low ledges."
+      }
+     ],
+     "run": "example_r1"
+    },
+    {
+     "room": "LOC_AWKWARD",
+     "file": "img/LOC_AWKWARD.jpg",
+     "pass": 13,
+     "flip": 1,
+     "fail": 3,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 3,
+      "edit": 1
+     },
+     "routes": [
+      {
+       "id": "q6",
+       "cause": "image",
+       "action": "new",
+       "fix": "Change the composition so the canyon floor and walls on the right slope downwards and lead out of the frame to the right, rather than straight ahead."
+      },
+      {
+       "id": "q7",
+       "cause": "spec",
+       "action": "new",
+       "fix": "Add a decision stating that the canyon continues upwards and out of the frame on the left side."
+      },
+      {
+       "id": "q13",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Cover the cobbles on the right with a thick layer of dark, glistening wet mud."
+      },
+      {
+       "id": "q14",
+       "cause": "image",
+       "action": "new",
+       "fix": "Redraw the floor as a clear slope that drops from the left side of the image down towards the right."
+      }
+     ],
+     "run": "example_r2"
+    }
+   ]
+  },
+  "LOC_PITTOP.jpg": {
+   "room": "LOC_PITTOP",
+   "file": "img/LOC_PITTOP.jpg",
+   "pass": 12,
+   "flip": 1,
+   "fail": 4,
+   "checks": 17,
+   "error": null,
+   "actions": {
+    "new": 5
+   },
+   "routes": [
+    {
+     "id": "q2",
+     "cause": "image",
+     "action": "new",
+     "fix": "Draw a passage opening on the right and a thin dark slit in the rock wall on the left."
+    },
+    {
+     "id": "q3",
+     "cause": "image",
+     "action": "new",
+     "fix": "Draw a passage opening on the right and a thin dark slit in the rock wall on the left."
+    },
+    {
+     "id": "q9",
+     "cause": "image",
+     "action": "new",
+     "fix": "Draw a thin dark slit in the rock wall on the left."
+    },
+    {
+     "id": "q10",
+     "cause": "image",
+     "action": "new",
+     "fix": "Draw a thin dark slit in the rock wall on the left."
+    },
+    {
+     "id": "q16",
+     "cause": "image",
+     "action": "new",
+     "fix": "Draw a thin dark slit in the rock wall on the left."
+    }
+   ],
+   "run": "example_r1",
+   "versions": [
+    {
+     "room": "LOC_PITTOP",
+     "file": "img/LOC_PITTOP.jpg",
+     "pass": 10,
+     "flip": 2,
+     "fail": 5,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 5,
+      "edit": 2
+     },
+     "routes": [
+      {
+       "id": "q2",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q3",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q8",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Add rough stone steps descending into the pit."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q10",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q11",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Add rough stone steps descending into the pit."
+      },
+      {
+       "id": "q16",
+       "cause": "image",
+       "action": "new",
+       "fix": "Add the small crack as a thin dark slit in the rock wall on the left."
+      }
+     ],
+     "run": "example"
+    },
+    {
+     "room": "LOC_PITTOP",
+     "file": "img/LOC_PITTOP.jpg",
+     "pass": 12,
+     "flip": 1,
+     "fail": 4,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 5
+     },
+     "routes": [
+      {
+       "id": "q2",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a passage opening on the right and a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q3",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a passage opening on the right and a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q10",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a thin dark slit in the rock wall on the left."
+      },
+      {
+       "id": "q16",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw a thin dark slit in the rock wall on the left."
+      }
+     ],
+     "run": "example_r1"
+    },
+    {
+     "room": "LOC_PITTOP",
+     "file": "img/LOC_PITTOP.jpg",
+     "pass": 11,
+     "flip": 0,
+     "fail": 6,
+     "checks": 17,
+     "error": null,
+     "actions": {
+      "new": 2,
+      "edit": 4
+     },
+     "routes": [
+      {
+       "id": "q2",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the opening on the right as a passage leading away, with the orange banded stone visible further inside the tunnel."
+      },
+      {
+       "id": "q3",
+       "cause": "image",
+       "action": "new",
+       "fix": "Draw the opening on the right as a passage leading away, with the orange banded stone visible further inside the tunnel."
+      },
+      {
+       "id": "q4",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Remove the light emanating from the right passage so the only light source is the pool of lamplight from behind the camera."
+      },
+      {
+       "id": "q9",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Replace the large fissures on the left wall with a single, thin, dark vertical slit."
+      },
+      {
+       "id": "q10",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Replace the large fissures on the left wall with a single, thin, dark vertical slit."
+      },
+      {
+       "id": "q16",
+       "cause": "image",
+       "action": "edit",
+       "fix": "Replace the large fissures on the left wall with a single, thin, dark vertical slit."
+      }
+     ],
+     "run": "example_r2"
+    }
+   ]
+  }
+ },
+ "kept": {
+  "LOC_START.jpg": {
+   "run": "example",
+   "pass": 17,
+   "checks": 19,
+   "done": false
+  },
+  "LOC_BUILDING.jpg": {
+   "run": "example_r1",
+   "pass": 18,
+   "checks": 19,
+   "done": true
+  },
+  "KEYS.png": {
+   "run": "example",
+   "pass": 5,
+   "checks": 5,
+   "done": true
+  },
+  "LAMP.LAMP_DARK.png": {
+   "run": "example",
+   "pass": 8,
+   "checks": 8,
+   "done": true
+  },
+  "FOOD.png": {
+   "run": "example",
+   "pass": 5,
+   "checks": 5,
+   "done": true
+  },
+  "BOTTLE.WATER_BOTTLE.png": {
+   "run": "example_r1",
+   "pass": 6,
+   "checks": 6,
+   "done": true
+  },
+  "LOC_GRATE.GRATE_CLOSED.jpg": {
+   "run": "example",
+   "pass": 20,
+   "checks": 23,
+   "done": false
+  },
+  "LOC_BELOWGRATE.GRATE_CLOSED.jpg": {
+   "run": "example",
+   "pass": 10,
+   "checks": 15,
+   "done": false
+  },
+  "LOC_COBBLE.jpg": {
+   "run": "example_r1",
+   "pass": 9,
+   "checks": 11,
+   "done": false
+  },
+  "CAGE.png": {
+   "run": "example",
+   "pass": 11,
+   "checks": 11,
+   "done": true
+  },
+  "LOC_DEBRIS.jpg": {
+   "run": "example_r1",
+   "pass": 20,
+   "checks": 20,
+   "done": true
+  },
+  "ROD.png": {
+   "run": "example",
+   "pass": 7,
+   "checks": 7,
+   "done": true
+  },
+  "LOC_AWKWARD.jpg": {
+   "run": "example_r2",
+   "pass": 13,
+   "checks": 17,
+   "done": false
+  },
+  "LOC_BIRDCHAMBER.jpg": {
+   "run": "example_r2",
+   "pass": 18,
+   "checks": 20,
+   "done": true
+  },
+  "BIRD.BIRD_UNCAGED.png": {
+   "run": "example",
+   "pass": 8,
+   "checks": 8,
+   "done": true
+  },
+  "LOC_PITTOP.jpg": {
+   "run": "example_r1",
+   "pass": 12,
+   "checks": 17,
+   "done": false
+  },
+  "LAMP.LAMP_BRIGHT.png": {
+   "run": "example_w2",
+   "pass": 7,
+   "checks": 7,
+   "done": true
+  },
+  "BOTTLE.EMPTY_BOTTLE.png": {
+   "run": "example_w2",
+   "pass": 6,
+   "checks": 6,
+   "done": true
+  },
+  "BOTTLE.OIL_BOTTLE.png": {
+   "run": "example_w2",
+   "pass": 6,
+   "checks": 6,
+   "done": true
+  },
+  "BIRD.BIRD_CAGED.png": {
+   "run": "example_w2",
+   "pass": 9,
+   "checks": 9,
+   "done": true
+  }
+ }
+}

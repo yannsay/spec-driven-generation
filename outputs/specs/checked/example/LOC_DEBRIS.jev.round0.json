@@ -1,0 +1,694 @@
+{
+  "spec": "outputs/specs/checked/example/LOC_DEBRIS.json",
+  "model": "typesafe/jev-1.13-20260917",
+  "usage": {
+    "cost": 0.001120224,
+    "requests": 3
+  },
+  "ids": {
+    "room": "gen-dec-1794244321-n2H8MNguiKlfWYFuaars",
+    "img/LOC_DEBRIS.jpg": "gen-dec-1794244321-kT5CXKXTJU3QWZU34oh9",
+    "items/ROD.png": "gen-dec-1794244321-W0vFsztTErbTq05AO30c"
+  },
+  "thresholds": {
+    "no_below": 0.3,
+    "yes_above": 0.7
+  },
+  "results": [
+    {
+      "id": "room/exit/LOC_GRATE",
+      "level": "room",
+      "target": "LOC_GRATE",
+      "question": "Does the room description mention any place or thing called depression?",
+      "expected": false,
+      "p_yes": 0.07,
+      "result": "pass"
+    },
+    {
+      "id": "room/exit/LOC_BELOWGRATE",
+      "level": "room",
+      "target": "LOC_BELOWGRATE",
+      "question": "Does the room description mention any place or thing called entrance?",
+      "expected": false,
+      "p_yes": 0.07,
+      "result": "pass"
+    },
+    {
+      "id": "room/exit/LOC_PITTOP",
+      "level": "room",
+      "target": "LOC_PITTOP",
+      "question": "Does the room description mention any place or thing called pit?",
+      "expected": false,
+      "p_yes": 0.06,
+      "result": "pass"
+    },
+    {
+      "id": "room/label/LOC_COBBLE",
+      "level": "room",
+      "target": "LOC_COBBLE",
+      "question": "Is \"a low wide cobbled passage on the right\" something a player could see and tap in this room?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "room/label/LOC_AWKWARD",
+      "level": "room",
+      "target": "LOC_AWKWARD",
+      "question": "Is \"a canyon sloping up on the left\" something a player could see and tap in this room?",
+      "expected": true,
+      "p_yes": 0.9,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/decision1",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Is this picture decision of img/LOC_DEBRIS.jpg stated in the YAML or an allowed choice: \"A wide chamber of rough grey rock with a low ceiling, seen in a first-person view at standing eye height. (why: YAML: 'You are in a debris room filled with stuff washed in from the surface.' The room itself, a cave chamber of old rough rock.)\"?",
+      "expected": true,
+      "p_yes": 0.74,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/decision2",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Is this picture decision of img/LOC_DEBRIS.jpg stated in the YAML or an allowed choice: \"Broken branches, gravel, small stones and dead leaves lie heaped across the floor and against the walls. (why: YAML: '... filled with stuff washed in from the surface.' The stuff washed in lies heaped on the floor.)\"?",
+      "expected": true,
+      "p_yes": 0.85,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/decision3",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Is this picture decision of img/LOC_DEBRIS.jpg stated in the YAML or an allowed choice: \"In the middle of the floor a patch of wet mud lies smoothed flat, with the words \"MAGIC WORD XYZZY\" scrawled across it. (why: YAML: 'In the mud someone has scrawled, \"MAGIC WORD XYZZY\".' The mud and the words scrawled in it.)\"?",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/decision4",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Is this picture decision of img/LOC_DEBRIS.jpg stated in the YAML or an allowed choice: \"On the right, set in from the edge of the picture, a low wide passage with a cobbled floor leads away into the rock, and mud, gravel and broken sticks are heaped at its mouth. (why: YAML: 'A low wide passage with cobbles becomes plugged with mud and debris here.' EAST is its only compass direction, so the way sits on the right.)\"?",
+      "expected": true,
+      "p_yes": 0.85,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/decision5",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Is this picture decision of img/LOC_DEBRIS.jpg stated in the YAML or an allowed choice: \"On the left, set in from the edge of the picture, a rough canyon slopes up and away into the rock, its floor broken into uneven rock steps. (why: YAML: 'an awkward canyon leads upward and west.' WEST is its only compass direction, so the way sits on the left.)\"?",
+      "expected": true,
+      "p_yes": 0.74,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/decision6",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Is this picture decision of img/LOC_DEBRIS.jpg stated in the YAML or an allowed choice: \"A single pool of warm lamplight falls from just behind the camera onto the floor and the middle of the rock walls, and the corners of the picture fall into darkness. (why: The room has no LIT condition, so it is dark: one pool of lamp light with dark edges.)\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/agrees",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does the generation_prompt of img/LOC_DEBRIS.jpg agree with the room's description in the YAML?",
+      "expected": true,
+      "p_yes": 0.63,
+      "result": "unsure"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/sentence1",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Do these draw sentences show what this sentence of the game says: \"You are in a debris room filled with stuff washed in from the surface.\"? Draw sentences: [1] \"A wide chamber of rough grey rock with a low ceiling, seen in a first-person view at standing eye height.\" [2] \"Broken branches, gravel, small stones and dead leaves lie heaped across the floor and against the walls.\"",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/sentence2",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Do these draw sentences show what this sentence of the game says: \"A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west.\"? Draw sentences: [4] \"On the right, set in from the edge of the picture, a low wide passage with a cobbled floor leads away into the rock, and mud, gravel and broken sticks are heaped at its mouth.\" [5] \"On the left, set in from the edge of the picture, a rough canyon slopes up and away into the rock, its floor broken into uneven rock steps.\"",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/sentence3",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Do these draw sentences show what this sentence of the game says: \"In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"? Draw sentences: [3] \"In the middle of the floor a patch of wet mud lies smoothed flat, with the words \"MAGIC WORD XYZZY\" scrawled across it.\"",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/no-items",
+      "level": "picture",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does the generation_prompt of img/LOC_DEBRIS.jpg name or describe any of these, or anything that could be mistaken for one: black rod?",
+      "expected": false,
+      "p_yes": 0.03,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/decision1",
+      "level": "picture",
+      "target": "items/ROD.png",
+      "question": "Is this picture decision of items/ROD.png stated in the YAML or an allowed choice: \"A black iron rod three feet long and about as thick as a thumb, shown whole and centred in a three-quarter view, its length running from the lower left to the upper right, with clear space around it. (why: YAML: 'A three foot black rod ... lies nearby.' The rod itself, drawn as old hand-forged iron.)\"?",
+      "expected": true,
+      "p_yes": 0.88,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/decision2",
+      "level": "picture",
+      "target": "items/ROD.png",
+      "question": "Is this picture decision of items/ROD.png stated in the YAML or an allowed choice: \"A rusty iron star with five flat points is fixed on one end of the rod, its five points lying flat against the black iron at the rod's end. (why: YAML: '... with a rusty star on an end.' The star on the rod's end.)\"?",
+      "expected": true,
+      "p_yes": 0.86,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/agrees",
+      "level": "picture",
+      "target": "items/ROD.png",
+      "question": "Does the generation_prompt of items/ROD.png agree with the object's description in the YAML?",
+      "expected": true,
+      "p_yes": 0.86,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/sentence1",
+      "level": "picture",
+      "target": "items/ROD.png",
+      "question": "Do these draw sentences show what this sentence of the game says: \"A three foot black rod with a rusty star on an end lies nearby.\"? Draw sentences: [1] \"A black iron rod three feet long and about as thick as a thumb, shown whole and centred in a three-quarter view, its length running from the lower left to the upper right, with clear space around it.\" [2] \"A rusty iron star with five flat points is fixed on one end of the rod, its five points lying flat against the black iron at the rod's end.\"",
+      "expected": true,
+      "p_yes": 0.9,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q1/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Does the picture show what this sentence describes: \"You are in a debris room filled with stuff washed in from the surface.\"?\"?",
+      "expected": true,
+      "p_yes": 0.89,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q2/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Does the picture show what this sentence describes: \"A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west.\"?\"?",
+      "expected": true,
+      "p_yes": 0.93,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q3/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Does the picture show what this sentence describes: \"In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q4/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Does the image match this description: \"You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?\"?",
+      "expected": true,
+      "p_yes": 0.9,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q5/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is the scene lit by a single pool of warm light?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q6/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Are the edges of the image dark?\"?",
+      "expected": true,
+      "p_yes": 0.88,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q7/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is the black rod with a rusty star visible anywhere in the image?\"?",
+      "expected": false,
+      "p_yes": 0.05,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q8/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is the mud visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q9/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.18,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q10/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is a low wide cobbled passage on the right visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q10/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Is a low wide cobbled passage on the right visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q10/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a low wide cobbled passage on the right visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.89,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q11/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is a canyon sloping up on the left visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q11/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Is a canyon sloping up on the left visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q11/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a canyon sloping up on the left visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.88,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q12/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Are the walls of the chamber made of rough grey rock?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q12/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Are the walls of the chamber made of rough grey rock?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q12/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Are the walls of the chamber made of rough grey rock?\"?",
+      "expected": true,
+      "p_yes": 0.84,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q13/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Are broken branches lying on the floor?\"?",
+      "expected": true,
+      "p_yes": 0.99,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q13/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Are broken branches lying on the floor?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q13/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Are broken branches lying on the floor?\"?",
+      "expected": true,
+      "p_yes": 0.89,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q14/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is gravel scattered across the floor?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q14/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Is gravel scattered across the floor?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q14/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is gravel scattered across the floor?\"?",
+      "expected": true,
+      "p_yes": 0.75,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q15/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Are dead leaves lying on the floor?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q15/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Are dead leaves lying on the floor?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q15/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Are dead leaves lying on the floor?\"?",
+      "expected": true,
+      "p_yes": 0.85,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q16/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is a patch of mud smoothed flat on the floor?\"?",
+      "expected": true,
+      "p_yes": 0.99,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q16/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Is a patch of mud smoothed flat on the floor?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q16/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a patch of mud smoothed flat on the floor?\"?",
+      "expected": true,
+      "p_yes": 0.84,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q17/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Are the words \"MAGIC WORD XYZZY\" scrawled in the mud?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q17/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Are the words \"MAGIC WORD XYZZY\" scrawled in the mud?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q17/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Are the words \"MAGIC WORD XYZZY\" scrawled in the mud?\"?",
+      "expected": true,
+      "p_yes": 0.94,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q18/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is mud and gravel heaped at the mouth of the passage on the right?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q18/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Is mud and gravel heaped at the mouth of the passage on the right?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q18/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is mud and gravel heaped at the mouth of the passage on the right?\"?",
+      "expected": true,
+      "p_yes": 0.84,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q19/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is the floor of the canyon broken into uneven rock steps?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q19/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Is the floor of the canyon broken into uneven rock steps?\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q19/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is the floor of the canyon broken into uneven rock steps?\"?",
+      "expected": true,
+      "p_yes": 0.76,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q20/drawn",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_DEBRIS.jpg describes, would the answer to this question be yes: \"Is the light falling on the floor yellow-orange?\"?",
+      "expected": true,
+      "p_yes": 0.67,
+      "result": "unsure"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q20/visible",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_DEBRIS.jpg alone: \"Is the light falling on the floor yellow-orange?\"?",
+      "expected": true,
+      "p_yes": 0.83,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_DEBRIS.jpg/q20/clear",
+      "level": "question",
+      "target": "img/LOC_DEBRIS.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is the light falling on the floor yellow-orange?\"?",
+      "expected": true,
+      "p_yes": 0.48,
+      "result": "unsure"
+    },
+    {
+      "id": "items/ROD.png/q1/drawn",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/ROD.png describes, would the answer to this question be yes: \"Is the black rod with a rusty star visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q2/drawn",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/ROD.png describes, would the answer to this question be yes: \"Is the black rod with a rusty star inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q3/drawn",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/ROD.png describes, would the answer to this question be yes: \"Is a floor, wall or landscape visible behind the black rod with a rusty star?\"?",
+      "expected": false,
+      "p_yes": 0.07,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q4/drawn",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/ROD.png describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.11,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q5/drawn",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/ROD.png describes, would the answer to this question be yes: \"Is the rod black?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q5/visible",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "Can this be answered by looking at the picture of items/ROD.png alone: \"Is the rod black?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q5/clear",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is the rod black?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q6/drawn",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/ROD.png describes, would the answer to this question be yes: \"Is the rod much longer than it is thick?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q6/visible",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "Can this be answered by looking at the picture of items/ROD.png alone: \"Is the rod much longer than it is thick?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q6/clear",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is the rod much longer than it is thick?\"?",
+      "expected": true,
+      "p_yes": 0.82,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q7/drawn",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "If an image model draws exactly what the generation_prompt of items/ROD.png describes, would the answer to this question be yes: \"Is a rusty star fixed on one end of the rod?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q7/visible",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "Can this be answered by looking at the picture of items/ROD.png alone: \"Is a rusty star fixed on one end of the rod?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "items/ROD.png/q7/clear",
+      "level": "question",
+      "target": "items/ROD.png",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a rusty star fixed on one end of the rod?\"?",
+      "expected": true,
+      "p_yes": 0.92,
+      "result": "pass"
+    }
+  ]
+}

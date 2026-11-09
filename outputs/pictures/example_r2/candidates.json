@@ -1,0 +1,77 @@
+{
+ "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg": {
+  "candidates": [
+   [
+    "outputs/pictures/example_r2/LOC_BELOWGRATE/img/LOC_BELOWGRATE.GRATE_CLOSED.c1.jpg",
+    9,
+    15
+   ],
+   [
+    "outputs/pictures/example_r2/LOC_BELOWGRATE/img/LOC_BELOWGRATE.GRATE_CLOSED.c2.jpg",
+    10,
+    15
+   ]
+  ],
+  "best": "LOC_BELOWGRATE.GRATE_CLOSED.c2.jpg"
+ },
+ "img/LOC_COBBLE.jpg": {
+  "candidates": [
+   [
+    "outputs/pictures/example_r2/LOC_COBBLE/img/LOC_COBBLE.c1.jpg",
+    7,
+    11
+   ],
+   [
+    "outputs/pictures/example_r2/LOC_COBBLE/img/LOC_COBBLE.c2.jpg",
+    6,
+    11
+   ]
+  ],
+  "best": "LOC_COBBLE.c1.jpg"
+ },
+ "img/LOC_AWKWARD.jpg": {
+  "candidates": [
+   [
+    "outputs/pictures/example_r2/LOC_AWKWARD/img/LOC_AWKWARD.c1.jpg",
+    12,
+    17
+   ],
+   [
+    "outputs/pictures/example_r2/LOC_AWKWARD/img/LOC_AWKWARD.c2.jpg",
+    13,
+    17
+   ]
+  ],
+  "best": "LOC_AWKWARD.c2.jpg"
+ },
+ "img/LOC_BIRDCHAMBER.jpg": {
+  "candidates": [
+   [
+    "outputs/pictures/example_r2/LOC_BIRDCHAMBER/img/LOC_BIRDCHAMBER.c1.jpg",
+    18,
+    20
+   ],
+   [
+    "outputs/pictures/example_r2/LOC_BIRDCHAMBER/img/LOC_BIRDCHAMBER.c2.jpg",
+    15,
+    20
+   ]
+  ],
+  "best": "LOC_BIRDCHAMBER.c1.jpg"
+ },
+ "img/LOC_PITTOP.jpg": {
+  "candidates": [
+   [
+    "outputs/pictures/example_r2/LOC_PITTOP/img/LOC_PITTOP.c1.jpg",
+    11,
+    17
+   ],
+   [
+    "outputs/pictures/example_r2/LOC_PITTOP/img/LOC_PITTOP.c2.jpg",
+    11,
+    17
+   ]
+  ],
+  "best": "LOC_PITTOP.c2.jpg"
+ }
+}

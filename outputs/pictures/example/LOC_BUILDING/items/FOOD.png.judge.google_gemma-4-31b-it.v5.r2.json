@@ -1,0 +1,66 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example/LOC_BUILDING/items/FOOD.png",
+  "spec": "outputs/specs/checked/example/LOC_BUILDING.json",
+  "file": "items/FOOD.png",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 148,
+    "prompt_tokens": 1165,
+    "total_tokens": 1313,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.00029220000000000006,
+    "cost_usd": "0.000292",
+    "pricing_source": "deployment"
+  },
+  "seconds": 6.1,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Is the loaf of bread and wedge of cheese visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A brown loaf of bread and a yellow wedge of cheese are clearly shown.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Is the loaf of bread and wedge of cheese inside the picture?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "Both items are contained within the frame of the image.",
+      "result": "pass"
+    },
+    {
+      "id": "q3",
+      "question": "Is a floor, wall or landscape visible behind the loaf of bread and wedge of cheese?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The background is a solid, plain pink color.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The image only shows bread and cheese, with no modern industrial materials.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "Is food visible in the image?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Bread and cheese are types of food.",
+      "result": "pass"
+    }
+  ]
+}

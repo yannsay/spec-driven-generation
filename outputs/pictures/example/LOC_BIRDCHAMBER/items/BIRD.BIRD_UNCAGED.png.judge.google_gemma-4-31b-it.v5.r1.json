@@ -1,0 +1,93 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example/LOC_BIRDCHAMBER/items/BIRD.BIRD_UNCAGED.png",
+  "spec": "outputs/specs/checked/example/LOC_BIRDCHAMBER.json",
+  "file": "items/BIRD.BIRD_UNCAGED.png",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 228,
+    "prompt_tokens": 1188,
+    "total_tokens": 1416,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0003288000000000001,
+    "cost_usd": "0.000329",
+    "pricing_source": "deployment"
+  },
+  "seconds": 5.9,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Is the little bird visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A small bird is the central subject of the image.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Is the little bird inside the picture?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The bird is located within the frame of the image.",
+      "result": "pass"
+    },
+    {
+      "id": "q3",
+      "question": "Is a floor, wall or landscape visible behind the little bird?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The background is a solid pink color with no environmental details.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "Only a bird and a plain background are visible.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "Is a bird visible in the centre of the image?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The bird is positioned in the middle of the frame.",
+      "result": "pass"
+    },
+    {
+      "id": "q6",
+      "question": "Is the bird sitting upright?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The bird is standing on its legs in a vertical position.",
+      "result": "pass"
+    },
+    {
+      "id": "q7",
+      "question": "Is the bird's beak open?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The bird's mouth is open as if singing.",
+      "result": "pass"
+    },
+    {
+      "id": "q8",
+      "question": "Is the bird's head lifted?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The bird's head is tilted upwards.",
+      "result": "pass"
+    }
+  ]
+}

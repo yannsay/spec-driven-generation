@@ -1,0 +1,210 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_r2/LOC_PITTOP/img/LOC_PITTOP.c1.jpg",
+  "spec": "outputs/specs/checked/example_r2/LOC_PITTOP.json",
+  "file": "img/LOC_PITTOP.jpg",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 662,
+    "prompt_tokens": 1428,
+    "total_tokens": 2090,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0005504,
+    "cost_usd": "0.000550",
+    "pricing_source": "deployment"
+  },
+  "seconds": 13.7,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Does the picture show what this sentence describes: \"At your feet is a small pit breathing traces of white mist.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "At your feet is a small pit",
+          "seen": "yes"
+        },
+        {
+          "part": "breathing traces of white mist",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "A pit with white mist is located in the foreground.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Does the picture show what this sentence describes: \"An east passage ends here except for a small crack leading on.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "An east passage ends here",
+          "seen": "yes"
+        },
+        {
+          "part": "except for a small crack leading on",
+          "seen": "no"
+        }
+      ],
+      "answer": "no",
+      "why": "There is an opening on the right, but no small crack leading further.",
+      "result": "fail"
+    },
+    {
+      "id": "q3",
+      "question": "Does the image match this description: \"At your feet is a small pit breathing traces of white mist. An east passage ends here except for a small crack leading on.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "At your feet is a small pit breathing traces of white mist",
+          "seen": "yes"
+        },
+        {
+          "part": "An east passage ends here except for a small crack leading on",
+          "seen": "no"
+        }
+      ],
+      "answer": "no",
+      "why": "The part about the crack is not visible.",
+      "result": "fail"
+    },
+    {
+      "id": "q4",
+      "question": "Is the scene lit by a single pool of warm light?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A single hanging lamp creates a pool of warm light in the center.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "Are the edges of the image dark?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The corners and edges of the image are heavily vignetted with black.",
+      "result": "pass"
+    },
+    {
+      "id": "q6",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "Everything shown consists of rough stone and timber beams.",
+      "result": "pass"
+    },
+    {
+      "id": "q7",
+      "question": "Is a passage opening in the rock on the right visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "There is a rectangular opening in the wall on the right.",
+      "result": "pass"
+    },
+    {
+      "id": "q8",
+      "question": "Is a stairway of rough stone steps leading down in the foreground visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "Rough stone steps lead downward into the pit in the foreground.",
+      "result": "pass"
+    },
+    {
+      "id": "q9",
+      "question": "Is a small crack in the rock on the left visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no",
+      "why": "The wall on the left shows cracks, but no specific 'small crack' as a distinct feature.",
+      "result": "fail"
+    },
+    {
+      "id": "q10",
+      "question": "Is a small crack in the rock on the left inside the picture?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no",
+      "why": "No specific small crack feature is identified on the left wall.",
+      "result": "fail"
+    },
+    {
+      "id": "q11",
+      "question": "Does the steps fit this description: \"Rough stone steps lead down the pit.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "Rough stone steps lead down the pit",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "The steps in the foreground lead down into the pit.",
+      "result": "pass"
+    },
+    {
+      "id": "q12",
+      "question": "Are the walls of the chamber made of grey stone?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The walls are constructed from greyish, weathered stone blocks.",
+      "result": "pass"
+    },
+    {
+      "id": "q13",
+      "question": "Is a small pit open in the stone floor in the foreground?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "There is a rectangular opening in the floor in the foreground.",
+      "result": "pass"
+    },
+    {
+      "id": "q14",
+      "question": "Are wisps of white mist rising out of the pit?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "White mist is visible floating above the pit.",
+      "result": "pass"
+    },
+    {
+      "id": "q15",
+      "question": "Is orange stone in smooth wavy bands visible through the opening?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The opening on the right reveals orange stone with wavy horizontal bands.",
+      "result": "pass"
+    },
+    {
+      "id": "q16",
+      "question": "Is the crack a thin dark slit?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "There is no thin dark slit visible in the picture.",
+      "result": "fail"
+    },
+    {
+      "id": "q17",
+      "question": "Is the middle of the chamber brighter than the corners of the picture?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The center is brightly lit by the lamp while the edges are dark.",
+      "result": "pass"
+    }
+  ]
+}

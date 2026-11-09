@@ -1,0 +1,15 @@
+[project]
+name = "cave-art-pipeline"
+version = "0.1.0"
+description = "Art for Colossal Cave Adventure, from the game's own text: LLM-written picture specs, judged, drawn, judged again, fixed or handed to a person."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "modal",
+    "pillow",
+    "pyyaml",
+    "requests",
+]
+
+[tool.uv]
+package = false

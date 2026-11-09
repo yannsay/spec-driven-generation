@@ -1,0 +1,205 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_w2/LOC_BIRDCHAMBER/items/BIRD.BIRD_CAGED.png",
+  "spec": "outputs/specs/checked/example_w2/LOC_BIRDCHAMBER.json",
+  "file": "items/BIRD.BIRD_CAGED.png",
+  "runs": [
+    "v5.r1",
+    "v5.r2"
+  ],
+  "rule": "pass only when both runs pass; both fail = fail; otherwise flip",
+  "results": [
+    {
+      "id": "q1",
+      "question": "Does the picture show what this sentence describes: \"There is a little bird in the cage.\"?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A small bird is depicted inside a cage.",
+      "result": "pass",
+      "runs": [
+        {
+          "parts": [
+            {
+              "part": "There is a little bird",
+              "seen": "yes"
+            },
+            {
+              "part": "in the cage",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "A small bird is depicted inside a cage."
+        },
+        {
+          "parts": [
+            {
+              "part": "There is a little bird",
+              "seen": "yes"
+            },
+            {
+              "part": "in the cage",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "A small bird is depicted inside a birdcage."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "Is the little bird in a cage visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A small bird is clearly visible inside the birdcage.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A small bird is clearly visible inside the birdcage."
+        },
+        {
+          "answer": "yes",
+          "why": "A bird inside a cage is the central subject."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "Is the little bird in a cage inside the picture?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The bird and the cage are the central subjects of the image.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The bird and the cage are the central subjects of the image."
+        },
+        {
+          "answer": "yes",
+          "why": "The bird and cage are located within the frame."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "Is a floor, wall or landscape visible behind the little bird in a cage?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The background is a solid pink color with no environment.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The background is a solid pink color with no environment."
+        },
+        {
+          "answer": "no",
+          "why": "The background is a solid pink color with no environment."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The cage is made of wood and the background is plain, with no modern materials.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The cage is made of wood and the background is plain, with no modern materials."
+        },
+        {
+          "answer": "no",
+          "why": "The bird and cage are made of natural materials consistent with the setting."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "Is the bird inside a cage?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The bird is positioned within the wooden bars of the cage.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The bird is positioned within the wooden bars of the cage."
+        },
+        {
+          "answer": "yes",
+          "why": "The bird is positioned behind the bars of the cage."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "Is the bird's beak closed?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The beak is shut.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The beak is shut."
+        },
+        {
+          "answer": "yes",
+          "why": "The beak is shut."
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "Is a bird visible in the centre of the image?",
+      "expected": true,
+      "origin": "kept",
+      "answer": "yes",
+      "why": "The bird is positioned in the center of the frame.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The bird is positioned in the center of the frame."
+        },
+        {
+          "answer": "yes",
+          "why": "The bird is the central focus of the image."
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "Is the bird sitting upright?",
+      "expected": true,
+      "origin": "kept",
+      "answer": "yes",
+      "why": "The bird is standing straight up.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The bird is standing straight up."
+        },
+        {
+          "answer": "yes",
+          "why": "The bird is standing in a vertical position."
+        }
+      ]
+    }
+  ],
+  "cost_usd": 0.0007160000000000001
+}

@@ -1,0 +1,86 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_w2/LOC_BUILDING/items/LAMP.LAMP_BRIGHT.png",
+  "spec": "outputs/specs/checked/example_w2/LOC_BUILDING.json",
+  "file": "items/LAMP.LAMP_BRIGHT.png",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 208,
+    "prompt_tokens": 1190,
+    "total_tokens": 1398,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0003212,
+    "cost_usd": "0.000321",
+    "pricing_source": "deployment"
+  },
+  "seconds": 6.5,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Is the brass lantern with a flame visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A brass lantern with a lit flame is centrally displayed.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Is the brass lantern with a flame inside the picture?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The lantern is the central object within the frame.",
+      "result": "pass"
+    },
+    {
+      "id": "q3",
+      "question": "Is a floor, wall or landscape visible behind the brass lantern with a flame?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The background is a solid pink color with no architectural or natural features.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The lantern is a traditional design consistent with the described theme.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "Is a yellow flame visible inside the lantern's glass pane?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "A yellow flame is clearly visible inside the glass.",
+      "result": "pass"
+    },
+    {
+      "id": "q6",
+      "question": "Is the lantern made of brass?",
+      "expected": true,
+      "origin": "kept",
+      "decision": 1,
+      "answer": "yes",
+      "why": "The yellow-gold color and metallic luster indicate it is made of brass.",
+      "result": "pass"
+    },
+    {
+      "id": "q7",
+      "question": "Is light reflecting off the lantern's metal?",
+      "expected": true,
+      "origin": "kept",
+      "decision": 1,
+      "answer": "yes",
+      "why": "There are bright highlights on the metal surfaces simulating reflected light.",
+      "result": "pass"
+    }
+  ]
+}

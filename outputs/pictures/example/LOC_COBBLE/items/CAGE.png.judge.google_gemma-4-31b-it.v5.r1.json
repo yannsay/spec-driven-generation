@@ -1,0 +1,120 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example/LOC_COBBLE/items/CAGE.png",
+  "spec": "outputs/specs/checked/example/LOC_COBBLE.json",
+  "file": "items/CAGE.png",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 330,
+    "prompt_tokens": 1239,
+    "total_tokens": 1569,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.00037980000000000007,
+    "cost_usd": "0.000380",
+    "pricing_source": "deployment"
+  },
+  "seconds": 13.1,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Is the small wicker cage visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A small wicker cage is the central subject of the image.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Is the small wicker cage inside the picture?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The cage is positioned in the center of the frame.",
+      "result": "pass"
+    },
+    {
+      "id": "q3",
+      "question": "Is a floor, wall or landscape visible behind the small wicker cage?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The background is a solid pink color without any scenery.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The cage is made of natural wicker and fits the described handmade aesthetic.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "Is a cage made of woven wicker visible in the image?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The cage's structure is composed of woven wicker strips.",
+      "result": "pass"
+    },
+    {
+      "id": "q6",
+      "question": "Is the cage standing on a flat woven base?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The cage sits on a thick, flat, woven rectangular base.",
+      "result": "pass"
+    },
+    {
+      "id": "q7",
+      "question": "Is the top of the cage domed?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The top of the cage curves into a rounded dome shape.",
+      "result": "pass"
+    },
+    {
+      "id": "q8",
+      "question": "Is a small square door set in the front of the cage?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "There is a square woven door located on the front face of the cage.",
+      "result": "pass"
+    },
+    {
+      "id": "q9",
+      "question": "Is a bird visible inside the cage?",
+      "expected": false,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The interior of the cage is empty.",
+      "result": "pass"
+    },
+    {
+      "id": "q10",
+      "question": "Is the cage door closed?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The square door is flush with the cage wall and securely in place.",
+      "result": "pass"
+    },
+    {
+      "id": "q11",
+      "question": "Is the cage woven from pale brown rods?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The cage is constructed from rods of a light brownish-tan color.",
+      "result": "pass"
+    }
+  ]
+}

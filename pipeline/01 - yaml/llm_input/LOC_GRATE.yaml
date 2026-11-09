@@ -1,0 +1,43 @@
+# location
+- LOC_GRATE:
+    description:
+      long: |-
+          You are in a 20-foot depression floored with bare dirt.  Set into the
+          dirt is a strong steel grate mounted in concrete.  A dry streambed
+          leads into the depression.
+      short: 'You''re outside grate.'
+      maptag: !!null
+    conditions: {ABOVE: true, LIT: true}
+    travel: [
+      {verbs: [EAST, FORES], action: [goto, LOC_FOREST7]},  # east, forest
+      {verbs: [SOUTH], action: [goto, LOC_FOREST10]},  # south
+      {verbs: [WEST], action: [goto, LOC_FOREST9]},  # west
+      {verbs: [BUILD], action: [goto, LOC_START]},  # building
+      {verbs: [UPSTR, GULLY, NORTH], action: [goto, LOC_SLIT]},  # upstream, gully, north
+      {verbs: [ENTER, INWAR, DOWN],  # enter, inward, down
+                             cond: [not, GRATE, GRATE_CLOSED],
+                             action: [goto, LOC_BELOWGRATE]},
+      {verbs: [ENTER], action: [speak, GRATE_NOWAY]},  # enter
+    ]
+
+# objects that start here
+- GRATE:
+    words: ['grate']
+    inventory: '*grate'
+    locations: [LOC_GRATE, LOC_BELOWGRATE]
+    immovable: true
+    states: [GRATE_CLOSED, GRATE_OPEN]  
+    descriptions:
+    - 'The grate is locked.'
+    - 'The grate is open.'
+    changes:
+    - 'The grate is now locked.'
+    - 'The grate is now unlocked.'
+
+# where each exit leads (the destination's description in the game)
+# LOC_FOREST7: You are wandering aimlessly through the forest.
+# LOC_FOREST10: You are wandering aimlessly through the forest.
+# LOC_FOREST9: You are wandering aimlessly through the forest.
+# LOC_START: You are standing at the end of a road before a small brick building. Around you is a forest. A small stream flows out of the building and down a gully.
+# LOC_SLIT: At your feet all the water of the stream splashes into a 2-inch slit in the rock. Downstream the streambed is bare rock.
+# LOC_BELOWGRATE: You are in a small chamber beneath a 3x3 steel grate to the surface. A low crawl over cobbles leads inward to the west.

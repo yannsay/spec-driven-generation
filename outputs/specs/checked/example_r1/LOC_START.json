@@ -1,0 +1,283 @@
+{
+  "room": "LOC_START",
+  "text": "You are standing at the end of a road before a small brick building. Around you is a forest. A small stream flows out of the building and down a gully.",
+  "exits": [
+    {
+      "to": "LOC_HILL",
+      "verbs": [
+        "ROAD",
+        "WEST",
+        "UPWAR"
+      ],
+      "cond": null,
+      "why": "WEST is a walking direction and the road is named in the description; it climbs to the hill, so it runs away on the left.",
+      "drawn": true,
+      "label": "a dirt road rising into the trees on the left",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_BUILDING",
+      "verbs": [
+        "ENTER",
+        "BUILD",
+        "INWAR",
+        "EAST"
+      ],
+      "cond": null,
+      "why": "EAST is a walking direction and the building is named in the description; its doorway is the way in, drawn on the right.",
+      "drawn": true,
+      "label": "an open wooden doorway on the right",
+      "shape": "object",
+      "kind": "doorway"
+    },
+    {
+      "to": "LOC_VALLEY",
+      "verbs": [
+        "DOWNS",
+        "GULLY",
+        "STREA",
+        "SOUTH",
+        "DOWN"
+      ],
+      "cond": null,
+      "why": "SOUTH is a walking direction and the stream and gully are named in the description; following the water downstream, drawn in the foreground.",
+      "drawn": true,
+      "label": "a stream flowing down a gully in the foreground",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_FOREST1",
+      "verbs": [
+        "FORES",
+        "NORTH"
+      ],
+      "cond": null,
+      "why": "NORTH is a walking direction and the forest is named in the description; drawn straight ahead.",
+      "drawn": true,
+      "label": "a gap between the tree trunks straight ahead",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_GRATE",
+      "verbs": [
+        "DEPRE"
+      ],
+      "cond": null,
+      "why": "The only verb, DEPRE, is the name of a place (a depression) that this room's description does not mention; it is a shortcut, not a path.",
+      "drawn": false
+    }
+  ],
+  "images": [
+    {
+      "kind": "scene",
+      "state": null,
+      "file": "img/LOC_START.jpg",
+      "size": "2048x1152",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'Around you is a forest.' plus the first-person camera of every scene.",
+          "draw": "An open clearing ringed by tall trees, seen in a first-person view at standing eye height.",
+          "checks": [
+            {
+              "question": "Are tall trees visible on the left and right sides of the image?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'You are standing at the end of a road before a small brick building.' The road is the way west to the hill, so it runs away on the left.",
+          "draw": "On the left, a dirt road with cart ruts runs out of the clearing and rises into the trees.",
+          "checks": [
+            {
+              "question": "Does the dirt road end in the clearing?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'a small brick building' — the way in is the way east, so the building stands on the right.",
+          "draw": "On the right, a small building of old handmade brick stands at the edge of the clearing, with an open wooden door facing the clearing.",
+          "checks": [
+            {
+              "question": "Is the building made of brick?",
+              "expected": true
+            },
+            {
+              "question": "Is the building lower than the trees that stand beside it?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'A small stream flows out of the building and down a gully.' The gully is the way south, drawn in the foreground.",
+          "draw": "A small stream flows out of the base of the brick building on the right, crosses the clearing and runs down a gully in the foreground.",
+          "checks": [
+            {
+              "question": "Does the stream come out of the brick building?",
+              "expected": true
+            },
+            {
+              "question": "Is the stream narrower than the dirt road?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: the forest; the way north to the forest, drawn straight ahead.",
+          "draw": "Straight ahead, a gap between the tree trunks opens into the deeper forest.",
+          "checks": [
+            {
+              "question": "Is the deeper forest visible through the gap straight ahead?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: conditions LIT: true, so the clearing is lit by daylight from above.",
+          "draw": "Soft daylight from the sky above lights the clearing and the trees.",
+          "checks": [
+            {
+              "question": "Is the clearing lit by daylight?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "The room starts with no objects, so the clearing floor is left open and clear.",
+          "draw": "The ground of the clearing is open grass and dirt.",
+          "checks": [
+            {
+              "question": "Is the ground of the clearing made of grass and dirt?",
+              "expected": true
+            },
+            {
+              "question": "Is a mailbox or a wooden signpost visible in the clearing?",
+              "expected": false
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "You are standing at the end of a road before a small brick building.",
+          "decisions": [
+            2,
+            3
+          ],
+          "rule": "compass"
+        },
+        {
+          "sentence": "Around you is a forest.",
+          "decisions": [
+            1
+          ]
+        },
+        {
+          "sentence": "A small stream flows out of the building and down a gully.",
+          "decisions": [
+            4
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "question": "Does the picture show what this sentence describes: \"Around you is a forest.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"A small stream flows out of the building and down a gully.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Are large parts of the scene too dark to see?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a dirt road rising into the trees on the left visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is an open wooden doorway on the right visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is an open wooden doorway on the right inside the picture?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a stream flowing down a gully in the foreground visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a gap between the tree trunks straight ahead visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Are tall trees visible on the left and right sides of the image?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Does the dirt road end in the clearing?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the building made of brick?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the building lower than the trees that stand beside it?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Does the stream come out of the brick building?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the stream narrower than the dirt road?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the deeper forest visible through the gap straight ahead?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the clearing lit by daylight?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the ground of the clearing made of grass and dirt?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a mailbox or a wooden signpost visible in the clearing?",
+          "expected": false,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "An open clearing ringed by tall trees, seen in a first-person view at standing eye height. On the left, a dirt road with cart ruts runs out of the clearing and rises into the trees. On the right, a small building of old handmade brick stands at the edge of the clearing, with an open wooden door facing the clearing. A small stream flows out of the base of the brick building on the right, crosses the clearing and runs down a gully in the foreground. Straight ahead, a gap between the tree trunks opens into the deeper forest. Soft daylight from the sky above lights the clearing and the trees. The ground of the clearing is open grass and dirt."
+    }
+  ]
+}

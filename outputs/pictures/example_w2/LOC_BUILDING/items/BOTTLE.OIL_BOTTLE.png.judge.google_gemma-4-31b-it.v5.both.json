@@ -1,0 +1,128 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_w2/LOC_BUILDING/items/BOTTLE.OIL_BOTTLE.png",
+  "spec": "outputs/specs/checked/example_w2/LOC_BUILDING.json",
+  "file": "items/BOTTLE.OIL_BOTTLE.png",
+  "runs": [
+    "v5.r1",
+    "v5.r2"
+  ],
+  "rule": "pass only when both runs pass; both fail = fail; otherwise flip",
+  "results": [
+    {
+      "id": "q1",
+      "question": "Is the bottle of oil visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A bottle containing a yellow liquid is centered in the frame.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A bottle containing a yellow liquid is centered in the frame."
+        },
+        {
+          "answer": "yes",
+          "why": "A glass bottle containing a yellow liquid is centrally displayed."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "Is the bottle of oil inside the picture?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The bottle is placed centrally within the image borders.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The bottle is placed centrally within the image borders."
+        },
+        {
+          "answer": "yes",
+          "why": "The bottle is positioned in the center of the frame."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "Is a floor, wall or landscape visible behind the bottle of oil?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The background is a solid, plain pink color.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The background is a solid, plain pink color."
+        },
+        {
+          "answer": "no",
+          "why": "The background is a solid pink color with no environmental details."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The image only shows a glass bottle with a cork, which fits the setting.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The image only shows a glass bottle with a cork, which fits the setting."
+        },
+        {
+          "answer": "no",
+          "why": "The bottle and cork are simple handmade materials fitting the described setting."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "Is golden oil visible inside the bottle?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The bottle is filled with a golden-yellow liquid.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The bottle is filled with a golden-yellow liquid."
+        },
+        {
+          "answer": "yes",
+          "why": "The bottle is filled with a translucent golden-yellow substance."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "Is a bottle visible in the image?",
+      "expected": true,
+      "origin": "kept",
+      "answer": "yes",
+      "why": "A glass bottle is the central object of the image.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A glass bottle is the central object of the image."
+        },
+        {
+          "answer": "yes",
+          "why": "A glass bottle is the primary subject of the image."
+        }
+      ]
+    }
+  ],
+  "cost_usd": 0.000608
+}

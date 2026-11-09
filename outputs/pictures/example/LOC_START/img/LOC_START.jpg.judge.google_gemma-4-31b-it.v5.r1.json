@@ -1,0 +1,208 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example/LOC_START/img/LOC_START.jpg",
+  "spec": "outputs/specs/checked/example/LOC_START.json",
+  "file": "img/LOC_START.jpg",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 658,
+    "prompt_tokens": 1415,
+    "total_tokens": 2073,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0005462,
+    "cost_usd": "0.000546",
+    "pricing_source": "deployment"
+  },
+  "seconds": 23.5,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Does the picture show what this sentence describes: \"Around you is a forest.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "Around you is a forest",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "The scene is filled with tall trees on both sides.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Does the picture show what this sentence describes: \"A small stream flows out of the building and down a gully.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "A small stream flows out of the building",
+          "seen": "yes"
+        },
+        {
+          "part": "and down a gully",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "A stream emerges from the base of the stone building and flows down a carved path in the ground.",
+      "result": "pass"
+    },
+    {
+      "id": "q3",
+      "question": "Are large parts of the scene too dark to see?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "Everything in the scene is clearly visible.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "Only natural materials like stone, wood, and dirt are visible.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "Is a dirt road rising into the trees on the left visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "A dirt road leads from the foreground and slopes slightly upward toward the trees on the left.",
+      "result": "pass"
+    },
+    {
+      "id": "q6",
+      "question": "Is an open wooden doorway on the right visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "There is an open doorway with a wooden door on the right side of the frame.",
+      "result": "pass"
+    },
+    {
+      "id": "q7",
+      "question": "Is an open wooden doorway on the right inside the picture?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "The open wooden doorway is within the bounds of the image on the right.",
+      "result": "pass"
+    },
+    {
+      "id": "q8",
+      "question": "Is a stream flowing down a gully in the foreground visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "A stream is visible in the bottom right foreground flowing through a gully.",
+      "result": "pass"
+    },
+    {
+      "id": "q9",
+      "question": "Is a gap between the tree trunks straight ahead visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "The trees form a clear corridor leading straight ahead.",
+      "result": "pass"
+    },
+    {
+      "id": "q10",
+      "question": "Are tall trees visible on the left and right sides of the image?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Tall tree trunks line both the left and right edges of the image.",
+      "result": "pass"
+    },
+    {
+      "id": "q11",
+      "question": "Does the dirt road end in the clearing?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The road continues straight ahead into the distance, it does not end.",
+      "result": "fail"
+    },
+    {
+      "id": "q12",
+      "question": "Is the building made of brick?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The building is constructed from rough-hewn weathered stone blocks, not standard bricks.",
+      "result": "fail"
+    },
+    {
+      "id": "q13",
+      "question": "Is the building lower than the trees that stand beside it?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The roof of the building is much lower than the surrounding tree canopy.",
+      "result": "pass"
+    },
+    {
+      "id": "q14",
+      "question": "Does the stream come out of the brick building?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The water originates from the base of the building's wall.",
+      "result": "pass"
+    },
+    {
+      "id": "q15",
+      "question": "Is the stream narrower than the dirt road?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The stream is visually much narrower than the dirt road.",
+      "result": "pass"
+    },
+    {
+      "id": "q16",
+      "question": "Is the deeper forest visible through the gap straight ahead?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Trees can be seen extending far into the distance through the central gap.",
+      "result": "pass"
+    },
+    {
+      "id": "q17",
+      "question": "Is the clearing lit by daylight?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The scene is brightly lit with natural light and soft shadows.",
+      "result": "pass"
+    },
+    {
+      "id": "q18",
+      "question": "Is the ground of the clearing made of grass and dirt?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The ground consists of a dirt path surrounded by patches of grass.",
+      "result": "pass"
+    },
+    {
+      "id": "q19",
+      "question": "Is a mailbox or a wooden signpost visible in the clearing?",
+      "expected": false,
+      "origin": "decision",
+      "answer": "no",
+      "why": "There are no signs or mailboxes visible in the area.",
+      "result": "pass"
+    }
+  ]
+}

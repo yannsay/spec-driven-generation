@@ -1,0 +1,477 @@
+{
+  "spec": "outputs/specs/checked/example/LOC_PITTOP.json",
+  "model": "typesafe/jev-1.13-20260917",
+  "usage": {
+    "cost": 0.000760032,
+    "requests": 2
+  },
+  "ids": {
+    "room": "gen-dec-1794244323-RggoUUpTYODLwqbDH0EA",
+    "img/LOC_PITTOP.jpg": "gen-dec-1794244323-HTuVvwd0XT9mBRWJWZvd"
+  },
+  "thresholds": {
+    "no_below": 0.3,
+    "yes_above": 0.7
+  },
+  "results": [
+    {
+      "id": "room/exit/LOC_GRATE",
+      "level": "room",
+      "target": "LOC_GRATE",
+      "question": "Does the room description mention any place or thing called depression?",
+      "expected": false,
+      "p_yes": 0.06,
+      "result": "pass"
+    },
+    {
+      "id": "room/exit/LOC_BELOWGRATE",
+      "level": "room",
+      "target": "LOC_BELOWGRATE",
+      "question": "Does the room description mention any place or thing called entrance?",
+      "expected": false,
+      "p_yes": 0.07,
+      "result": "pass"
+    },
+    {
+      "id": "room/exit/LOC_DEBRIS",
+      "level": "room",
+      "target": "LOC_DEBRIS",
+      "question": "Does the room description mention any place or thing called debris?",
+      "expected": false,
+      "p_yes": 0.12,
+      "result": "pass"
+    },
+    {
+      "id": "room/label/LOC_BIRDCHAMBER",
+      "level": "room",
+      "target": "LOC_BIRDCHAMBER",
+      "question": "Is \"a passage opening in the rock on the right\" something a player could see and tap in this room?",
+      "expected": true,
+      "p_yes": 0.9,
+      "result": "pass"
+    },
+    {
+      "id": "room/label/LOC_MISTHALL",
+      "level": "room",
+      "target": "LOC_MISTHALL",
+      "question": "Is \"a stairway of rough stone steps leading down in the foreground\" something a player could see and tap in this room?",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "room/label/LOC_CRACK",
+      "level": "room",
+      "target": "LOC_CRACK",
+      "question": "Is \"a small crack in the rock on the left\" something a player could see and tap in this room?",
+      "expected": true,
+      "p_yes": 0.9,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/decision1",
+      "level": "picture",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Is this picture decision of img/LOC_PITTOP.jpg stated in the YAML or an allowed choice: \"A small underground chamber of rough grey rock, seen in a first-person view at standing eye height, with walls and floor of weathered stone. (why: The room's own look: the YAML names no walls, so the pit, the passage and the crack sit in a chamber of rough grey rock in the game's cave.)\"?",
+      "expected": true,
+      "p_yes": 0.86,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/decision2",
+      "level": "picture",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Is this picture decision of img/LOC_PITTOP.jpg stated in the YAML or an allowed choice: \"In the foreground, a small pit opens in the stone floor, with a stairway of rough stone steps leading down into it and wisps of white mist rising out of it. (why: YAML: 'At your feet is a small pit breathing traces of white mist.' The STEPS object here reads 'Rough stone steps lead down the pit.', and the DOWN exit leads to LOC_MISTHALL, whose hall is filled with wisps of white mist.)\"?",
+      "expected": true,
+      "p_yes": 0.85,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/decision3",
+      "level": "picture",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Is this picture decision of img/LOC_PITTOP.jpg stated in the YAML or an allowed choice: \"On the right, a passage opening in the grey rock wall leads away, and orange stone in smooth wavy bands is visible through it. (why: YAML: 'An east passage ends here except for a small crack leading on.' EAST is a compass direction, drawn on the right; the bird chamber it leads to has walls of orange stone, drawn as orange stone in smooth wavy bands.)\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/decision4",
+      "level": "picture",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Is this picture decision of img/LOC_PITTOP.jpg stated in the YAML or an allowed choice: \"On the left, a small crack splits the grey rock wall, a thin dark slit in the stone. (why: YAML: 'An east passage ends here except for a small crack leading on.' WEST is a compass direction, drawn on the left; the crack room's own text says the crack is far too small to follow.)\"?",
+      "expected": true,
+      "p_yes": 0.84,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/decision5",
+      "level": "picture",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Is this picture decision of img/LOC_PITTOP.jpg stated in the YAML or an allowed choice: \"A single pool of warm lamplight from just behind the camera lights the middle of the chamber, and the edges of the picture fall into darkness. (why: The room has no LIT condition, so it is dark: drawn by the light of a lamp, and the lamp itself is not in the picture.)\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/agrees",
+      "level": "picture",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does the generation_prompt of img/LOC_PITTOP.jpg agree with the room's description in the YAML?",
+      "expected": true,
+      "p_yes": 0.78,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/sentence1",
+      "level": "picture",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Do these draw sentences show what this sentence of the game says: \"At your feet is a small pit breathing traces of white mist.\"? Draw sentences: [2] \"In the foreground, a small pit opens in the stone floor, with a stairway of rough stone steps leading down into it and wisps of white mist rising out of it.\"",
+      "expected": true,
+      "p_yes": 0.9,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/sentence2",
+      "level": "picture",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Do these draw sentences show what this sentence of the game says: \"An east passage ends here except for a small crack leading on.\"? Draw sentences: [3] \"On the right, a passage opening in the grey rock wall leads away, and orange stone in smooth wavy bands is visible through it.\" [4] \"On the left, a small crack splits the grey rock wall, a thin dark slit in the stone.\"",
+      "expected": true,
+      "p_yes": 0.74,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q1/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Does the picture show what this sentence describes: \"At your feet is a small pit breathing traces of white mist.\"?\"?",
+      "expected": true,
+      "p_yes": 0.95,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q2/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Does the picture show what this sentence describes: \"An east passage ends here except for a small crack leading on.\"?\"?",
+      "expected": true,
+      "p_yes": 0.93,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q3/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Does the image match this description: \"At your feet is a small pit breathing traces of white mist. An east passage ends here except for a small crack leading on.\"?\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q4/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Is the scene lit by a single pool of warm light?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q5/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Are the edges of the image dark?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q6/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?\"?",
+      "expected": false,
+      "p_yes": 0.19,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q7/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Is a passage opening in the rock on the right visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q7/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Is a passage opening in the rock on the right visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q7/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a passage opening in the rock on the right visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.93,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q8/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Is a stairway of rough stone steps leading down in the foreground visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q8/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Is a stairway of rough stone steps leading down in the foreground visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q8/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a stairway of rough stone steps leading down in the foreground visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.87,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q9/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Is a small crack in the rock on the left visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q9/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Is a small crack in the rock on the left visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q9/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a small crack in the rock on the left visible in the image?\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q10/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Is a small crack in the rock on the left inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q10/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Is a small crack in the rock on the left inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q10/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a small crack in the rock on the left inside the picture?\"?",
+      "expected": true,
+      "p_yes": 0.84,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q11/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Does the steps fit this description: \"Rough stone steps lead down the pit.\"?\"?",
+      "expected": true,
+      "p_yes": 0.93,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q12/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Are the walls of the chamber made of grey stone?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q12/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Are the walls of the chamber made of grey stone?\"?",
+      "expected": true,
+      "p_yes": 0.94,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q12/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Are the walls of the chamber made of grey stone?\"?",
+      "expected": true,
+      "p_yes": 0.91,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q13/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Is a small pit open in the stone floor in the foreground?\"?",
+      "expected": true,
+      "p_yes": 0.99,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q13/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Is a small pit open in the stone floor in the foreground?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q13/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is a small pit open in the stone floor in the foreground?\"?",
+      "expected": true,
+      "p_yes": 0.9,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q14/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Are wisps of white mist rising out of the pit?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q14/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Are wisps of white mist rising out of the pit?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q14/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Are wisps of white mist rising out of the pit?\"?",
+      "expected": true,
+      "p_yes": 0.83,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q15/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Is orange stone in smooth wavy bands visible through the opening?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q15/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Is orange stone in smooth wavy bands visible through the opening?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q15/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is orange stone in smooth wavy bands visible through the opening?\"?",
+      "expected": true,
+      "p_yes": 0.88,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q16/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Is the crack a thin dark slit?\"?",
+      "expected": true,
+      "p_yes": 0.98,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q16/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Is the crack a thin dark slit?\"?",
+      "expected": true,
+      "p_yes": 0.96,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q16/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is the crack a thin dark slit?\"?",
+      "expected": true,
+      "p_yes": 0.81,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q17/drawn",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "If an image model draws exactly what the generation_prompt of img/LOC_PITTOP.jpg describes, would the answer to this question be yes: \"Is the middle of the chamber brighter than the corners of the picture?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q17/visible",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Can this be answered by looking at the picture of img/LOC_PITTOP.jpg alone: \"Is the middle of the chamber brighter than the corners of the picture?\"?",
+      "expected": true,
+      "p_yes": 0.97,
+      "result": "pass"
+    },
+    {
+      "id": "img/LOC_PITTOP.jpg/q17/clear",
+      "level": "question",
+      "target": "img/LOC_PITTOP.jpg",
+      "question": "Does this ask one clear thing, that two people would read the same way: \"Is the middle of the chamber brighter than the corners of the picture?\"?",
+      "expected": true,
+      "p_yes": 0.83,
+      "result": "pass"
+    }
+  ]
+}

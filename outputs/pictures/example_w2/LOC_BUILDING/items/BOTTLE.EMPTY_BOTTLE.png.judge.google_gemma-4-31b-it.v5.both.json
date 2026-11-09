@@ -1,0 +1,128 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_w2/LOC_BUILDING/items/BOTTLE.EMPTY_BOTTLE.png",
+  "spec": "outputs/specs/checked/example_w2/LOC_BUILDING.json",
+  "file": "items/BOTTLE.EMPTY_BOTTLE.png",
+  "runs": [
+    "v5.r1",
+    "v5.r2"
+  ],
+  "rule": "pass only when both runs pass; both fail = fail; otherwise flip",
+  "results": [
+    {
+      "id": "q1",
+      "question": "Is the empty bottle visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A clear, empty glass bottle is the central subject.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A clear, empty glass bottle is the central subject."
+        },
+        {
+          "answer": "yes",
+          "why": "A clear bottle containing nothing is the central object."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "Is the empty bottle inside the picture?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The bottle is centered within the frame.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The bottle is centered within the frame."
+        },
+        {
+          "answer": "yes",
+          "why": "The bottle is located in the center of the image."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "Is a floor, wall or landscape visible behind the empty bottle?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The bottle is against a solid magenta background.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The bottle is against a solid magenta background."
+        },
+        {
+          "answer": "no",
+          "why": "The background is a solid magenta color with no architectural or natural features."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "A simple glass bottle is consistent with a medieval setting.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "A simple glass bottle is consistent with a medieval setting."
+        },
+        {
+          "answer": "no",
+          "why": "The object is a simple glass bottle, which fits a medieval context."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "Is water visible inside the bottle?",
+      "expected": false,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The bottle contains no liquid.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The bottle contains no liquid."
+        },
+        {
+          "answer": "no",
+          "why": "The bottle is transparent and shows no liquid inside."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "Is a bottle visible in the image?",
+      "expected": true,
+      "origin": "kept",
+      "answer": "yes",
+      "why": "A glass bottle is the only object shown.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A glass bottle is the only object shown."
+        },
+        {
+          "answer": "yes",
+          "why": "A glass bottle is the only object shown."
+        }
+      ]
+    }
+  ],
+  "cost_usd": 0.000599
+}

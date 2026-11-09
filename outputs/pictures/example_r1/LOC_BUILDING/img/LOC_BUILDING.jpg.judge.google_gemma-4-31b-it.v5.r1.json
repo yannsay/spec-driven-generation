@@ -1,0 +1,212 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_r1/LOC_BUILDING/img/LOC_BUILDING.jpg",
+  "spec": "outputs/specs/checked/example_r1/LOC_BUILDING.json",
+  "file": "img/LOC_BUILDING.jpg",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 618,
+    "prompt_tokens": 1414,
+    "total_tokens": 2032,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0005300000000000001,
+    "cost_usd": "0.000530",
+    "pricing_source": "deployment"
+  },
+  "seconds": 18.2,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Does the picture show what this sentence describes: \"You are inside a building, a well house for a large spring.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "inside a building",
+          "seen": "yes"
+        },
+        {
+          "part": "a well house for a large spring",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "The image shows a stone structure containing a spring.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Does the image match this description: \"You are inside a building, a well house for a large spring.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "inside a building",
+          "seen": "yes"
+        },
+        {
+          "part": "a well house for a large spring",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "The image shows a stone structure containing a spring.",
+      "result": "pass"
+    },
+    {
+      "id": "q3",
+      "question": "Are large parts of the scene too dark to see?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The internal areas are clearly lit except for the dark doorway on the right.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "Is the set of keys visible anywhere in the image?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "No keys are visible in the scene.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "Is the unlit brass lantern visible anywhere in the image?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "No lantern is visible in the scene.",
+      "result": "pass"
+    },
+    {
+      "id": "q6",
+      "question": "Is the loaf of bread and wedge of cheese visible anywhere in the image?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "No food items are visible in the scene.",
+      "result": "pass"
+    },
+    {
+      "id": "q7",
+      "question": "Is the bottle of water visible anywhere in the image?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "No bottle is visible in the scene.",
+      "result": "pass"
+    },
+    {
+      "id": "q8",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "All materials shown are weathered stone and water.",
+      "result": "pass"
+    },
+    {
+      "id": "q9",
+      "question": "Is a stone doorway on the left visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "There is a stone opening on the left leading outside.",
+      "result": "pass"
+    },
+    {
+      "id": "q10",
+      "question": "Is a stone doorway on the left inside the picture?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "There is a stone opening on the left leading outside.",
+      "result": "pass"
+    },
+    {
+      "id": "q11",
+      "question": "Is a stream running out through a low opening on the right visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "Water flows from a low opening in the wall on the right.",
+      "result": "pass"
+    },
+    {
+      "id": "q12",
+      "question": "Are stone walls visible around the room?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The room is enclosed by walls made of stone blocks.",
+      "result": "pass"
+    },
+    {
+      "id": "q13",
+      "question": "Is a stone roof visible overhead?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The ceiling is a vaulted stone roof.",
+      "result": "pass"
+    },
+    {
+      "id": "q14",
+      "question": "Is water rising up out of the ground in the centre of the room?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "A jet of water is shooting upwards from a basin in the center.",
+      "result": "pass"
+    },
+    {
+      "id": "q15",
+      "question": "Is a road visible through the doorway?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "A dirt path is visible through the open doorway on the left.",
+      "result": "pass"
+    },
+    {
+      "id": "q16",
+      "question": "Are green trees visible through the doorway?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Green foliage and trees are visible through the open doorway.",
+      "result": "pass"
+    },
+    {
+      "id": "q17",
+      "question": "Does the water run across the floor from the spring?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The water is contained in a basin and does not flow across the floor.",
+      "result": "fail"
+    },
+    {
+      "id": "q18",
+      "question": "Is the floor in the foreground made of bare stone?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The floor consists of large, flat stone slabs.",
+      "result": "pass"
+    },
+    {
+      "id": "q19",
+      "question": "Is light from the open doorway falling across the floor?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Bright sunlight from the left doorway casts a light patch on the floor.",
+      "result": "pass"
+    }
+  ]
+}

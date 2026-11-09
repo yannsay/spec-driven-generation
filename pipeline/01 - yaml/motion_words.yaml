@@ -1,0 +1,107 @@
+# The game's travel words, as the 5-letter codes adventure.yaml uses in `travel: verbs`, with the plain word
+# they stand for. The original parser read only 5 letters, so the YAML keeps the cut-off codes; its own names
+# for them are mostly MOT_<n>. Written by hand from the `motions:` section; change a word here when Jev or the
+# spec writer misreads one.
+#
+# words: code -> plain word, used in the Jev exit question ("…any place or thing called debris?").
+# magic: magic words. They name no place in the room, so an exit reached only by them is never drawn:
+#        check_spec.py decides it, Jev is not asked.
+
+words:
+  ROAD: road
+  HILL: hill
+  ENTER: enter
+  UPSTR: upstream
+  DOWNS: downstream
+  FORES: forest
+  FORWA: forward
+  CONTI: continue
+  ONWAR: onward
+  BACK: back
+  RETUR: return
+  RETRE: retreat
+  VALLE: valley
+  STAIR: stairs
+  OUT: out
+  OUTSI: outside
+  EXIT: exit
+  LEAVE: leave
+  BUILD: building
+  HOUSE: house
+  GULLY: gully
+  STREA: stream
+  FORK: fork
+  BED: stream bed
+  CRAWL: crawl
+  COBBL: cobbles
+  INWAR: inward
+  INSID: inside
+  IN: in
+  SURFA: surface
+  NULL: nowhere
+  NOWHE: nowhere
+  DARK: dark
+  PASSA: passage
+  TUNNE: tunnel
+  LOW: low passage
+  CANYO: canyon
+  AWKWA: awkward canyon
+  GIANT: giant room
+  VIEW: view
+  UPWAR: upward
+  UP: up
+  U: up
+  ABOVE: above
+  ASCEN: ascend
+  D: down
+  DOWNW: downward
+  DOWN: down
+  DESCE: descend
+  PIT: pit
+  OUTDO: outdoors
+  CRACK: crack
+  STEPS: steps
+  DOME: dome
+  LEFT: left
+  RIGHT: right
+  HALL: hall
+  JUMP: jump
+  BARRE: barren room
+  OVER: over
+  ACROS: across
+  EAST: east
+  E: east
+  WEST: west
+  W: west
+  NORTH: north
+  N: north
+  SOUTH: south
+  S: south
+  NE: northeast
+  SE: southeast
+  SW: southwest
+  NW: northwest
+  DEBRI: debris
+  HOLE: hole
+  WALL: wall
+  BROKE: broken
+  CLIMB: climb
+  FLOOR: floor
+  ROOM: room
+  SLIT: slit
+  SLAB: slab
+  SLABR: slab room
+  DEPRE: depression
+  ENTRA: entrance
+  SECRE: secret
+  CAVE: cave
+  CROSS: cross
+  BEDQU: bedquilt
+  ORIEN: oriental room
+  CAVER: cavern
+  SHELL: shell room
+  RESER: reservoir
+  MAIN: main office
+  OFFIC: office
+
+magic: [XYZZY, PLUGH, PLOVE, Y2]

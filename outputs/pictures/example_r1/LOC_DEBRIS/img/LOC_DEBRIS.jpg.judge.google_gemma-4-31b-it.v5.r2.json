@@ -1,0 +1,249 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_r1/LOC_DEBRIS/img/LOC_DEBRIS.jpg",
+  "spec": "outputs/specs/checked/example_r1/LOC_DEBRIS.json",
+  "file": "img/LOC_DEBRIS.jpg",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 825,
+    "prompt_tokens": 1514,
+    "total_tokens": 2339,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0006328,
+    "cost_usd": "0.000633",
+    "pricing_source": "deployment"
+  },
+  "seconds": 27.1,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Does the picture show what this sentence describes: \"You are in a debris room filled with stuff washed in from the surface.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "You are in a debris room",
+          "seen": "yes"
+        },
+        {
+          "part": "filled with stuff washed in from the surface",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "The room contains sticks and leaves typical of surface debris.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Does the picture show what this sentence describes: \"A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "A low wide passage with cobbles",
+          "seen": "yes"
+        },
+        {
+          "part": "becomes plugged with mud and debris here",
+          "seen": "yes"
+        },
+        {
+          "part": "an awkward canyon leads upward and west",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "There is a cobbled passage on the right and rock steps leading up to the left.",
+      "result": "pass"
+    },
+    {
+      "id": "q3",
+      "question": "Does the picture show what this sentence describes: \"In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "In the mud someone has scrawled, \"MAGIC WORD XYZZY\"",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "The text is clearly visible written in the mud on the floor.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "Does the image match this description: \"You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "You are in a debris room filled with stuff washed in from the surface",
+          "seen": "yes"
+        },
+        {
+          "part": "A low wide passage with cobbles becomes plugged with mud and debris here",
+          "seen": "yes"
+        },
+        {
+          "part": "an awkward canyon leads upward and west",
+          "seen": "yes"
+        },
+        {
+          "part": "In the mud someone has scrawled, \"MAGIC WORD XYZZY\"",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "All elements described in the full passage are present in the illustration.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "Is the scene lit by a single pool of warm light?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A central pool of yellow light illuminates the floor.",
+      "result": "pass"
+    },
+    {
+      "id": "q6",
+      "question": "Are the edges of the image dark?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The corners and edges of the frame are shaded in dark tones.",
+      "result": "pass"
+    },
+    {
+      "id": "q7",
+      "question": "Is the black rod with a rusty star visible anywhere in the image?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "There is no black rod or rusty star in the scene.",
+      "result": "pass"
+    },
+    {
+      "id": "q8",
+      "question": "Is the mud visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "There is a patch of mud in the center of the floor.",
+      "result": "pass"
+    },
+    {
+      "id": "q9",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The scene contains only natural rock, mud, and plant debris.",
+      "result": "pass"
+    },
+    {
+      "id": "q10",
+      "question": "Is a low wide cobbled passage on the right visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "A cobbled walkway leading into a dark opening is on the right.",
+      "result": "pass"
+    },
+    {
+      "id": "q11",
+      "question": "Is a canyon sloping up on the left visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "Rock steps lead upward toward the left wall.",
+      "result": "pass"
+    },
+    {
+      "id": "q12",
+      "question": "Are the walls of the chamber made of rough grey rock?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The walls consist of rough, jagged grey stone.",
+      "result": "pass"
+    },
+    {
+      "id": "q13",
+      "question": "Are broken branches lying on the floor?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Numerous broken twigs and branches are scattered across the floor.",
+      "result": "pass"
+    },
+    {
+      "id": "q14",
+      "question": "Is gravel scattered across the floor?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Small pebbles and gravel are visible around the mud patch.",
+      "result": "pass"
+    },
+    {
+      "id": "q15",
+      "question": "Are dead leaves lying on the floor?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Dried autumn leaves are scattered on the floor.",
+      "result": "pass"
+    },
+    {
+      "id": "q16",
+      "question": "Is a patch of mud smoothed flat on the floor?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "There is a flattened oval patch of mud in the center.",
+      "result": "pass"
+    },
+    {
+      "id": "q17",
+      "question": "Are the words \"MAGIC WORD XYZZY\" scrawled in the mud?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The specific words are written clearly in the mud.",
+      "result": "pass"
+    },
+    {
+      "id": "q18",
+      "question": "Is mud and gravel heaped at the mouth of the passage on the right?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Debris and dirt are piled near the entrance of the right-hand passage.",
+      "result": "pass"
+    },
+    {
+      "id": "q19",
+      "question": "Is the floor of the canyon broken into uneven rock steps?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The path to the left consists of uneven, broken stone steps.",
+      "result": "pass"
+    },
+    {
+      "id": "q20",
+      "question": "Is the light falling on the floor yellow-orange?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The light pool on the floor has a distinct yellow-orange hue.",
+      "result": "pass"
+    }
+  ]
+}

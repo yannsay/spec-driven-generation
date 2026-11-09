@@ -1,0 +1,1 @@
+{"file": "img/LOC_DEBRIS.jpg", "model": "Qwen/Qwen-Image-Edit-2511", "seed": 2137511124, "gpu": "NVIDIA H100 80GB HBM3", "seconds": 6.1, "edit_of": "outputs/pictures/example/LOC_DEBRIS/img/LOC_DEBRIS.jpg", "prompt": "Using image 1 as the base, correct the text in the mud to read exactly \"MAGIC WORD XYZZY\". Keep everything else exactly as it is."}

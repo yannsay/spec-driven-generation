@@ -1,0 +1,361 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_r1/LOC_AWKWARD/img/LOC_AWKWARD.jpg",
+  "spec": "outputs/specs/checked/example_r1/LOC_AWKWARD.json",
+  "file": "img/LOC_AWKWARD.jpg",
+  "runs": [
+    "v5.r1",
+    "v5.r2"
+  ],
+  "rule": "pass only when both runs pass; both fail = fail; otherwise flip",
+  "results": [
+    {
+      "id": "q1",
+      "question": "Does the picture show what this sentence describes: \"You are in an awkward sloping east/west canyon.\"?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The image shows a narrow, sloping rocky passage.",
+      "result": "pass",
+      "runs": [
+        {
+          "parts": [
+            {
+              "part": "You are in an awkward sloping east/west canyon",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "The image shows a narrow, sloping rocky passage."
+        },
+        {
+          "parts": [
+            {
+              "part": "You are in an awkward sloping east/west canyon",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "The image shows a narrow, sloping stone canyon viewed from a first-person perspective."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "Does the image match this description: \"You are in an awkward sloping east/west canyon.\"?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The image shows a narrow, sloping rocky passage.",
+      "result": "pass",
+      "runs": [
+        {
+          "parts": [
+            {
+              "part": "You are in an awkward sloping east/west canyon",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "The image shows a narrow, sloping rocky passage."
+        },
+        {
+          "parts": [
+            {
+              "part": "You are in an awkward sloping east/west canyon",
+              "seen": "yes"
+            }
+          ],
+          "answer": "yes",
+          "why": "The image shows a narrow, sloping stone canyon viewed from a first-person perspective."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "Is the scene lit by a single pool of warm light?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "There is one bright warm spot on the floor with shadows surrounding it.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "There is one bright warm spot on the floor with shadows surrounding it."
+        },
+        {
+          "answer": "yes",
+          "why": "There is a localized area of yellow light on the ground surrounded by shadow."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "Are the edges of the image dark?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The top center and corners of the image are dark.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The top center and corners of the image are dark."
+        },
+        {
+          "answer": "yes",
+          "why": "The corners and top edges of the image are shaded in black."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "Only natural stone and rock textures are present.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "Only natural stone and rock textures are present."
+        },
+        {
+          "answer": "no",
+          "why": "Only natural stone and cracked rock are visible."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "Is the canyon continuing down on the right visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no once, yes once",
+      "why": "run 1 (no): The path leads straight ahead into darkness, not down to the right. | run 2 (yes): The canyon walls and floor continue toward the dark background on the right.",
+      "result": "flip",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The path leads straight ahead into darkness, not down to the right."
+        },
+        {
+          "answer": "yes",
+          "why": "The canyon walls and floor continue toward the dark background on the right."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "Is the canyon continuing up on the left visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no once, yes once",
+      "why": "run 1 (no): The path leads straight ahead into darkness, not up to the left. | run 2 (yes): The canyon walls and floor continue toward the dark background on the left.",
+      "result": "flip",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The path leads straight ahead into darkness, not up to the left."
+        },
+        {
+          "answer": "yes",
+          "why": "The canyon walls and floor continue toward the dark background on the left."
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "Are rock walls visible on both the left and the right of the image?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "There are rock walls on both the left and right sides of the frame.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "There are rock walls on both the left and right sides of the frame."
+        },
+        {
+          "answer": "yes",
+          "why": "There are high stone walls on both the left and right sides of the frame."
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "Are the walls on the left made of orange stone?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The wall on the left is colored orange.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The wall on the left is colored orange."
+        },
+        {
+          "answer": "yes",
+          "why": "The wall on the left is colored with orange and yellow tones."
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "Are the walls on the left marked with smooth wavy bands?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The orange wall features distinct smooth, wavy horizontal lines.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The orange wall features distinct smooth, wavy horizontal lines."
+        },
+        {
+          "answer": "yes",
+          "why": "The left wall features distinct smooth, wavy horizontal patterns."
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "Is a staircase or ladder visible in the image?",
+      "expected": false,
+      "origin": "decision",
+      "answer": "no",
+      "why": "No stairs or ladders are present in the scene.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "No stairs or ladders are present in the scene."
+        },
+        {
+          "answer": "no",
+          "why": "No stairs or ladders are present in the scene."
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "Is the canyon bed on the right covered with cobbles?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The right side of the floor consists of small rounded cobbles.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The right side of the floor consists of small rounded cobbles."
+        },
+        {
+          "answer": "yes",
+          "why": "The right side of the floor is covered in small, rounded cobblestones."
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "Is mud visible on the canyon bed on the right?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "Only dry stone and cobbles are visible, no mud.",
+      "result": "fail",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "Only dry stone and cobbles are visible, no mud."
+        },
+        {
+          "answer": "no",
+          "why": "The ground consists of rock and cobbles, with no visible mud."
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "Is the canyon floor lower on the right side of the image than on the left side?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no once, yes once",
+      "why": "run 1 (no): The floor appears relatively level across its width, though it slopes forward. | run 2 (yes): The floor slopes downward toward the right side of the image.",
+      "result": "flip",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The floor appears relatively level across its width, though it slopes forward."
+        },
+        {
+          "answer": "yes",
+          "why": "The floor slopes downward toward the right side of the image."
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "Is the canyon floor made of cracked rock?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The center of the floor consists of cracked stone slabs.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The center of the floor consists of cracked stone slabs."
+        },
+        {
+          "answer": "yes",
+          "why": "The center and left side of the floor show large pieces of cracked rock."
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "Are low rock ledges visible in the canyon floor?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes once, no once",
+      "why": "run 1 (yes): There are stepped rock layers forming low edges along the base of the walls. | run 2 (no): The floor is a relatively flat sloping surface of rock and cobbles without distinct ledges.",
+      "result": "flip",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "There are stepped rock layers forming low edges along the base of the walls."
+        },
+        {
+          "answer": "no",
+          "why": "The floor is a relatively flat sloping surface of rock and cobbles without distinct ledges."
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "Are the tops of the rock walls in darkness?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The top of the canyon walls merge into a black void.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The top of the canyon walls merge into a black void."
+        },
+        {
+          "answer": "yes",
+          "why": "The top center and upper parts of the walls fade into total blackness."
+        }
+      ]
+    }
+  ],
+  "cost_usd": 0.0010119999999999999
+}

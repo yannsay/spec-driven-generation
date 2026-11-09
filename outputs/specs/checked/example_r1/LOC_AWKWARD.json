@@ -1,0 +1,250 @@
+{
+  "room": "LOC_AWKWARD",
+  "text": "You are in an awkward sloping east/west canyon.",
+  "exits": [
+    {
+      "to": "LOC_GRATE",
+      "verbs": [
+        "DEPRE"
+      ],
+      "cond": [
+        "not",
+        "GRATE",
+        "GRATE_CLOSED"
+      ],
+      "why": "DEPRE means 'depression', a place word the description does not mention; the canyon text names no hollow, so no visible way out of this room supports it.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_BELOWGRATE",
+      "verbs": [
+        "ENTRA"
+      ],
+      "cond": null,
+      "why": "ENTRA means 'entrance', a name for a way in that the canyon description never mentions; the text supports no entrance here.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_DEBRIS",
+      "verbs": [
+        "DOWN",
+        "EAST",
+        "DEBRI"
+      ],
+      "cond": null,
+      "why": "EAST and DOWN are walking directions, the description says the canyon runs east and west, and east is the downhill end, towards the debris room.",
+      "drawn": true,
+      "label": "the canyon continuing down on the right",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_BIRDCHAMBER",
+      "verbs": [
+        "INWAR",
+        "UPWAR",
+        "WEST"
+      ],
+      "cond": null,
+      "why": "WEST, UPWAR and INWAR are walking directions, the description says the canyon runs east and west, and west is the uphill end, towards the bird chamber.",
+      "drawn": true,
+      "label": "the canyon continuing up on the left",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_PITTOP",
+      "verbs": [
+        "PIT"
+      ],
+      "cond": null,
+      "why": "PIT names a pit the description does not mention; the canyon text supports no pit, and PIT is not a walking direction.",
+      "drawn": false
+    }
+  ],
+  "images": [
+    {
+      "kind": "scene",
+      "state": null,
+      "file": "img/LOC_AWKWARD.jpg",
+      "size": "2048x1152",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "draw": "A narrow canyon between two high walls of rock, seen in a first-person view at standing eye height.",
+          "why": "YAML: 'You are in an awkward sloping east/west canyon.' The camera stands inside the canyon at standing eye height.",
+          "checks": [
+            {
+              "question": "Are rock walls visible on both the left and the right of the image?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "draw": "On the left, the walls are made of orange stone marked with flowing, undulating waves of rock, like frozen rivers.",
+          "why": "YAML travel INWARD/UPWARD/WEST to the bird chamber, whose walls are 'frozen rivers of orange stone'; west sits on the left and the way runs on out of the frame.",
+          "checks": [
+            {
+              "question": "Are the walls on the left made of orange stone?",
+              "expected": true
+            },
+            {
+              "question": "Are the walls on the left marked with smooth wavy bands?",
+              "expected": true
+            },
+            {
+              "question": "Is a staircase or ladder visible in the image?",
+              "expected": false
+            }
+          ]
+        },
+        {
+          "draw": "On the right, the canyon continues down and out of the picture, its bed of cobbles smothered under a thick layer of dark wet mud.",
+          "why": "YAML travel EAST/DOWN/DEBRI to the debris room, whose description has cobbles and mud; east sits on the right and a path runs on out of the frame.",
+          "checks": [
+            {
+              "question": "Is the canyon bed on the right covered with cobbles?",
+              "expected": true
+            },
+            {
+              "question": "Is mud visible on the canyon bed on the right?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "draw": "The floor of the canyon slopes down from the left of the picture to the right.",
+          "why": "YAML: 'sloping east/west canyon.' East is the downhill end, so the floor drops towards the right of the picture.",
+          "checks": [
+            {
+              "question": "Is the canyon floor lower on the right side of the image than on the left side?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "draw": "The floor is a rough slope of cracked rock broken into low ledges.",
+          "why": "YAML: 'awkward'. The word means the going is hard, so the floor is drawn as broken rock.",
+          "checks": [
+            {
+              "question": "Is the canyon floor made of cracked rock?",
+              "expected": true
+            },
+            {
+              "question": "Are low rock ledges visible in the canyon floor?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "draw": "A pool of warm lamplight falls on the canyon floor, brightest in the centre of the picture, with the tops of the rock walls in darkness.",
+          "why": "The room has no light of its own, so the player's lamp lights it: one pool of warm light, dark above.",
+          "checks": [
+            {
+              "question": "Are the tops of the rock walls in darkness?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "You are in an awkward sloping east/west canyon.",
+          "decisions": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "question": "Does the picture show what this sentence describes: \"You are in an awkward sloping east/west canyon.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the image match this description: \"You are in an awkward sloping east/west canyon.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the scene lit by a single pool of warm light?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Are the edges of the image dark?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is the canyon continuing down on the right visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is the canyon continuing up on the left visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Are rock walls visible on both the left and the right of the image?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are the walls on the left made of orange stone?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are the walls on the left marked with smooth wavy bands?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a staircase or ladder visible in the image?",
+          "expected": false,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the canyon bed on the right covered with cobbles?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is mud visible on the canyon bed on the right?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the canyon floor lower on the right side of the image than on the left side?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the canyon floor made of cracked rock?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are low rock ledges visible in the canyon floor?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are the tops of the rock walls in darkness?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A narrow canyon between two high walls of rock, seen in a first-person view at standing eye height. On the left, the walls are made of orange stone marked with flowing, undulating waves of rock, like frozen rivers. On the right, the canyon continues down and out of the picture, its bed of cobbles smothered under a thick layer of dark wet mud. The floor of the canyon slopes down from the left of the picture to the right. The floor is a rough slope of cracked rock broken into low ledges. A pool of warm lamplight falls on the canyon floor, brightest in the centre of the picture, with the tops of the rock walls in darkness."
+    }
+  ]
+}

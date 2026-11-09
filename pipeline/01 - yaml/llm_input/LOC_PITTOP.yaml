@@ -1,0 +1,40 @@
+# location
+- LOC_PITTOP:
+    description:
+      long: |-
+          At your feet is a small pit breathing traces of white mist.  An east
+          passage ends here except for a small crack leading on.
+      short: 'You''re at top of small pit.'
+      maptag: !!null
+    conditions: {}
+    travel: [
+      {verbs: [DEPRE], cond: [not, GRATE, GRATE_CLOSED],  # depression
+                       action: [goto, LOC_GRATE]},
+      {verbs: [ENTRA], action: [goto, LOC_BELOWGRATE]},  # entrance
+      {verbs: [DEBRI], action: [goto, LOC_DEBRIS]},  # debris
+      {verbs: [PASSA, EAST], action: [goto, LOC_BIRDCHAMBER]},  # passage, east
+      {verbs: [DOWN, PIT, STEPS], cond: [carry, NUGGET],  # down, pit, steps
+                               action: [goto, LOC_NECKBROKE]},
+      {verbs: [DOWN], action: [goto, LOC_MISTHALL]},  # down
+      {verbs: [CRACK, WEST], action: [goto, LOC_CRACK]},  # crack, west
+    ]
+
+# objects that start here
+- STEPS:
+    words: ['steps']
+    inventory: '*steps'
+    locations: [LOC_PITTOP, LOC_MISTHALL]
+    immovable: true
+    states: [STEPS_DOWN, STEPS_UP]
+    descriptions:
+    - 'Rough stone steps lead down the pit.'
+    - 'Rough stone steps lead up the dome.'
+
+# where each exit leads (the destination's description in the game)
+# LOC_GRATE: You are in a 20-foot depression floored with bare dirt. Set into the dirt is a strong steel grate mounted in concrete. A dry streambed leads into the depression.
+# LOC_BELOWGRATE: You are in a small chamber beneath a 3x3 steel grate to the surface. A low crawl over cobbles leads inward to the west.
+# LOC_DEBRIS: You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. In the mud someone has scrawled, "MAGIC WORD XYZZY".
+# LOC_BIRDCHAMBER: You are in a splendid chamber thirty feet high. The walls are frozen rivers of orange stone. An awkward canyon and a good passage exit from east and west sides of the chamber.
+# LOC_NECKBROKE: You are at the bottom of the pit with a broken neck.
+# LOC_MISTHALL: You are at one end of a vast hall stretching forward out of sight to the west. There are openings to either side. Nearby, a wide stone staircase leads downward. The hall is filled with wisps of white mist swaying to and fro almost as if alive. A cold wind blows up the staircase. There is a passage at the top of a dome behind you.
+# LOC_CRACK: The crack is far too small for you to follow. At its widest it is barely wide enough to admit your foot.

@@ -1,0 +1,162 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example/LOC_BELOWGRATE/img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+  "spec": "outputs/specs/checked/example/LOC_BELOWGRATE.json",
+  "file": "img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 456,
+    "prompt_tokens": 1339,
+    "total_tokens": 1795,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.00045020000000000005,
+    "cost_usd": "0.000450",
+    "pricing_source": "deployment"
+  },
+  "seconds": 17.3,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Does the picture show what this sentence describes: \"The grate is locked.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "The grate is locked",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "A padlock is clearly visible on the iron grate.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Are large parts of the scene too dark to see?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The image is well-lit and details are visible in all areas.",
+      "result": "pass"
+    },
+    {
+      "id": "q3",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "Only rough stone and wrought iron are visible.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "Is a shut iron grate across a square opening in the ceiling above visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no",
+      "why": "The grate is in the wall straight ahead, not in the ceiling.",
+      "result": "fail"
+    },
+    {
+      "id": "q5",
+      "question": "Is a square opening in the ceiling above inside the picture?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no",
+      "why": "The ceiling is made of solid stone slabs.",
+      "result": "fail"
+    },
+    {
+      "id": "q6",
+      "question": "Is a low passage over cobbles on the left visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "There is an opening to a cobbled passage on the left.",
+      "result": "pass"
+    },
+    {
+      "id": "q7",
+      "question": "Are stone walls visible on both sides of the image?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Stone walls are visible on both the left and right sides.",
+      "result": "pass"
+    },
+    {
+      "id": "q8",
+      "question": "Is a stone ceiling visible above the walls?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Stone slabs form a ceiling above the walls.",
+      "result": "pass"
+    },
+    {
+      "id": "q9",
+      "question": "Is a square grate of iron bars visible in the ceiling?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The grate is on the wall, not the ceiling.",
+      "result": "fail"
+    },
+    {
+      "id": "q10",
+      "question": "Is the grate set in a stone frame?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The grate is embedded in a stone wall frame.",
+      "result": "pass"
+    },
+    {
+      "id": "q11",
+      "question": "Are the bars of the iron grate a grid across the ceiling opening?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The grate is on the wall, not the ceiling.",
+      "result": "fail"
+    },
+    {
+      "id": "q12",
+      "question": "Is an iron padlock visible on the grate?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "A padlock is shown securing the bars center-bottom.",
+      "result": "pass"
+    },
+    {
+      "id": "q13",
+      "question": "Is a light visible at the far end of the low passage?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Light is coming from the end of the doorway on the left.",
+      "result": "pass"
+    },
+    {
+      "id": "q14",
+      "question": "Is the floor of the chamber made of bare packed earth?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The floor is a flat, brownish, sandy surface.",
+      "result": "pass"
+    },
+    {
+      "id": "q15",
+      "question": "Is daylight falling into the chamber from the grate above?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The grate is on the wall, and light is coming through it horizontally.",
+      "result": "fail"
+    }
+  ]
+}

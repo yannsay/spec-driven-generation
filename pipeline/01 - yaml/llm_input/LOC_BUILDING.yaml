@@ -1,0 +1,58 @@
+# location
+- LOC_BUILDING:
+    description:
+      long: 'You are inside a building, a well house for a large spring.'
+      short: 'You''re inside building.'
+      maptag: !!null
+    conditions: {FLUID: true, ABOVE: true, LIT: true}
+    sound: STREAM_GURGLES
+    travel: [
+      {verbs: [OUT, OUTDO, WEST], action: [goto, LOC_START]},  # out, outdoors, west
+      {verbs: [XYZZY], action: [goto, LOC_FOOF1]},  # magic word
+      {verbs: [PLUGH], action: [goto, LOC_FOOF3]},  # magic word
+      {verbs: [DOWNS, STREA], action: [goto, LOC_SEWER]},  # downstream, stream
+    ]
+
+# objects that start here
+- KEYS:
+    words: ['keys', 'key']
+    inventory: 'Set of keys'
+    locations: LOC_BUILDING
+    descriptions:
+    - 'There are some keys on the ground here.'
+- LAMP:
+    words: ['lamp', 'lante']
+    inventory: 'Brass lantern'
+    locations: LOC_BUILDING
+    states: [LAMP_DARK, LAMP_BRIGHT]
+    descriptions:
+    - 'There is a shiny brass lamp nearby.'
+    - 'There is a lamp shining nearby.'
+    changes:
+    - 'Your lamp is now off.'
+    - 'Your lamp is now on.'
+- FOOD:
+    words: ['food', 'ratio']
+    inventory: 'Tasty food'
+    locations: LOC_BUILDING
+    descriptions:
+    - 'There is food here.'
+- BOTTLE:
+    words: ['bottl', 'jar']
+    inventory: 'Small bottle'
+    locations: LOC_BUILDING
+    states: [WATER_BOTTLE, EMPTY_BOTTLE, OIL_BOTTLE]
+    descriptions: 
+    - 'There is a bottle of water here.'
+    - 'There is an empty bottle here.'
+    - 'There is a bottle of oil here.'
+    changes:
+    - 'Your bottle is now full of water.'
+    - 'The bottle of water is now empty.'
+    - 'Your bottle is now full of oil.'
+
+# where each exit leads (the destination's description in the game)
+# LOC_START: You are standing at the end of a road before a small brick building. Around you is a forest. A small stream flows out of the building and down a gully.
+# LOC_FOOF1: >>Foof!<<
+# LOC_FOOF3: >>Foof!<<
+# LOC_SEWER: The stream flows out through a pair of 1 foot diameter sewer pipes. It would be advisable to use the exit.

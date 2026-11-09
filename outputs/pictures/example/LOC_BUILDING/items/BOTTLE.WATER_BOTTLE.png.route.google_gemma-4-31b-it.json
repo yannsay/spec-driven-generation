@@ -1,0 +1,92 @@
+{
+  "image": "outputs/pictures/example/LOC_BUILDING/items/BOTTLE.WATER_BOTTLE.png",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "There is a bottle of water here."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "A small glass bottle with a narrow neck and a cork stopper, seen in a three-quarter view.",
+        "why": "YAML: 'There is a bottle of water here.' The bottle itself, drawn as a small glass bottle with a cork stopper; 'here' is left out (rule: items).",
+        "checks": [
+          {
+            "question": "Is a bottle visible in the image?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "The bottle is filled with water up to its neck.",
+        "why": "YAML state WATER_BOTTLE: 'There is a bottle of water here.' The water inside the bottle.",
+        "checks": [
+          {
+            "question": "Is water visible inside the bottle?",
+            "expected": true
+          }
+        ]
+      }
+    ],
+    "prompt": "A small glass bottle with a narrow neck and a cork stopper, seen in a three-quarter view. The bottle is filled with water up to its neck. One object alone on a flat, solid, pure bright magenta background (#FF00FF), one even colour from edge to edge, with no frame, no paper texture and no shadow on the ground. Setting: a medieval fantasy world; the object is old and handmade. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, muted earthy palette of browns, ochres, olive and amber.",
+    "flagged": [
+      {
+        "id": "q1",
+        "question": "Is the bottle of water visible in the image?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The bottle contains a brown liquid, not clear water."
+      },
+      {
+        "id": "q2",
+        "question": "Is the bottle of water inside the picture?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The liquid in the bottle is brown, not water."
+      },
+      {
+        "id": "q6",
+        "question": "Is water visible inside the bottle?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The liquid is brown, not the clear appearance of water."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q1",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt asks for water, but the image shows a brown liquid.",
+      "fix": "Change the brown liquid inside the bottle to clear, transparent water."
+    },
+    {
+      "id": "q2",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt asks for water, but the image shows a brown liquid.",
+      "fix": "Change the brown liquid inside the bottle to clear, transparent water."
+    },
+    {
+      "id": "q6",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt asks for water, but the image shows a brown liquid.",
+      "fix": "Change the brown liquid inside the bottle to clear, transparent water."
+    }
+  ],
+  "usage": {
+    "completion_tokens": 167,
+    "prompt_tokens": 7703,
+    "total_tokens": 7870,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0016074,
+    "cost_usd": "0.001607",
+    "pricing_source": "deployment"
+  }
+}

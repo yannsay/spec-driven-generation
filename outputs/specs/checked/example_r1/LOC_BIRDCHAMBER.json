@@ -1,0 +1,459 @@
+{
+  "room": "LOC_BIRDCHAMBER",
+  "text": "You are in a splendid chamber thirty feet high. The walls are frozen rivers of orange stone. An awkward canyon and a good passage exit from east and west sides of the chamber.",
+  "exits": [
+    {
+      "to": "LOC_GRATE",
+      "verbs": [
+        "DEPRE"
+      ],
+      "cond": [
+        "not",
+        "GRATE",
+        "GRATE_CLOSED"
+      ],
+      "why": "DEPRE is the word 'depression': not a walking direction, and the chamber's description names no depression, so it is a shortcut and not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_BELOWGRATE",
+      "verbs": [
+        "ENTRA"
+      ],
+      "cond": null,
+      "why": "ENTRA is the word 'entrance': not a walking direction, and the chamber's description names no entrance, so it is a shortcut and not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_DEBRIS",
+      "verbs": [
+        "DEBRI"
+      ],
+      "cond": null,
+      "why": "DEBRI is the word 'debris': not a walking direction, and the chamber's description names no debris, so it is a shortcut and not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_AWKWARD",
+      "verbs": [
+        "CANYO",
+        "EAST"
+      ],
+      "cond": null,
+      "why": "EAST is a walking direction and the description names an awkward canyon exiting the east side of the chamber, which leads to a sloping canyon.",
+      "drawn": true,
+      "label": "a rocky canyon running away on the right",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_PITTOP",
+      "verbs": [
+        "PASSA",
+        "PIT",
+        "WEST"
+      ],
+      "cond": null,
+      "why": "WEST is a walking direction and the description names a good passage exiting the west side of the chamber.",
+      "drawn": true,
+      "label": "a rock passage running away on the left",
+      "shape": "path"
+    }
+  ],
+  "images": [
+    {
+      "kind": "scene",
+      "state": null,
+      "file": "img/LOC_BIRDCHAMBER.jpg",
+      "size": "2048x1152",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'You are in a splendid chamber thirty feet high.'",
+          "draw": "A tall natural rock chamber, seen in a first-person view at standing eye height, its walls rising up out of the light.",
+          "checks": [
+            {
+              "question": "Are rock walls visible around the viewer?",
+              "expected": true
+            },
+            {
+              "question": "Do the rock walls rise to the top of the picture?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'The walls are frozen rivers of orange stone.' Drawn as what is seen: banded orange rock.",
+          "draw": "The walls are orange stone in smooth wavy bands that curve across them.",
+          "checks": [
+            {
+              "question": "Are the walls of the chamber made of orange stone?",
+              "expected": true
+            },
+            {
+              "question": "Do the walls have smooth wavy bands across them?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'An awkward canyon and a good passage exit from east and west sides of the chamber.' East is on the right, and the exit shows the start of the sloping canyon it leads to.",
+          "draw": "On the right, away from the edge of the frame, a sloping rocky canyon runs away out of the picture between rock walls.",
+          "checks": [
+            {
+              "question": "Is the canyon on the right a gap between rock walls?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'An awkward canyon and a good passage exit from east and west sides of the chamber.' West is on the left.",
+          "draw": "On the left, away from the edge of the frame, a rock passage opens in the wall and runs away out of the picture.",
+          "checks": [
+            {
+              "question": "Is the passage on the left an opening in the rock wall?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML of where the west passage leads (LOC_PITTOP): 'At your feet is a small pit breathing traces of white mist.' Drawn as the start of that room, in the floor of the passage.",
+          "draw": "In the floor of the passage on the left, a round pit in the rock gives off wisps of white mist.",
+          "checks": [
+            {
+              "question": "Is a pit in the floor of the passage on the left visible in the image?",
+              "expected": true
+            },
+            {
+              "question": "Are wisps of white mist rising from the pit?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "Open floor in the foreground where the item images are laid over the scene.",
+          "draw": "The floor of the chamber in the foreground is bare orange rock.",
+          "checks": [
+            {
+              "question": "Is the floor of the chamber made of rock?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "The room has no LIT condition, so it is dark: drawn by the light of the player's lamp.",
+          "draw": "A pool of warm lamplight from just behind the camera falls on the middle of the chamber, and the rock walls at the sides and above fade into darkness.",
+          "checks": [
+            {
+              "question": "Are the rock walls at the top of the picture dark?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "You are in a splendid chamber thirty feet high.",
+          "decisions": [
+            1
+          ]
+        },
+        {
+          "sentence": "The walls are frozen rivers of orange stone.",
+          "decisions": [
+            2
+          ]
+        },
+        {
+          "sentence": "An awkward canyon and a good passage exit from east and west sides of the chamber.",
+          "decisions": [
+            3,
+            4
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "question": "Does the picture show what this sentence describes: \"You are in a splendid chamber thirty feet high.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"The walls are frozen rivers of orange stone.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"An awkward canyon and a good passage exit from east and west sides of the chamber.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the image match this description: \"You are in a splendid chamber thirty feet high. The walls are frozen rivers of orange stone. An awkward canyon and a good passage exit from east and west sides of the chamber.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the scene lit by a single pool of warm light?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Are the edges of the image dark?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the little bird visible anywhere in the image?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a rocky canyon running away on the right visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a rock passage running away on the left visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Are rock walls visible around the viewer?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Do the rock walls rise to the top of the picture?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are the walls of the chamber made of orange stone?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Do the walls have smooth wavy bands across them?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the canyon on the right a gap between rock walls?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the passage on the left an opening in the rock wall?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a pit in the floor of the passage on the left visible in the image?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are wisps of white mist rising from the pit?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the floor of the chamber made of rock?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are the rock walls at the top of the picture dark?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A tall natural rock chamber, seen in a first-person view at standing eye height, its walls rising up out of the light. The walls are orange stone in smooth wavy bands that curve across them. On the right, away from the edge of the frame, a sloping rocky canyon runs away out of the picture between rock walls. On the left, away from the edge of the frame, a rock passage opens in the wall and runs away out of the picture. In the floor of the passage on the left, a round pit in the rock gives off wisps of white mist. The floor of the chamber in the foreground is bare orange rock. A pool of warm lamplight from just behind the camera falls on the middle of the chamber, and the rock walls at the sides and above fade into darkness."
+    },
+    {
+      "kind": "item",
+      "id": "BIRD",
+      "name": "Little bird in cage",
+      "label": "little bird",
+      "transparent": true,
+      "file": "items/BIRD.BIRD_UNCAGED.png",
+      "size": "1024x1024",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'A cheerful little bird is sitting here singing.' The object itself, out of its cage.",
+          "draw": "A little bird with brown and yellow feathers sits upright, centred and whole.",
+          "checks": [
+            {
+              "question": "Is a bird visible in the centre of the image?",
+              "expected": true
+            },
+            {
+              "question": "Is the bird sitting upright?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'A cheerful little bird is sitting here singing.' The state: the bird is singing.",
+          "draw": "The bird sits with its head lifted and its beak open in song.",
+          "checks": [
+            {
+              "question": "Is the bird's beak open?",
+              "expected": true
+            },
+            {
+              "question": "Is the bird's head lifted?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "A cheerful little bird is sitting here singing.",
+          "decisions": [
+            1,
+            2
+          ],
+          "rule": "items"
+        }
+      ],
+      "checks": [
+        {
+          "question": "Is the little bird visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the little bird inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the little bird?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a bird visible in the centre of the image?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the bird sitting upright?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the bird's beak open?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the bird's head lifted?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A little bird with brown and yellow feathers sits upright, centred and whole. The bird sits with its head lifted and its beak open in song."
+    },
+    {
+      "kind": "item",
+      "id": "BIRD",
+      "name": "Little bird in cage",
+      "label": "little bird in a cage",
+      "transparent": true,
+      "file": "items/BIRD.BIRD_CAGED.png",
+      "size": "1024x1024",
+      "edit_of": "items/BIRD.BIRD_UNCAGED.png",
+      "picture_decisions": [
+        {
+          "why": "YAML: 'There is a little bird in the cage.' The state adds the cage and the bird no longer sings.",
+          "draw": "The little bird now sits quietly with its beak closed inside a round cage of woven pale wood that surrounds it, its small door shut.",
+          "checks": [
+            {
+              "question": "Is the bird inside a cage?",
+              "expected": true
+            },
+            {
+              "question": "Is the bird's beak closed?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "There is a little bird in the cage.",
+          "decisions": [
+            1
+          ]
+        }
+      ],
+      "replaces": [
+        2
+      ],
+      "checks": [
+        {
+          "question": "Does the picture show what this sentence describes: \"There is a little bird in the cage.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the little bird in a cage visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the little bird in a cage inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the little bird in a cage?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is the bird inside a cage?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the bird's beak closed?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a bird visible in the centre of the image?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 1
+        },
+        {
+          "question": "Is the bird sitting upright?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 1
+        }
+      ],
+      "generation_prompt": "The little bird now sits quietly with its beak closed inside a round cage of woven pale wood that surrounds it, its small door shut."
+    }
+  ]
+}

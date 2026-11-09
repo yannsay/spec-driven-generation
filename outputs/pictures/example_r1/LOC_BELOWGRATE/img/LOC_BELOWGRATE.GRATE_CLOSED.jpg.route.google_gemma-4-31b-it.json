@@ -1,0 +1,185 @@
+{
+  "image": "outputs/pictures/example_r1/LOC_BELOWGRATE/img/LOC_BELOWGRATE.GRATE_CLOSED.jpg",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "You are in a small chamber beneath a 3x3 steel grate to the surface.",
+      "A low crawl over cobbles leads inward to the west.",
+      "The grate is locked."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "A small chamber of rough weathered stone, seen in a first-person view at standing eye height, with stone walls on both sides and a low stone ceiling above.",
+        "why": "YAML: 'You are in a small chamber beneath a 3x3 steel grate to the surface.'",
+        "checks": [
+          {
+            "question": "Are stone walls visible on both sides of the image?",
+            "expected": true
+          },
+          {
+            "question": "Is a stone ceiling visible above the walls?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "A square grate of heavy hand-forged iron bars is set in a stone frame in the ceiling above the middle of the chamber.",
+        "why": "YAML: 'You are in a small chamber beneath a 3x3 steel grate to the surface.' The grate is the room's fixed object, drawn as it always is; its 'steel' is hand-forged iron in this world.",
+        "checks": [
+          {
+            "question": "Is a square grate of iron bars visible in the ceiling?",
+            "expected": true
+          },
+          {
+            "question": "Is the grate set in a stone frame?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "draw": "The iron grate is shut, its bars filling the square opening in the ceiling.",
+        "why": "YAML: 'The grate is locked.' The grate's first state, the bars shut.",
+        "checks": [
+          {
+            "question": "Are the bars of the iron grate a grid across the ceiling opening?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "draw": "A heavy iron padlock and hasp hold the grate shut at the stone frame.",
+        "why": "YAML: 'The grate is locked.' A padlock is the one visible detail that makes the lock clear.",
+        "checks": [
+          {
+            "question": "Is an iron padlock visible on the grate?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "draw": "On the left, a low passage with a floor of cobbles runs away out of the frame, and a faint light glows at its far end.",
+        "why": "YAML: 'A low crawl over cobbles leads inward to the west.' West is on the left; the light at the far end is the start of the passage it leads to.",
+        "checks": [
+          {
+            "question": "Is a light visible at the far end of the low passage?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "draw": "The floor of the chamber in the foreground is bare packed earth.",
+        "why": "The floor of the chamber, kept bare for the objects the game lays over the scene.",
+        "checks": [
+          {
+            "question": "Is the floor of the chamber made of bare packed earth?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 7,
+        "draw": "Soft daylight falls from the grate in the ceiling and lights the whole chamber.",
+        "why": "The room is lit (LIT: true); the daylight comes down through the grate from the surface.",
+        "checks": [
+          {
+            "question": "Is daylight falling into the chamber from the grate above?",
+            "expected": true
+          }
+        ]
+      }
+    ],
+    "prompt": "A small chamber of rough weathered stone, seen in a first-person view at standing eye height, with stone walls on both sides and a low stone ceiling above. A square grate of heavy hand-forged iron bars is set in a stone frame in the ceiling above the middle of the chamber. The iron grate is shut, its bars filling the square opening in the ceiling. A heavy iron padlock and hasp hold the grate shut at the stone frame. On the left, a low passage with a floor of cobbles runs away out of the frame, and a faint light glows at its far end. The floor of the chamber in the foreground is bare packed earth. Soft daylight falls from the grate in the ceiling and lights the whole chamber. The picture fills the whole frame, edge to edge. Setting: a medieval fantasy world; everything is old and handmade: weathered stone and old brick, rough timber, wrought iron. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, slightly off-register colour printing, muted earthy palette of browns, ochres, olive and amber, on aged newsprint. Mood: quiet, still and mysterious, a place long left alone.",
+    "flagged": [
+      {
+        "id": "q4",
+        "question": "Is a shut iron grate across a square opening in the ceiling above visible in the image?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The grate is on the north wall, not in the ceiling."
+      },
+      {
+        "id": "q5",
+        "question": "Is a square opening in the ceiling above inside the picture?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The ceiling is solid stone with no openings."
+      },
+      {
+        "id": "q9",
+        "question": "Is a square grate of iron bars visible in the ceiling?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The grate is on the wall, not the ceiling."
+      },
+      {
+        "id": "q11",
+        "question": "Are the bars of the iron grate a grid across the ceiling opening?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The grate is on the wall, not the ceiling."
+      },
+      {
+        "id": "q15",
+        "question": "Is daylight falling into the chamber from the grate above?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "Light is coming through the wall grate, not a ceiling grate."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q4",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt clearly asks for the grate in the ceiling above the middle of the chamber, but the image puts it on the wall.",
+      "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+    },
+    {
+      "id": "q5",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for a square opening in the ceiling, but the image shows a solid stone ceiling.",
+      "fix": "Create a square opening in the ceiling for the grate."
+    },
+    {
+      "id": "q9",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for the grate in the ceiling, but the image puts it on the wall.",
+      "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+    },
+    {
+      "id": "q11",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for the grate to be across the ceiling opening, but it is on the wall.",
+      "fix": "Move the iron grate from the wall to the ceiling, centered above the viewer."
+    },
+    {
+      "id": "q15",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for daylight falling from the grate in the ceiling, but the light comes from the wall.",
+      "fix": "Make the light source the grate in the ceiling, casting light downwards into the chamber."
+    }
+  ],
+  "usage": {
+    "completion_tokens": 324,
+    "prompt_tokens": 8657,
+    "total_tokens": 8981,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0018610000000000002,
+    "cost_usd": "0.001861",
+    "pricing_source": "deployment"
+  }
+}

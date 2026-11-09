@@ -1,0 +1,186 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_r1/LOC_AWKWARD/img/LOC_AWKWARD.jpg",
+  "spec": "outputs/specs/checked/example_r1/LOC_AWKWARD.json",
+  "file": "img/LOC_AWKWARD.jpg",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 590,
+    "prompt_tokens": 1384,
+    "total_tokens": 1974,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0005128000000000001,
+    "cost_usd": "0.000513",
+    "pricing_source": "deployment"
+  },
+  "seconds": 16.9,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Does the picture show what this sentence describes: \"You are in an awkward sloping east/west canyon.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "You are in an awkward sloping east/west canyon",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "The image shows a narrow, sloping stone canyon viewed from a first-person perspective.",
+      "result": "pass"
+    },
+    {
+      "id": "q2",
+      "question": "Does the image match this description: \"You are in an awkward sloping east/west canyon.\"?",
+      "expected": true,
+      "origin": "required",
+      "parts": [
+        {
+          "part": "You are in an awkward sloping east/west canyon",
+          "seen": "yes"
+        }
+      ],
+      "answer": "yes",
+      "why": "The image shows a narrow, sloping stone canyon viewed from a first-person perspective.",
+      "result": "pass"
+    },
+    {
+      "id": "q3",
+      "question": "Is the scene lit by a single pool of warm light?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "There is a localized area of yellow light on the ground surrounded by shadow.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "Are the edges of the image dark?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The corners and top edges of the image are shaded in black.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "Only natural stone and cracked rock are visible.",
+      "result": "pass"
+    },
+    {
+      "id": "q6",
+      "question": "Is the canyon continuing down on the right visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "The canyon walls and floor continue toward the dark background on the right.",
+      "result": "pass"
+    },
+    {
+      "id": "q7",
+      "question": "Is the canyon continuing up on the left visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "The canyon walls and floor continue toward the dark background on the left.",
+      "result": "pass"
+    },
+    {
+      "id": "q8",
+      "question": "Are rock walls visible on both the left and the right of the image?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "There are high stone walls on both the left and right sides of the frame.",
+      "result": "pass"
+    },
+    {
+      "id": "q9",
+      "question": "Are the walls on the left made of orange stone?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The wall on the left is colored with orange and yellow tones.",
+      "result": "pass"
+    },
+    {
+      "id": "q10",
+      "question": "Are the walls on the left marked with smooth wavy bands?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The left wall features distinct smooth, wavy horizontal patterns.",
+      "result": "pass"
+    },
+    {
+      "id": "q11",
+      "question": "Is a staircase or ladder visible in the image?",
+      "expected": false,
+      "origin": "decision",
+      "answer": "no",
+      "why": "No stairs or ladders are present in the scene.",
+      "result": "pass"
+    },
+    {
+      "id": "q12",
+      "question": "Is the canyon bed on the right covered with cobbles?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The right side of the floor is covered in small, rounded cobblestones.",
+      "result": "pass"
+    },
+    {
+      "id": "q13",
+      "question": "Is mud visible on the canyon bed on the right?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The ground consists of rock and cobbles, with no visible mud.",
+      "result": "fail"
+    },
+    {
+      "id": "q14",
+      "question": "Is the canyon floor lower on the right side of the image than on the left side?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The floor slopes downward toward the right side of the image.",
+      "result": "pass"
+    },
+    {
+      "id": "q15",
+      "question": "Is the canyon floor made of cracked rock?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The center and left side of the floor show large pieces of cracked rock.",
+      "result": "pass"
+    },
+    {
+      "id": "q16",
+      "question": "Are low rock ledges visible in the canyon floor?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The floor is a relatively flat sloping surface of rock and cobbles without distinct ledges.",
+      "result": "fail"
+    },
+    {
+      "id": "q17",
+      "question": "Are the tops of the rock walls in darkness?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The top center and upper parts of the walls fade into total blackness.",
+      "result": "pass"
+    }
+  ]
+}

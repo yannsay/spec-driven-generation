@@ -1,0 +1,122 @@
+[
+ {
+  "room": "LOC_START",
+  "file": "img/LOC_START.jpg",
+  "size": "2048x1152",
+  "ref": "outputs/pictures/example/LOC_START/img/LOC_START.jpg",
+  "out": "outputs/pictures/example_r1/LOC_START/img/LOC_START.jpg",
+  "fmt": "JPEG",
+  "prompt": "Using image 1 as the base, change the road so it ends in the clearing and leads away to the left, rather than continuing straight ahead. Change the material of the building from stone blocks to old handmade bricks. Keep everything else exactly as it is.",
+  "change": [
+   "Change the road so it ends in the clearing and leads away to the left, rather than continuing straight ahead.",
+   "Change the material of the building from stone blocks to old handmade bricks."
+  ],
+  "routes": [
+   {
+    "id": "q11",
+    "cause": "image",
+    "question": "Does the dirt road end in the clearing?",
+    "why": "The prompt asks for the road on the left running out of the clearing, but the picture shows it continuing straight ahead.",
+    "fix": "Change the road so it ends in the clearing and leads away to the left, rather than continuing straight ahead."
+   },
+   {
+    "id": "q12",
+    "cause": "image",
+    "question": "Is the building made of brick?",
+    "why": "The prompt clearly asks for a building of old handmade brick, but the picture shows rough-hewn stone blocks.",
+    "fix": "Change the material of the building from stone blocks to old handmade bricks."
+   }
+  ]
+ },
+ {
+  "room": "LOC_BUILDING",
+  "file": "img/LOC_BUILDING.jpg",
+  "size": "2048x1152",
+  "ref": "outputs/pictures/example/LOC_BUILDING/img/LOC_BUILDING.jpg",
+  "out": "outputs/pictures/example_r1/LOC_BUILDING/img/LOC_BUILDING.jpg",
+  "fmt": "JPEG",
+  "prompt": "Using image 1 as the base, replace the wooden ceiling beams with a vaulted stone roof. Keep everything else exactly as it is.",
+  "change": [
+   "Replace the wooden ceiling beams with a vaulted stone roof."
+  ],
+  "routes": [
+   {
+    "id": "q13",
+    "cause": "image",
+    "question": "Is a stone roof visible overhead?",
+    "why": "The prompt explicitly asks for a 'stone roof overhead', but the picture shows wooden beams.",
+    "fix": "Replace the wooden ceiling beams with a vaulted stone roof."
+   }
+  ]
+ },
+ {
+  "room": "LOC_BUILDING",
+  "file": "items/BOTTLE.WATER_BOTTLE.png",
+  "size": "1024x1024",
+  "ref": "outputs/pictures/example/LOC_BUILDING/items/BOTTLE.WATER_BOTTLE.png",
+  "out": "outputs/pictures/example_r1/LOC_BUILDING/items/BOTTLE.WATER_BOTTLE.png",
+  "fmt": "PNG",
+  "prompt": "Using image 1 as the base, change the brown liquid inside the bottle to clear, transparent water. Keep everything else exactly as it is, on the same flat magenta (#FF00FF) background.",
+  "change": [
+   "Change the brown liquid inside the bottle to clear, transparent water."
+  ],
+  "routes": [
+   {
+    "id": "q1",
+    "cause": "image",
+    "question": "Is the bottle of water visible in the image?",
+    "why": "The prompt asks for water, but the image shows a brown liquid.",
+    "fix": "Change the brown liquid inside the bottle to clear, transparent water."
+   },
+   {
+    "id": "q2",
+    "cause": "image",
+    "question": "Is the bottle of water inside the picture?",
+    "why": "The prompt asks for water, but the image shows a brown liquid.",
+    "fix": "Change the brown liquid inside the bottle to clear, transparent water."
+   },
+   {
+    "id": "q6",
+    "cause": "image",
+    "question": "Is water visible inside the bottle?",
+    "why": "The prompt asks for water, but the image shows a brown liquid.",
+    "fix": "Change the brown liquid inside the bottle to clear, transparent water."
+   }
+  ]
+ },
+ {
+  "room": "LOC_DEBRIS",
+  "file": "img/LOC_DEBRIS.jpg",
+  "size": "2048x1152",
+  "ref": "outputs/pictures/example/LOC_DEBRIS/img/LOC_DEBRIS.jpg",
+  "out": "outputs/pictures/example_r1/LOC_DEBRIS/img/LOC_DEBRIS.jpg",
+  "fmt": "JPEG",
+  "prompt": "Using image 1 as the base, correct the text in the mud to read exactly \"MAGIC WORD XYZZY\". Keep everything else exactly as it is.",
+  "change": [
+   "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+  ],
+  "routes": [
+   {
+    "id": "q3",
+    "cause": "image",
+    "question": "Does the picture show what this sentence describes: \"In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?",
+    "why": "The prompt clearly asks for \"MAGIC WORD XYZZY\", but the image model misspelled it as \"MAJC WORD XXZZY\".",
+    "fix": "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+   },
+   {
+    "id": "q4",
+    "cause": "image",
+    "question": "Does the image match this description: \"You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?",
+    "why": "The overall description fails only because of the misspelling of the magic word.",
+    "fix": "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+   },
+   {
+    "id": "q17",
+    "cause": "image",
+    "question": "Are the words \"MAGIC WORD XYZZY\" scrawled in the mud?",
+    "why": "The prompt clearly asks for \"MAGIC WORD XYZZY\", but the image model misspelled it as \"MAJC WORD XXZZY\".",
+    "fix": "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+   }
+  ]
+ }
+]

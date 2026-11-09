@@ -1,0 +1,12 @@
+[
+ {
+  "room": "LOC_GRATE",
+  "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+  "changes": [
+   "Create a visible gap between the tree trunks on the right to show a path leading out of the hollow.",
+   "Open a clear path between the tree trunks in the foreground at the bottom of the picture.",
+   "Create a visible gap between the tree trunks on the left to show a path leading out of the hollow.",
+   "Replace the circular latch on the grate with a heavy iron padlock and hasp."
+  ]
+ }
+]

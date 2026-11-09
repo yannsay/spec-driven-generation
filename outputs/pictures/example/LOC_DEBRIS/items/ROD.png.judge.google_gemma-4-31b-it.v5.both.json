@@ -1,0 +1,147 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example/LOC_DEBRIS/items/ROD.png",
+  "spec": "outputs/specs/checked/example/LOC_DEBRIS.json",
+  "file": "items/ROD.png",
+  "runs": [
+    "v5.r1",
+    "v5.r2"
+  ],
+  "rule": "pass only when both runs pass; both fail = fail; otherwise flip",
+  "results": [
+    {
+      "id": "q1",
+      "question": "Is the black rod with a rusty star visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "A black rod with a rusty star-shaped head is the central subject.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A black rod with a rusty star-shaped head is the central subject."
+        },
+        {
+          "answer": "yes",
+          "why": "A black rod with a rusty star-shaped head is clearly visible."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "Is the black rod with a rusty star inside the picture?",
+      "expected": true,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The object is entirely contained within the frame.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The object is entirely contained within the frame."
+        },
+        {
+          "answer": "yes",
+          "why": "The object is positioned entirely within the image frame."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "Is a floor, wall or landscape visible behind the black rod with a rusty star?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The background is a solid bright pink color.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The background is a solid bright pink color."
+        },
+        {
+          "answer": "no",
+          "why": "The background is a solid pink color with no architectural or natural features."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The object appears to be a handmade mace fitting a medieval setting.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The object appears to be a handmade mace fitting a medieval setting."
+        },
+        {
+          "answer": "no",
+          "why": "The item appears as a handmade weapon and no modern materials are present."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "Is the rod black?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The shaft of the object is colored black.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The shaft of the object is colored black."
+        },
+        {
+          "answer": "yes",
+          "why": "The rod is depicted in black and dark grey tones."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "Is the rod much longer than it is thick?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The length of the rod greatly exceeds its diameter.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The length of the rod greatly exceeds its diameter."
+        },
+        {
+          "answer": "yes",
+          "why": "The length of the rod greatly exceeds its diameter."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "Is a rusty star fixed on one end of the rod?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "A rusty star-shaped head is attached to the top end of the rod.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A rusty star-shaped head is attached to the top end of the rod."
+        },
+        {
+          "answer": "yes",
+          "why": "A rusty, star-shaped metallic head is attached to the top end."
+        }
+      ]
+    }
+  ],
+  "cost_usd": 0.000643
+}

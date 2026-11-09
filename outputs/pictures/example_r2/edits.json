@@ -1,0 +1,31 @@
+[
+ {
+  "room": "LOC_START",
+  "file": "img/LOC_START.jpg",
+  "size": "2048x1152",
+  "ref": "outputs/pictures/example_r1/LOC_START/img/LOC_START.jpg",
+  "out": "outputs/pictures/example_r2/LOC_START/img/LOC_START.jpg",
+  "fmt": "JPEG",
+  "prompt": "Using image 1 as the base, change the road so it ends in the clearing and leads away to the left, removing the path that continues straight ahead. Change the material of the building from stone blocks to old handmade bricks. Keep everything else exactly as it is.",
+  "change": [
+   "Change the road so it ends in the clearing and leads away to the left, removing the path that continues straight ahead.",
+   "Change the material of the building from stone blocks to old handmade bricks."
+  ],
+  "routes": [
+   {
+    "id": "q11",
+    "cause": "image",
+    "question": "Does the dirt road end in the clearing?",
+    "why": "The prompt explicitly asks to change the road so it ends in the clearing and leads away to the left, but the picture shows it continuing straight ahead.",
+    "fix": "Change the road so it ends in the clearing and leads away to the left, removing the path that continues straight ahead."
+   },
+   {
+    "id": "q12",
+    "cause": "image",
+    "question": "Is the building made of brick?",
+    "why": "The prompt explicitly asks to change the material of the building to old handmade bricks, but the picture still shows stone blocks.",
+    "fix": "Change the material of the building from stone blocks to old handmade bricks."
+   }
+  ]
+ }
+]

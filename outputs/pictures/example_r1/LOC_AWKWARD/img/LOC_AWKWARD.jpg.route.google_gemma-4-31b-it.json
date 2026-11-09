@@ -1,0 +1,180 @@
+{
+  "image": "outputs/pictures/example_r1/LOC_AWKWARD/img/LOC_AWKWARD.jpg",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "You are in an awkward sloping east/west canyon."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "A narrow canyon between two high walls of rock, seen in a first-person view at standing eye height.",
+        "why": "YAML: 'You are in an awkward sloping east/west canyon.' The camera stands inside the canyon at standing eye height.",
+        "checks": [
+          {
+            "question": "Are rock walls visible on both the left and the right of the image?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "On the left, the walls are made of orange stone marked with flowing, undulating waves of rock, like frozen rivers.",
+        "why": "YAML travel INWARD/UPWARD/WEST to the bird chamber, whose walls are 'frozen rivers of orange stone'; west sits on the left and the way runs on out of the frame.",
+        "checks": [
+          {
+            "question": "Are the walls on the left made of orange stone?",
+            "expected": true
+          },
+          {
+            "question": "Are the walls on the left marked with smooth wavy bands?",
+            "expected": true
+          },
+          {
+            "question": "Is a staircase or ladder visible in the image?",
+            "expected": false
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "draw": "On the right, the canyon continues down and out of the picture, its bed of cobbles smothered under a thick layer of dark wet mud.",
+        "why": "YAML travel EAST/DOWN/DEBRI to the debris room, whose description has cobbles and mud; east sits on the right and a path runs on out of the frame.",
+        "checks": [
+          {
+            "question": "Is the canyon bed on the right covered with cobbles?",
+            "expected": true
+          },
+          {
+            "question": "Is mud visible on the canyon bed on the right?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "draw": "The floor of the canyon slopes down from the left of the picture to the right.",
+        "why": "YAML: 'sloping east/west canyon.' East is the downhill end, so the floor drops towards the right of the picture.",
+        "checks": [
+          {
+            "question": "Is the canyon floor lower on the right side of the image than on the left side?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "draw": "The floor is a rough slope of cracked rock broken into low ledges.",
+        "why": "YAML: 'awkward'. The word means the going is hard, so the floor is drawn as broken rock.",
+        "checks": [
+          {
+            "question": "Is the canyon floor made of cracked rock?",
+            "expected": true
+          },
+          {
+            "question": "Are low rock ledges visible in the canyon floor?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "draw": "A pool of warm lamplight falls on the canyon floor, brightest in the centre of the picture, with the tops of the rock walls in darkness.",
+        "why": "The room has no light of its own, so the player's lamp lights it: one pool of warm light, dark above.",
+        "checks": [
+          {
+            "question": "Are the tops of the rock walls in darkness?",
+            "expected": true
+          }
+        ]
+      }
+    ],
+    "prompt": "A narrow canyon between two high walls of rock, seen in a first-person view at standing eye height. On the left, the walls are made of orange stone marked with flowing, undulating waves of rock, like frozen rivers. On the right, the canyon continues down and out of the picture, its bed of cobbles smothered under a thick layer of dark wet mud. The floor of the canyon slopes down from the left of the picture to the right. The floor is a rough slope of cracked rock broken into low ledges. A pool of warm lamplight falls on the canyon floor, brightest in the centre of the picture, with the tops of the rock walls in darkness. The picture fills the whole frame, edge to edge. Setting: a medieval fantasy world; everything is old and handmade: weathered stone and old brick, rough timber, wrought iron. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, slightly off-register colour printing, muted earthy palette of browns, ochres, olive and amber, on aged newsprint. Mood: quiet, still and mysterious, a place long left alone.",
+    "flagged": [
+      {
+        "id": "q6",
+        "question": "Is the canyon continuing down on the right visible in the image?",
+        "good_answer": "yes",
+        "answer": "no once, yes once",
+        "why": "run 1 (no): The path leads straight ahead into darkness, not down to the right. | run 2 (yes): The canyon walls and floor continue toward the dark background on the right."
+      },
+      {
+        "id": "q7",
+        "question": "Is the canyon continuing up on the left visible in the image?",
+        "good_answer": "yes",
+        "answer": "no once, yes once",
+        "why": "run 1 (no): The path leads straight ahead into darkness, not up to the left. | run 2 (yes): The canyon walls and floor continue toward the dark background on the left."
+      },
+      {
+        "id": "q13",
+        "question": "Is mud visible on the canyon bed on the right?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "Only dry stone and cobbles are visible, no mud."
+      },
+      {
+        "id": "q14",
+        "question": "Is the canyon floor lower on the right side of the image than on the left side?",
+        "good_answer": "yes",
+        "answer": "no once, yes once",
+        "why": "run 1 (no): The floor appears relatively level across its width, though it slopes forward. | run 2 (yes): The floor slopes downward toward the right side of the image."
+      },
+      {
+        "id": "q16",
+        "question": "Are low rock ledges visible in the canyon floor?",
+        "good_answer": "yes",
+        "answer": "yes once, no once",
+        "why": "run 1 (yes): There are stepped rock layers forming low edges along the base of the walls. | run 2 (no): The floor is a relatively flat sloping surface of rock and cobbles without distinct ledges."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q6",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for the canyon to continue down and out of the picture on the right, but the picture shows a dead-end tunnel leading straight ahead into darkness.",
+      "fix": "Change the composition so the canyon opens up and continues downward toward the right edge of the frame instead of ending in a dark wall ahead."
+    },
+    {
+      "id": "q7",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt implies the canyon continues on the left (via the 'sloping east/west' and 'frozen rivers' context), but the picture shows a dead-end tunnel leading straight ahead.",
+      "fix": "Change the composition so the canyon opens up and continues toward the left edge of the frame."
+    },
+    {
+      "id": "q13",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt clearly asks for cobbles 'smothered under a thick layer of dark wet mud' on the right, but the picture shows only dry cobbles.",
+      "fix": "Cover the cobbles on the right side of the canyon floor with a thick layer of dark, glistening wet mud."
+    },
+    {
+      "id": "q14",
+      "cause": "image",
+      "action": "new",
+      "why": "The prompt asks for the floor to slope down from left to right, but the picture shows a floor that is mostly level across its width and slopes only forward.",
+      "fix": "Adjust the floor's perspective so it is visibly higher on the left and slopes downward toward the right side of the image."
+    },
+    {
+      "id": "q16",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt asks for the floor to be 'broken into low ledges', but the floor is mostly a flat surface of cracked rock and cobbles.",
+      "fix": "Reshape the cracked rock on the floor to create distinct, stepped low ledges."
+    }
+  ],
+  "usage": {
+    "completion_tokens": 438,
+    "prompt_tokens": 8731,
+    "total_tokens": 9169,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0019214000000000004,
+    "cost_usd": "0.001921",
+    "pricing_source": "deployment"
+  }
+}

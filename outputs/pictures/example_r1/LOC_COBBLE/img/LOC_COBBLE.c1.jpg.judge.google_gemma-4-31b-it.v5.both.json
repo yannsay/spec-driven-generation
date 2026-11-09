@@ -1,0 +1,223 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example_r1/LOC_COBBLE/img/LOC_COBBLE.c1.jpg",
+  "spec": "outputs/specs/checked/example_r1/LOC_COBBLE.json",
+  "file": "img/LOC_COBBLE.jpg",
+  "runs": [
+    "v5.r1",
+    "v5.r2"
+  ],
+  "rule": "pass only when both runs pass; both fail = fail; otherwise flip",
+  "results": [
+    {
+      "id": "q1",
+      "question": "Are large parts of the scene too dark to see?",
+      "expected": false,
+      "origin": "required",
+      "answer": "yes",
+      "why": "The ceiling and side walls are cast in deep black shadows.",
+      "result": "fail",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The ceiling and side walls are cast in deep black shadows."
+        },
+        {
+          "answer": "yes",
+          "why": "The ceiling and side walls are heavily shadowed and dark."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "Is the small wicker cage visible anywhere in the image?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "There are no cages present in the scene.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "There are no cages present in the scene."
+        },
+        {
+          "answer": "no",
+          "why": "No wicker cage is present in the scene."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "Only natural rock and stone cobbles are visible.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "Only natural rock and stone cobbles are visible."
+        },
+        {
+          "answer": "no",
+          "why": "The image only contains natural rock and stone."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "Is a low cobbled passage running east towards a pale light on the right visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "yes",
+      "why": "A cobbled path leads straight ahead and slightly right toward a bright opening.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "A cobbled path leads straight ahead and slightly right toward a bright opening."
+        },
+        {
+          "answer": "yes",
+          "why": "A cobbled path leads from the viewer towards a bright opening on the right side of the frame."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "Is the low cobbled passage running west on the left visible in the image?",
+      "expected": true,
+      "origin": "exit",
+      "answer": "no",
+      "why": "The passage leads forward/right, not west to the left.",
+      "result": "fail",
+      "runs": [
+        {
+          "answer": "no",
+          "why": "The passage leads forward/right, not west to the left."
+        },
+        {
+          "answer": "no",
+          "why": "The passage leads toward the light on the right, not west on the left."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "Is the floor of the passage laid with rounded cobblestones?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The ground is covered in smooth, rounded stones.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The ground is covered in smooth, rounded stones."
+        },
+        {
+          "answer": "yes",
+          "why": "The path is composed of rounded stone shapes."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "Is a rough rock ceiling visible close above the cobbled floor?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The rocky ceiling is very low and hangs directly over the path.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The rocky ceiling is very low and hangs directly over the path."
+        },
+        {
+          "answer": "yes",
+          "why": "A low, rocky ceiling is visible directly above the path."
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "Is a patch of pale light visible at the far end of the passage on the right?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "There is a bright white light at the opening on the right side of the background.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "There is a bright white light at the opening on the right side of the background."
+        },
+        {
+          "answer": "yes",
+          "why": "There is a bright white opening at the end of the tunnel on the right."
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "Is mud banked in the passage on the left?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "Dirty earth and rocks are piled against the left wall.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "Dirty earth and rocks are piled against the left wall."
+        },
+        {
+          "answer": "yes",
+          "why": "There are dirt and rocky mounds along the left wall."
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "Are the cobbles in the near foreground bare?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The stones in the immediate foreground are clear of debris.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The stones in the immediate foreground are clear of debris."
+        },
+        {
+          "answer": "yes",
+          "why": "The cobblestones in the bottom foreground are clear of debris."
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "Is the light on the cobbles coming from the east end of the passage?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "The highlights on the stones follow the direction of the light from the right.",
+      "result": "pass",
+      "runs": [
+        {
+          "answer": "yes",
+          "why": "The highlights on the stones follow the direction of the light from the right."
+        },
+        {
+          "answer": "yes",
+          "why": "The highlights and shadows on the stones indicate light coming from the right (east)."
+        }
+      ]
+    }
+  ],
+  "cost_usd": 0.000778
+}

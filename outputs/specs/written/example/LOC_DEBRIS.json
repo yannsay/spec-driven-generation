@@ -1,0 +1,367 @@
+{
+  "room": "LOC_DEBRIS",
+  "text": "You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. In the mud someone has scrawled, \"MAGIC WORD XYZZY\".",
+  "exits": [
+    {
+      "to": "LOC_GRATE",
+      "verbs": [
+        "DEPRE"
+      ],
+      "cond": [
+        "not",
+        "GRATE",
+        "GRATE_CLOSED"
+      ],
+      "why": "DEPRE is the word 'depression', the name of a place that this room's description never mentions; it is a shortcut, not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_BELOWGRATE",
+      "verbs": [
+        "ENTRA"
+      ],
+      "cond": null,
+      "why": "ENTRA is the word 'entrance', a place word and not one of the walking directions, and no entrance is named in this room's description; it is a shortcut.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_COBBLE",
+      "verbs": [
+        "CRAWL",
+        "COBBL",
+        "PASSA",
+        "LOW",
+        "EAST"
+      ],
+      "cond": null,
+      "why": "EAST is a walking direction and CRAWL is on the list; the low wide passage with cobbles of the description is this way, and east is on the right.",
+      "drawn": true,
+      "label": "a low wide cobbled passage on the right",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_AWKWARD",
+      "verbs": [
+        "CANYO",
+        "INWAR",
+        "UPWAR",
+        "WEST"
+      ],
+      "cond": null,
+      "why": "WEST is a walking direction and the description's awkward canyon leads upward and west; west is on the left.",
+      "drawn": true,
+      "label": "a canyon sloping up on the left",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_FOOF2",
+      "verbs": [
+        "XYZZY"
+      ],
+      "cond": null,
+      "why": "XYZZY is the magic word scrawled in the mud, a shortcut and not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_PITTOP",
+      "verbs": [
+        "PIT"
+      ],
+      "cond": null,
+      "why": "PIT names a place, and no pit is in this room's description; it is a shortcut.",
+      "drawn": false
+    }
+  ],
+  "images": [
+    {
+      "kind": "scene",
+      "state": null,
+      "file": "img/LOC_DEBRIS.jpg",
+      "size": "2048x1152",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'You are in a debris room filled with stuff washed in from the surface.' The room itself, a cave chamber of old rough rock.",
+          "draw": "A wide chamber of rough grey rock with a low ceiling, seen in a first-person view at standing eye height.",
+          "checks": [
+            {
+              "question": "Are the walls of the chamber made of rough grey rock?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: '... filled with stuff washed in from the surface.' The stuff washed in lies heaped on the floor.",
+          "draw": "Broken branches, gravel, small stones and dead leaves lie heaped across the floor and against the walls.",
+          "checks": [
+            {
+              "question": "Are broken branches lying on the floor?",
+              "expected": true
+            },
+            {
+              "question": "Is gravel scattered across the floor?",
+              "expected": true
+            },
+            {
+              "question": "Are dead leaves lying on the floor?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'In the mud someone has scrawled, \"MAGIC WORD XYZZY\".' The mud and the words scrawled in it.",
+          "draw": "In the middle of the floor a patch of wet mud lies smoothed flat, with the words \"MAGIC WORD XYZZY\" scrawled across it.",
+          "checks": [
+            {
+              "question": "Is a patch of mud smoothed flat on the floor?",
+              "expected": true
+            },
+            {
+              "question": "Are the words \"MAGIC WORD XYZZY\" scrawled in the mud?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'A low wide passage with cobbles becomes plugged with mud and debris here.' EAST is its only compass direction, so the way sits on the right.",
+          "draw": "On the right, set in from the edge of the picture, a low wide passage with a cobbled floor leads away into the rock, and mud, gravel and broken sticks are heaped at its mouth.",
+          "checks": [
+            {
+              "question": "Is mud and gravel heaped at the mouth of the passage on the right?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'an awkward canyon leads upward and west.' WEST is its only compass direction, so the way sits on the left.",
+          "draw": "On the left, set in from the edge of the picture, a rough canyon slopes up and away into the rock, its floor broken into uneven rock steps.",
+          "checks": [
+            {
+              "question": "Is the floor of the canyon broken into uneven rock steps?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "The room has no LIT condition, so it is dark: one pool of lamp light with dark edges.",
+          "draw": "A single pool of warm lamplight falls from just behind the camera onto the floor and the middle of the rock walls, and the corners of the picture fall into darkness.",
+          "checks": [
+            {
+              "question": "Is the light falling on the floor yellow-orange?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "You are in a debris room filled with stuff washed in from the surface.",
+          "decisions": [
+            1,
+            2
+          ]
+        },
+        {
+          "sentence": "A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west.",
+          "decisions": [
+            4,
+            5
+          ]
+        },
+        {
+          "sentence": "In the mud someone has scrawled, \"MAGIC WORD XYZZY\".",
+          "decisions": [
+            3
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "question": "Does the picture show what this sentence describes: \"You are in a debris room filled with stuff washed in from the surface.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the image match this description: \"You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the scene lit by a single pool of warm light?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Are the edges of the image dark?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the black rod with a rusty star visible anywhere in the image?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is the mud visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a low wide cobbled passage on the right visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a canyon sloping up on the left visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Are the walls of the chamber made of rough grey rock?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are broken branches lying on the floor?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is gravel scattered across the floor?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are dead leaves lying on the floor?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a patch of mud smoothed flat on the floor?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are the words \"MAGIC WORD XYZZY\" scrawled in the mud?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is mud and gravel heaped at the mouth of the passage on the right?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the floor of the canyon broken into uneven rock steps?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the light falling on the floor yellow-orange?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A wide chamber of rough grey rock with a low ceiling, seen in a first-person view at standing eye height. Broken branches, gravel, small stones and dead leaves lie heaped across the floor and against the walls. In the middle of the floor a patch of wet mud lies smoothed flat, with the words \"MAGIC WORD XYZZY\" scrawled across it. On the right, set in from the edge of the picture, a low wide passage with a cobbled floor leads away into the rock, and mud, gravel and broken sticks are heaped at its mouth. On the left, set in from the edge of the picture, a rough canyon slopes up and away into the rock, its floor broken into uneven rock steps. A single pool of warm lamplight falls from just behind the camera onto the floor and the middle of the rock walls, and the corners of the picture fall into darkness."
+    },
+    {
+      "kind": "item",
+      "id": "ROD",
+      "name": "Black rod",
+      "label": "black rod with a rusty star",
+      "transparent": true,
+      "file": "items/ROD.png",
+      "size": "1024x1024",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'A three foot black rod ... lies nearby.' The rod itself, drawn as old hand-forged iron.",
+          "draw": "A black iron rod three feet long and about as thick as a thumb, shown whole and centred in a three-quarter view, its length running from the lower left to the upper right, with clear space around it.",
+          "checks": [
+            {
+              "question": "Is the rod black?",
+              "expected": true
+            },
+            {
+              "question": "Is the rod much longer than it is thick?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: '... with a rusty star on an end.' The star on the rod's end.",
+          "draw": "A rusty iron star with five flat points is fixed on one end of the rod, its five points lying flat against the black iron at the rod's end.",
+          "checks": [
+            {
+              "question": "Is a rusty star fixed on one end of the rod?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "A three foot black rod with a rusty star on an end lies nearby.",
+          "decisions": [
+            1,
+            2
+          ],
+          "rule": "items"
+        }
+      ],
+      "checks": [
+        {
+          "question": "Is the black rod with a rusty star visible in the image?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is the black rod with a rusty star inside the picture?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Is a floor, wall or landscape visible behind the black rod with a rusty star?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is the rod black?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the rod much longer than it is thick?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is a rusty star fixed on one end of the rod?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "A black iron rod three feet long and about as thick as a thumb, shown whole and centred in a three-quarter view, its length running from the lower left to the upper right, with clear space around it. A rusty iron star with five flat points is fixed on one end of the rod, its five points lying flat against the black iron at the rod's end."
+    }
+  ]
+}

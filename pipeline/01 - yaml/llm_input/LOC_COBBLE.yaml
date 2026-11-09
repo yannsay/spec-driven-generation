@@ -1,0 +1,27 @@
+# location
+- LOC_COBBLE:
+    description:
+      long: |-
+          You are crawling over cobbles in a low passage.  There is a dim light
+          at the east end of the passage.
+      short: 'You''re in cobble crawl.'
+      maptag: !!null
+    conditions: {LIT: true}
+    travel: [
+      {verbs: [OUT, SURFA, EAST], action: [goto, LOC_BELOWGRATE]},  # out, surface, east
+      {verbs: [INWAR, DARK, WEST, DEBRI], action: [goto, LOC_DEBRIS]},  # inward, dark, west, debris
+      {verbs: [PIT], action: [goto, LOC_PITTOP]},  # pit
+    ]
+
+# objects that start here
+- CAGE:
+    words: ['cage']
+    inventory: 'Wicker cage'
+    locations: LOC_COBBLE
+    descriptions:
+    - 'There is a small wicker cage discarded nearby.'
+
+# where each exit leads (the destination's description in the game)
+# LOC_BELOWGRATE: You are in a small chamber beneath a 3x3 steel grate to the surface. A low crawl over cobbles leads inward to the west.
+# LOC_DEBRIS: You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. In the mud someone has scrawled, "MAGIC WORD XYZZY".
+# LOC_PITTOP: At your feet is a small pit breathing traces of white mist. An east passage ends here except for a small crack leading on.

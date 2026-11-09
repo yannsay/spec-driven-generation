@@ -1,0 +1,11 @@
+[
+ {
+  "room": "LOC_GRATE",
+  "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+  "changes": [
+   "Create a clear gap between the tree trunks on the right to show a path leading out of the picture.",
+   "Create a clear gap between the tree trunks at the bottom of the picture to show a path leading out of the frame.",
+   "Create a clear gap between the tree trunks on the left to show a path leading out of the picture."
+  ]
+ }
+]

@@ -1,0 +1,150 @@
+{
+  "image": "outputs/pictures/example/LOC_DEBRIS/img/LOC_DEBRIS.jpg",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "You are in a debris room filled with stuff washed in from the surface.",
+      "A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west.",
+      "In the mud someone has scrawled, \"MAGIC WORD XYZZY\"."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "A wide chamber of rough grey rock with a low ceiling, seen in a first-person view at standing eye height.",
+        "why": "YAML: 'You are in a debris room filled with stuff washed in from the surface.' The room itself, a cave chamber of old rough rock.",
+        "checks": [
+          {
+            "question": "Are the walls of the chamber made of rough grey rock?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "Broken branches, gravel, small stones and dead leaves lie heaped across the floor and against the walls.",
+        "why": "YAML: '... filled with stuff washed in from the surface.' The stuff washed in lies heaped on the floor.",
+        "checks": [
+          {
+            "question": "Are broken branches lying on the floor?",
+            "expected": true
+          },
+          {
+            "question": "Is gravel scattered across the floor?",
+            "expected": true
+          },
+          {
+            "question": "Are dead leaves lying on the floor?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "draw": "In the middle of the floor a patch of wet mud lies smoothed flat, with the words \"MAGIC WORD XYZZY\" scrawled across it.",
+        "why": "YAML: 'In the mud someone has scrawled, \"MAGIC WORD XYZZY\".' The mud and the words scrawled in it.",
+        "checks": [
+          {
+            "question": "Is a patch of mud smoothed flat on the floor?",
+            "expected": true
+          },
+          {
+            "question": "Are the words \"MAGIC WORD XYZZY\" scrawled in the mud?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "draw": "On the right, set in from the edge of the picture, a low wide passage with a cobbled floor leads away into the rock, and mud, gravel and broken sticks are heaped at its mouth.",
+        "why": "YAML: 'A low wide passage with cobbles becomes plugged with mud and debris here.' EAST is its only compass direction, so the way sits on the right.",
+        "checks": [
+          {
+            "question": "Is mud and gravel heaped at the mouth of the passage on the right?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "draw": "On the left, set in from the edge of the picture, a rough canyon slopes up and away into the rock, its floor broken into uneven rock steps.",
+        "why": "YAML: 'an awkward canyon leads upward and west.' WEST is its only compass direction, so the way sits on the left.",
+        "checks": [
+          {
+            "question": "Is the floor of the canyon broken into uneven rock steps?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "draw": "A single pool of warm lamplight falls from just behind the camera onto the floor and the middle of the rock walls, and the corners of the picture fall into darkness.",
+        "why": "The room has no LIT condition, so it is dark: one pool of lamp light with dark edges.",
+        "checks": [
+          {
+            "question": "Is the light falling on the floor yellow-orange?",
+            "expected": true
+          }
+        ]
+      }
+    ],
+    "prompt": "A wide chamber of rough grey rock with a low ceiling, seen in a first-person view at standing eye height. Broken branches, gravel, small stones and dead leaves lie heaped across the floor and against the walls. In the middle of the floor a patch of wet mud lies smoothed flat, with the words \"MAGIC WORD XYZZY\" scrawled across it. On the right, set in from the edge of the picture, a low wide passage with a cobbled floor leads away into the rock, and mud, gravel and broken sticks are heaped at its mouth. On the left, set in from the edge of the picture, a rough canyon slopes up and away into the rock, its floor broken into uneven rock steps. A single pool of warm lamplight falls from just behind the camera onto the floor and the middle of the rock walls, and the corners of the picture fall into darkness. The picture fills the whole frame, edge to edge. Setting: a medieval fantasy world; everything is old and handmade: weathered stone and old brick, rough timber, wrought iron. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, slightly off-register colour printing, muted earthy palette of browns, ochres, olive and amber, on aged newsprint. Mood: quiet, still and mysterious, a place long left alone.",
+    "flagged": [
+      {
+        "id": "q3",
+        "question": "Does the picture show what this sentence describes: \"In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The text in the mud reads \"MAJC WORD XXZZY\", not \"MAGIC WORD XYZZY\"."
+      },
+      {
+        "id": "q4",
+        "question": "Does the image match this description: \"You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. In the mud someone has scrawled, \"MAGIC WORD XYZZY\".\"?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The spelling of the text in the mud is incorrect."
+      },
+      {
+        "id": "q17",
+        "question": "Are the words \"MAGIC WORD XYZZY\" scrawled in the mud?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The text reads 'MAJC WORD XXZZY', which is not the required text."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q3",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt clearly asks for \"MAGIC WORD XYZZY\", but the image model misspelled it as \"MAJC WORD XXZZY\".",
+      "fix": "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+    },
+    {
+      "id": "q4",
+      "cause": "image",
+      "action": "edit",
+      "why": "The overall description fails only because of the misspelling of the magic word.",
+      "fix": "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+    },
+    {
+      "id": "q17",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt clearly asks for \"MAGIC WORD XYZZY\", but the image model misspelled it as \"MAJC WORD XXZZY\".",
+      "fix": "Correct the text in the mud to read exactly \"MAGIC WORD XYZZY\"."
+    }
+  ],
+  "usage": {
+    "completion_tokens": 209,
+    "prompt_tokens": 8630,
+    "total_tokens": 8839,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0018096000000000002,
+    "cost_usd": "0.001810",
+    "pricing_source": "deployment"
+  }
+}

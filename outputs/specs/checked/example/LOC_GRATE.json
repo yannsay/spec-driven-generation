@@ -1,0 +1,510 @@
+{
+  "room": "LOC_GRATE",
+  "text": "You are in a 20-foot depression floored with bare dirt. Set into the dirt is a strong steel grate mounted in concrete. A dry streambed leads into the depression.",
+  "exits": [
+    {
+      "to": "LOC_FOREST7",
+      "verbs": [
+        "EAST",
+        "FORES"
+      ],
+      "cond": null,
+      "why": "EAST is a walking direction and the forest lies beyond the bank; one compass direction, so it is drawn on the right.",
+      "drawn": true,
+      "label": "a way between the forest trees on the right",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_FOREST10",
+      "verbs": [
+        "SOUTH"
+      ],
+      "cond": null,
+      "why": "SOUTH is a walking direction and the forest lies beyond the near bank; its compass place is the foreground.",
+      "drawn": true,
+      "label": "a way between the forest trees in the foreground",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_FOREST9",
+      "verbs": [
+        "WEST"
+      ],
+      "cond": null,
+      "why": "WEST is a walking direction and the forest lies beyond the bank; one compass direction, so it is drawn on the left.",
+      "drawn": true,
+      "label": "a way between the forest trees on the left",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_START",
+      "verbs": [
+        "BUILD"
+      ],
+      "cond": null,
+      "why": "BUILD names the building, a place this room's description does not mention: a shortcut, not a path.",
+      "drawn": false
+    },
+    {
+      "to": "LOC_SLIT",
+      "verbs": [
+        "UPSTR",
+        "GULLY",
+        "NORTH"
+      ],
+      "cond": null,
+      "why": "NORTH is a walking direction and the dry streambed leads out of the depression; one compass direction, so it is drawn straight ahead.",
+      "drawn": true,
+      "label": "a dry streambed running out straight ahead",
+      "shape": "path"
+    },
+    {
+      "to": "LOC_BELOWGRATE",
+      "verbs": [
+        "ENTER",
+        "INWAR",
+        "DOWN"
+      ],
+      "cond": [
+        "not",
+        "GRATE",
+        "GRATE_CLOSED"
+      ],
+      "why": "DOWN and ENTER are walking directions and the grate set in the dirt is the way down; with no compass direction it sits in the floor of the hollow.",
+      "drawn": true,
+      "label": "an iron grate in the dirt floor, left of the streambed",
+      "shape": "object",
+      "kind": "grate"
+    }
+  ],
+  "images": [
+    {
+      "kind": "scene",
+      "state": "GRATE_CLOSED",
+      "file": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+      "size": "2048x1152",
+      "edit_of": null,
+      "picture_decisions": [
+        {
+          "why": "YAML: 'You are in a 20-foot depression floored with bare dirt.' The size cannot be drawn; the hollow is drawn wide, with a floor of bare dirt.",
+          "draw": "The inside of a wide hollow in the ground, seen in a first-person view at standing eye height, its floor of bare dirt ringed by banks of bare dirt.",
+          "checks": [
+            {
+              "question": "Is the ground in the image made of bare dirt?",
+              "expected": true
+            },
+            {
+              "question": "Are banks of bare dirt visible around the floor?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'A dry streambed leads into the depression.' It is also the way NORTH, drawn straight ahead.",
+          "draw": "A dry streambed of pale stones and sand runs straight ahead from the middle of the dirt floor, out of the picture between the dirt banks.",
+          "checks": [
+            {
+              "question": "Is the streambed made of stones and sand?",
+              "expected": true
+            },
+            {
+              "question": "Is water visible in the streambed?",
+              "expected": false
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'Set into the dirt is a strong steel grate mounted in concrete.' The steel and the concrete are drawn as heavy iron bars in a stone frame (setting).",
+          "draw": "Set into the dirt floor to the left of the streambed, a square grate of heavy iron bars lies in a frame of stone.",
+          "checks": [
+            {
+              "question": "Are the bars of the grate made of iron?",
+              "expected": true
+            },
+            {
+              "question": "Is the grate set in a frame of stone?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'The grate is locked.' The shut bars show the closed state.",
+          "draw": "The bars of the grate lie shut and flat inside the stone frame.",
+          "checks": [
+            {
+              "question": "Are the bars of the grate lying shut in the stone frame?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'The grate is locked.' The padlock shows the locked state.",
+          "draw": "A heavy iron padlock and hasp hold the grate shut at its near edge.",
+          "checks": [
+            {
+              "question": "Is an iron padlock holding the grate shut?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "Exit EAST to LOC_FOREST7, whose own description is 'You are wandering aimlessly through the forest.'; EAST is on the right.",
+          "draw": "On the right, away from the edge of the picture, a way between the trunks and leaves of forest trees runs out of the picture above the bank of bare dirt.",
+          "checks": [
+            {
+              "question": "Are green leaves visible among the trees on the right?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "Exit WEST to LOC_FOREST9, whose own description is 'You are wandering aimlessly through the forest.'; WEST is on the left.",
+          "draw": "On the left, away from the edge of the picture, a way between the trunks and leaves of forest trees runs out of the picture above the bank of bare dirt.",
+          "checks": [
+            {
+              "question": "Are green leaves visible among the trees on the left?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "Exit SOUTH to LOC_FOREST10, whose own description is 'You are wandering aimlessly through the forest.'; SOUTH is in the foreground.",
+          "draw": "In the near foreground at the bottom of the picture, the bank of bare dirt rises to a stand of forest trees, a way between their trunks running out of the picture.",
+          "checks": [
+            {
+              "question": "Are green leaves visible on the trees at the bottom of the picture?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "The room is lit (LIT: true); the light comes from the open sky above.",
+          "draw": "Daylight from the open sky above lights the dirt floor and the banks of the hollow, with the sky visible above the rim.",
+          "checks": [
+            {
+              "question": "Is open sky visible above the rim of the hollow?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "You are in a 20-foot depression floored with bare dirt.",
+          "decisions": [
+            1
+          ]
+        },
+        {
+          "sentence": "Set into the dirt is a strong steel grate mounted in concrete.",
+          "decisions": [
+            3
+          ],
+          "rule": "setting"
+        },
+        {
+          "sentence": "A dry streambed leads into the depression.",
+          "decisions": [
+            2
+          ]
+        },
+        {
+          "sentence": "The grate is locked.",
+          "decisions": [
+            4,
+            5
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "question": "Does the picture show what this sentence describes: \"You are in a 20-foot depression floored with bare dirt.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"A dry streambed leads into the depression.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"The grate is locked.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Are large parts of the scene too dark to see?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a way between the forest trees on the right visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a way between the forest trees in the foreground visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a way between the forest trees on the left visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a dry streambed running out straight ahead visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a locked iron grate visible in the dirt floor, left of the streambed?",
+          "expected": true,
+          "origin": "exit",
+          "replaces": "Is a locked iron grate across an iron grate in the dirt floor, left of the streambed visible in the image?"
+        },
+        {
+          "question": "Is an iron grate in the dirt floor, left of the streambed inside the picture?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is the ground in the image made of bare dirt?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are banks of bare dirt visible around the floor?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the streambed made of stones and sand?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is water visible in the streambed?",
+          "expected": false,
+          "origin": "decision"
+        },
+        {
+          "question": "Are the bars of the grate made of iron?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the grate set in a frame of stone?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are the bars of the grate lying shut in the stone frame?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is an iron padlock holding the grate shut?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are green leaves visible among the trees on the right?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are green leaves visible among the trees on the left?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Are green leaves visible on the trees at the bottom of the picture?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is open sky visible above the rim of the hollow?",
+          "expected": true,
+          "origin": "decision"
+        }
+      ],
+      "generation_prompt": "The inside of a wide hollow in the ground, seen in a first-person view at standing eye height, its floor of bare dirt ringed by banks of bare dirt. A dry streambed of pale stones and sand runs straight ahead from the middle of the dirt floor, out of the picture between the dirt banks. Set into the dirt floor to the left of the streambed, a square grate of heavy iron bars lies in a frame of stone. The bars of the grate lie shut and flat inside the stone frame. A heavy iron padlock and hasp hold the grate shut at its near edge. On the right, away from the edge of the picture, a way between the trunks and leaves of forest trees runs out of the picture above the bank of bare dirt. On the left, away from the edge of the picture, a way between the trunks and leaves of forest trees runs out of the picture above the bank of bare dirt. In the near foreground at the bottom of the picture, the bank of bare dirt rises to a stand of forest trees, a way between their trunks running out of the picture. Daylight from the open sky above lights the dirt floor and the banks of the hollow, with the sky visible above the rim."
+    },
+    {
+      "kind": "scene",
+      "state": "GRATE_OPEN",
+      "file": "img/LOC_GRATE.GRATE_OPEN.jpg",
+      "size": "2048x1152",
+      "edit_of": "img/LOC_GRATE.GRATE_CLOSED.jpg",
+      "picture_decisions": [
+        {
+          "why": "YAML: 'The grate is open.' The shut bars of the first picture are now swung open.",
+          "draw": "The iron bars of the grate now stand swung up and open on their hinges at one edge of the stone frame.",
+          "checks": [
+            {
+              "question": "Are the iron bars of the grate swung up and open?",
+              "expected": true
+            }
+          ]
+        },
+        {
+          "why": "YAML: 'The grate is open.' The padlock of the first picture is now unlocked.",
+          "draw": "The heavy iron padlock that held the grate shut now hangs open on its hasp beside the stone frame.",
+          "checks": [
+            {
+              "question": "Is the iron padlock hanging open on its hasp?",
+              "expected": true
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "sentence": "The grate is open.",
+          "decisions": [
+            1,
+            2
+          ]
+        }
+      ],
+      "replaces": [
+        4,
+        5
+      ],
+      "checks": [
+        {
+          "question": "Does the picture show what this sentence describes: \"You are in a 20-foot depression floored with bare dirt.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"A dry streambed leads into the depression.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Does the picture show what this sentence describes: \"The grate is open.\"?",
+          "expected": true,
+          "origin": "required"
+        },
+        {
+          "question": "Are large parts of the scene too dark to see?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+          "expected": false,
+          "origin": "required"
+        },
+        {
+          "question": "Is a way between the forest trees on the right visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a way between the forest trees in the foreground visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a way between the forest trees on the left visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is a dry streambed running out straight ahead visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is an iron grate in the dirt floor, left of the streambed visible in the image?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Is an iron grate in the dirt floor, left of the streambed inside the picture?",
+          "expected": true,
+          "origin": "exit"
+        },
+        {
+          "question": "Are the iron bars of the grate swung up and open?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the iron padlock hanging open on its hasp?",
+          "expected": true,
+          "origin": "decision"
+        },
+        {
+          "question": "Is the ground in the image made of bare dirt?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 1
+        },
+        {
+          "question": "Are banks of bare dirt visible around the floor?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 1
+        },
+        {
+          "question": "Is the streambed made of stones and sand?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 2
+        },
+        {
+          "question": "Is water visible in the streambed?",
+          "expected": false,
+          "origin": "kept",
+          "decision": 2
+        },
+        {
+          "question": "Are the bars of the grate made of iron?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 3
+        },
+        {
+          "question": "Is the grate set in a frame of stone?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 3
+        },
+        {
+          "question": "Are green leaves visible among the trees on the right?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 6
+        },
+        {
+          "question": "Are green leaves visible among the trees on the left?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 7
+        },
+        {
+          "question": "Are green leaves visible on the trees at the bottom of the picture?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 8
+        },
+        {
+          "question": "Is open sky visible above the rim of the hollow?",
+          "expected": true,
+          "origin": "kept",
+          "decision": 9
+        }
+      ],
+      "generation_prompt": "The iron bars of the grate now stand swung up and open on their hinges at one edge of the stone frame. The heavy iron padlock that held the grate shut now hangs open on its hasp beside the stone frame."
+    }
+  ]
+}

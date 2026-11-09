@@ -1,0 +1,75 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "image": "outputs/pictures/example/LOC_BUILDING/items/BOTTLE.WATER_BOTTLE.png",
+  "spec": "outputs/specs/checked/example/LOC_BUILDING.json",
+  "file": "items/BOTTLE.WATER_BOTTLE.png",
+  "prompt_sha1": "a94f0ac879",
+  "usage": {
+    "completion_tokens": 171,
+    "prompt_tokens": 1165,
+    "total_tokens": 1336,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0003014,
+    "cost_usd": "0.000301",
+    "pricing_source": "deployment"
+  },
+  "seconds": 7.1,
+  "results": [
+    {
+      "id": "q1",
+      "question": "Is the bottle of water visible in the image?",
+      "expected": true,
+      "origin": "required",
+      "answer": "no",
+      "why": "The bottle contains a brown liquid, not water.",
+      "result": "fail"
+    },
+    {
+      "id": "q2",
+      "question": "Is the bottle of water inside the picture?",
+      "expected": true,
+      "origin": "required",
+      "answer": "no",
+      "why": "The bottle contains a brown liquid, not water.",
+      "result": "fail"
+    },
+    {
+      "id": "q3",
+      "question": "Is a floor, wall or landscape visible behind the bottle of water?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The bottle is against a plain pink background.",
+      "result": "pass"
+    },
+    {
+      "id": "q4",
+      "question": "The game takes place in a medieval fantasy world where everything is old and handmade: weathered stone, old brick, rough timber, wrought iron. Is anything out of its time or context visible in the picture, such as a metal pipe, concrete or sheet metal?",
+      "expected": false,
+      "origin": "required",
+      "answer": "no",
+      "why": "The bottle and cork are consistent with a medieval fantasy setting.",
+      "result": "pass"
+    },
+    {
+      "id": "q5",
+      "question": "Is a bottle visible in the image?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "yes",
+      "why": "A glass bottle with a cork is centrally located.",
+      "result": "pass"
+    },
+    {
+      "id": "q6",
+      "question": "Is water visible inside the bottle?",
+      "expected": true,
+      "origin": "decision",
+      "answer": "no",
+      "why": "The liquid inside the bottle is brown, not clear like water.",
+      "result": "fail"
+    }
+  ]
+}

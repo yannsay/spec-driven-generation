@@ -1,0 +1,147 @@
+{
+  "image": "outputs/pictures/example/LOC_START/img/LOC_START.jpg",
+  "model": "google/gemma-4-31b-it",
+  "judge": "google_gemma-4-31b-it.v5.both",
+  "payload": {
+    "game_text": [
+      "You are standing at the end of a road before a small brick building.",
+      "Around you is a forest.",
+      "A small stream flows out of the building and down a gully."
+    ],
+    "decisions": [
+      {
+        "n": 1,
+        "draw": "An open clearing ringed by tall trees, seen in a first-person view at standing eye height.",
+        "why": "YAML: 'Around you is a forest.' plus the first-person camera of every scene.",
+        "checks": [
+          {
+            "question": "Are tall trees visible on the left and right sides of the image?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "draw": "On the left, a dirt road with cart ruts runs out of the clearing and rises into the trees.",
+        "why": "YAML: 'You are standing at the end of a road before a small brick building.' The road is the way west to the hill, so it runs away on the left.",
+        "checks": [
+          {
+            "question": "Does the dirt road end in the clearing?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "draw": "On the right, a small building of old handmade brick stands at the edge of the clearing, with an open wooden door facing the clearing.",
+        "why": "YAML: 'a small brick building' — the way in is the way east, so the building stands on the right.",
+        "checks": [
+          {
+            "question": "Is the building made of brick?",
+            "expected": true
+          },
+          {
+            "question": "Is the building lower than the trees that stand beside it?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "draw": "A small stream flows out of the base of the brick building on the right, crosses the clearing and runs down a gully in the foreground.",
+        "why": "YAML: 'A small stream flows out of the building and down a gully.' The gully is the way south, drawn in the foreground.",
+        "checks": [
+          {
+            "question": "Does the stream come out of the brick building?",
+            "expected": true
+          },
+          {
+            "question": "Is the stream narrower than the dirt road?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "draw": "Straight ahead, a gap between the tree trunks opens into the deeper forest.",
+        "why": "YAML: the forest; the way north to the forest, drawn straight ahead.",
+        "checks": [
+          {
+            "question": "Is the deeper forest visible through the gap straight ahead?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "draw": "Soft daylight from the sky above lights the clearing and the trees.",
+        "why": "YAML: conditions LIT: true, so the clearing is lit by daylight from above.",
+        "checks": [
+          {
+            "question": "Is the clearing lit by daylight?",
+            "expected": true
+          }
+        ]
+      },
+      {
+        "n": 7,
+        "draw": "The ground of the clearing is open grass and dirt.",
+        "why": "The room starts with no objects, so the clearing floor is left open and clear.",
+        "checks": [
+          {
+            "question": "Is the ground of the clearing made of grass and dirt?",
+            "expected": true
+          },
+          {
+            "question": "Is a mailbox or a wooden signpost visible in the clearing?",
+            "expected": false
+          }
+        ]
+      }
+    ],
+    "prompt": "An open clearing ringed by tall trees, seen in a first-person view at standing eye height. On the left, a dirt road with cart ruts runs out of the clearing and rises into the trees. On the right, a small building of old handmade brick stands at the edge of the clearing, with an open wooden door facing the clearing. A small stream flows out of the base of the brick building on the right, crosses the clearing and runs down a gully in the foreground. Straight ahead, a gap between the tree trunks opens into the deeper forest. Soft daylight from the sky above lights the clearing and the trees. The ground of the clearing is open grass and dirt. The picture fills the whole frame, edge to edge. Setting: a medieval fantasy world; everything is old and handmade: weathered stone and old brick, rough timber, wrought iron. Style: 1970s comic book art: bold black ink outlines, hand-inked hatching, flat printed colours with visible halftone dots, slightly off-register colour printing, muted earthy palette of browns, ochres, olive and amber, on aged newsprint. Mood: quiet, still and mysterious, a place long left alone.",
+    "flagged": [
+      {
+        "id": "q11",
+        "question": "Does the dirt road end in the clearing?",
+        "good_answer": "yes",
+        "answer": "no",
+        "why": "The road continues straight ahead into the distance, it does not end."
+      },
+      {
+        "id": "q12",
+        "question": "Is the building made of brick?",
+        "good_answer": "yes",
+        "answer": "no once, yes once",
+        "why": "run 1 (no): The building is constructed from rough-hewn weathered stone blocks, not standard bricks. | run 2 (yes): The building is constructed from rectangular stone blocks."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "q11",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt asks for the road on the left running out of the clearing, but the picture shows it continuing straight ahead.",
+      "fix": "Change the road so it ends in the clearing and leads away to the left, rather than continuing straight ahead."
+    },
+    {
+      "id": "q12",
+      "cause": "image",
+      "action": "edit",
+      "why": "The prompt clearly asks for a building of old handmade brick, but the picture shows rough-hewn stone blocks.",
+      "fix": "Change the material of the building from stone blocks to old handmade bricks."
+    }
+  ],
+  "usage": {
+    "completion_tokens": 149,
+    "prompt_tokens": 8442,
+    "total_tokens": 8591,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "estimated_cost": 0.0017480000000000002,
+    "cost_usd": "0.001748",
+    "pricing_source": "deployment"
+  }
+}
