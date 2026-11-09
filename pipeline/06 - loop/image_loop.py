@@ -1,6 +1,7 @@
 """Stage 06, the loop: spec stage → draw → judge → route → correct → judge again, at most two rounds, then a person.
 
 Usage: uv run "06 - loop/image_loop.py" <run> --specs <folder in outputs/specs/written> --rooms LOC_START,LOC_GRATE [--rounds 2]
+       [--openrouter]
 
 1. The spec stage: each room's spec is copied to outputs/specs/checked/<run>/ and goes through check_spec.py, the Jev spec judge
    and up to two repairs (02 - spec/repair_spec.py). A part still flagged goes to a person and is not drawn: the
@@ -23,7 +24,7 @@ After the last round, every picture that still has a route other than `keep` goe
 Writes outputs/pictures/<run>/loop.json: per round, per picture, the counts, the routes' actions, what was done, and
 the seconds of each step. The page: uv run common/pipeline_viewer.py <run>.
 Drawing and edits: the two deployed apps on Modal, klein and Qwen-Image-Edit, through 03 - draw/call_deployed.py;
-deploy them once with init.py.
+deploy them once with init.py. With --openrouter: Seedream 5.0 Flash on OpenRouter draws and edits, no Modal.
 """
 import json
 import re
@@ -46,6 +47,9 @@ from route_image import route, save, sent_prompt
 DRAW, ROUTE = PIPE / "03 - draw", PIPE / "05 - route"
 STYLE = STYLES / "comic70s.txt"
 CANDIDATES = 2  # a redraw whose prompt was right is drawn this many times
+OPENROUTER = "--openrouter" in sys.argv  # Seedream on OpenRouter draws and edits, instead of klein and Qwen on Modal
+BACKEND = ["--openrouter"] if OPENROUTER else []
+DRAWER, EDITOR = ("Seedream 5.0 Flash (OpenRouter)",) * 2 if OPENROUTER else ("FLUX.2 klein (Modal)", "Qwen-Image-Edit (Modal)")
 
 
 def say(what):
@@ -74,8 +78,8 @@ def qwen_edits(run, entries):
     plan = PICTURES / run / "qwen_edits.json"
     plan.parent.mkdir(parents=True, exist_ok=True)
     plan.write_text(json.dumps(entries, indent=1, ensure_ascii=False) + "\n")
-    say(f"editing {len(entries)} picture(s) with Qwen-Image-Edit (Modal)")
-    sh([sys.executable, str(DRAW / "call_deployed.py"), "edits", "--plan", str(plan)])
+    say(f"editing {len(entries)} picture(s) with {EDITOR}")
+    sh([sys.executable, str(DRAW / "call_deployed.py"), "edits", "--plan", str(plan), *BACKEND])
 
 
 def draw(run, rooms, only, candidates=0):
@@ -97,10 +101,10 @@ def draw(run, rooms, only, candidates=0):
                               "prompt": short(im["file"], [sentence(im.get("generation_prompt") or "")])})
     if firsts:
         specs = ",".join(str(SPECS / run / f"{r}.json") for r in rooms)
-        say(f"drawing {len(firsts)} picture(s) with FLUX.2 klein (Modal)"
+        say(f"drawing {len(firsts)} picture(s) with {DRAWER}"
             + (f", {candidates} candidates each" if candidates else ""))
         sh([sys.executable, str(DRAW / "call_deployed.py"), "draw", "--spec", specs, "--style", str(STYLE),
-            "--run", run, "--only", ",".join(firsts), *(["--n", str(candidates)] if candidates else [])])
+            "--run", run, "--only", ",".join(firsts), *(["--n", str(candidates)] if candidates else []), *BACKEND])
     if edits:
         qwen_edits(run, edits)
 

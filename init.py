@@ -1,6 +1,6 @@
 """Once, before the first run: check the keys, log in to Modal, deploy the two picture models.
 
-Usage: uv run init.py
+Usage: uv run init.py [--openrouter]   (--openrouter: stops after step 1, no Modal)
 
 1. The keys: otari_ai_key (the spec writer, the picture judge, the router and the corrector, on otari.ai) and
    OPENROUTER_API_KEY (the spec judge, Jev), from the environment or .env (copy .env.example); then the otari.ai
@@ -66,6 +66,8 @@ if __name__ == "__main__":
                  "  Create it in the otari.ai dashboard: Routing → Create policy → Fallback, named room-spec,\n"
                  "  main model deepseek/deepseek-v4.1-flash, fallback alibaba/qwen3.8-max (needs org owner or admin).")
     print("otari.ai policy room-spec: ok")
+    if "--openrouter" in sys.argv:  # Seedream on OpenRouter draws and edits: no Modal
+        sys.exit("ready: uv run run.py <run> --rooms LOC_BUILDING,LOC_GRATE --openrouter")
     logged_in = os.environ.get("MODAL_TOKEN_ID") or (Path.home() / ".modal.toml").exists()
     if not logged_in and modal("setup"):
         sys.exit("modal setup failed")

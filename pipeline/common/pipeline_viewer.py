@@ -120,7 +120,7 @@ def corrections(run):
     q = PICTURES / run / "qwen_edits.json"
     for e in json.loads(q.read_text()) if q.exists() else []:
         if e.get("change"):  # an edit of the loop, not a state picture of round 0
-            out[e["file"]] = f"<details open><summary>edit (Qwen-Image-Edit)</summary><p>{esc(e['prompt'])}</p></details>"
+            out[e["file"]] = f"<details open><summary>edit</summary><p>{esc(e['prompt'])}</p></details>"
     return out
 
 
@@ -144,7 +144,8 @@ def card(run, room, file, n, result, n_pass=None, kept=False):
     if not path.exists():
         return ['<div class="card empty">–</div>']
     entry = log_of(path.parents[1]).get(file, {})
-    model = "Qwen-Image-Edit" if "Qwen-Image-Edit" in str(entry.get("model", "")) else "klein 4B"
+    m = str(entry.get("model", ""))
+    model = "Seedream 5.0 Flash" if "seedream" in m else "Qwen-Image-Edit" if "Qwen-Image-Edit" in m else "klein 4B"
     if not result.get("checks") and verdict_of(path, "judge"):  # a run still going: the score from the verdict on disk
         v = json.loads(verdict_of(path, "judge").read_text()).get("results", [])
         result = {"pass": sum(r["result"] == "pass" for r in v), "checks": len(v)}
@@ -398,7 +399,8 @@ PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8">
   .cand img {{ width: 100%; }} .cand.kept img {{ outline: 2px solid #2e7d32; }}
 </style></head><body>
 <h1>Pipeline · {run}</h1>
-<p class="sub">Drawing: klein 4B, 4 steps; edits: Qwen-Image-Edit, 8 steps (short prompt);
+<p class="sub">Drawing: klein 4B, 4 steps; edits: Qwen-Image-Edit, 8 steps (short prompt); with --openrouter both
+are Seedream 5.0 Flash (the model is named under each picture);
 Gemma 4 judges twice, a check passes only when both runs pass it; the router sorts what did not. The kept version
 (green) is the one with the most checks passed across rounds; on a tie a done one, then the earliest; every version is shown.</p>
 {body}
